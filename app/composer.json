@@ -7,7 +7,7 @@
     },
     "scripts": {
         "phpstan": [
-			"vendor/bin/phpstan analyse -c phpstan.neon"
+            "vendor/bin/phpstan analyse -c phpstan.neon"
 		],
         "php-cs-fixer": [
             "./vendor/bin/php-cs-fixer fix code/"

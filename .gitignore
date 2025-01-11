@@ -2,4 +2,3 @@
 .idea
 app/vendor
 .php-cs-fixer.cache
-/.php-cs-fixer.cache

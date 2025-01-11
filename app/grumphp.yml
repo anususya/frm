@@ -1,6 +1,4 @@
 grumphp:
-    environment:
-        paths: ['code']
     tasks:
         git_commit_message:
             allow_empty_message: false
@@ -26,7 +24,7 @@ grumphp:
             config: './.php-cs-fixer.php'
             triggered_by: [ 'php' ]
             using_cache: true
-            cache_file: './.php-cs-fixer.cache'
+            cache_file: '../.php-cs-fixer.cache'
             config_contains_finder: true
             verbose: true
             metadata:

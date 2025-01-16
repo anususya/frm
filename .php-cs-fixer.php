@@ -5,7 +5,7 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude('vendor')
     ->exclude('import')
     ->exclude('updateDB')
-    ->in('code');
+    ->in('app');
 
 $config = new PhpCsFixer\Config();
 $config->setFinder($finder)

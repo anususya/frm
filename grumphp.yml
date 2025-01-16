@@ -21,10 +21,10 @@ grumphp:
                 priority: 80
         phpcsfixer2:
             allow_risky: false
-            config: './.php-cs-fixer.php'
+            config: '.php-cs-fixer.php'
             triggered_by: [ 'php' ]
             using_cache: true
-            cache_file: '../.php-cs-fixer.cache'
+            cache_file: '.php-cs-fixer.cache'
             config_contains_finder: true
             verbose: true
             metadata:

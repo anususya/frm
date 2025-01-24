@@ -1,3 +1,4 @@
-/logs/
-.idea
-app/vendor
+.idea/
+vendor/
+.env
+.php-cs-fixer.cache

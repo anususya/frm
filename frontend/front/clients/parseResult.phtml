@@ -1,0 +1,22 @@
+<?php
+/**
+ * @var Core\Block\Block $this
+ */
+?>
+<div class="custom-bg text-dark">
+    <div class="d-flex align-items-center justify-content-center min-vh-100 px-2">
+        <div class="text-center">
+            <?php if ($this->getData('importResult')) {?>
+                <p class="fs-2 fw-medium mt-4">Import was success</p>
+                <a href="/analyze" class="btn btn-light fw-semibold rounded-pill px-4 py-2 custom-btn">
+                    Open search page
+                </a>
+            <?php } else {?>
+                <p class="mt-4 mb-5">Import faild. Please, check logs and try again</p>
+                <a href="/parse" class="btn btn-light fw-semibold rounded-pill px-4 py-2 custom-btn">
+                    Load clients data again
+                </a>
+            <?php } ?>
+        </div>
+    </div>
+</div>

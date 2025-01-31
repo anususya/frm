@@ -1,4 +1,9 @@
 parameters:
 	level: 8
 	paths:
-		- code
+		- app
+		- core
+	scanFiles:
+	- app.php
+	excludePaths:
+	- core/Env

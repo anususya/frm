@@ -1,0 +1,1000 @@
+country,city,isActive,gender,birthDate,salary,hasChildren,familyStatus,registrationDate
+"Macedonia, The Former Yugoslav Republic of",Guangzhou,true,male,1979-12-31,9574,true,divorced,2020-07-13
+Tajikistan,Canberra,true,female,2004-10-01,1026,true,married,2021-08-21
+Dominica,Da Nang,false,female,1957-02-15,9440,false,married,2020-03-27
+San Marino,Incheon,false,female,1996-05-26,2057,true,married,2024-06-09
+Mexico,Palembang,false,male,1997-09-17,7538,true,divorced,2023-05-13
+Kyrgyzstan,Harbin,false,female,1997-06-08,7313,true,married,2022-05-08
+Bhutan,Bujumbura,true,female,1979-11-26,7082,true,divorced,2021-10-18
+Pakistan,Kota Kinabalu,true,female,2002-07-27,5299,true,divorced,2019-10-31
+Bulgaria,Siem Reap,true,female,1979-08-05,7016,true,single,2023-07-16
+Uruguay,Austin,false,male,1980-06-25,7511,true,divorced,2019-08-19
+Bangladesh,El Paso,false,male,1994-01-18,4959,false,single,2022-09-08
+Guernsey,Avarua,true,female,2006-03-16,4772,true,married,2023-07-29
+Bouvet Island,Pontianak,true,female,1955-03-18,6433,true,married,2023-06-09
+Tuvalu,Belém,true,female,1966-08-22,8725,true,married,2024-09-16
+Mayotte,Ibadan,true,female,1985-12-07,3732,true,married,2021-04-20
+Romania,Koulikoro,true,male,1974-01-10,1206,true,single,2021-04-06
+Greenland,Huế,true,male,2001-08-30,6977,true,married,2021-02-08
+Hungary,London,false,male,1971-06-25,2107,false,married,2020-12-01
+Samoa,Road Town,true,male,1988-04-22,6095,false,divorced,2019-04-24
+RWANDA,Darwin,false,male,1960-02-24,5790,false,divorced,2019-05-18
+"Macedonia, The Former Yugoslav Republic of",Belize City,false,male,1998-01-31,1801,false,single,2022-06-26
+Reunion,Luxembourg (city),false,female,1988-05-08,3703,true,single,2023-05-29
+Argentina,Cape Town,true,female,1997-11-08,3803,true,married,2023-01-28
+Israel,Málaga,false,male,1997-08-26,6632,false,single,2019-05-23
+Martinique,Yakutsk,true,male,1994-08-17,3801,true,single,2021-06-15
+Thailand,Mendoza,true,male,1982-03-31,5696,false,single,2019-07-25
+Austria,Asunción,false,male,1993-06-03,7175,true,divorced,2019-12-13
+"Congo, The Democratic Republic of the",Phoenix,false,male,1979-06-05,1688,true,married,2023-10-05
+Jordan,Odessa,true,female,1962-05-14,2708,false,single,2022-10-04
+Sri Lanka,Adamstown,true,male,1976-03-07,4258,false,married,2023-06-12
+Mayotte,Kolkata,false,female,1966-09-02,4896,false,married,2024-12-18
+Guyana,Christchurch,true,female,2001-01-09,6289,true,single,2022-04-01
+Belgium,Kyoto,true,male,1970-11-30,3892,true,single,2024-02-03
+Trinidad and Tobago,Atlanta,false,male,1989-04-17,1614,true,divorced,2024-03-18
+Dominica,Barcelona,true,female,1977-02-22,2594,false,divorced,2019-12-02
+Sri Lanka,Townsville,true,male,1998-04-21,5401,false,single,2024-10-10
+"Iran, Islamic Republic Of",Hiroshima,true,male,1955-03-01,1212,false,single,2024-11-15
+"Cote D""Ivoire",Rabi Island,true,male,1958-07-27,6873,false,single,2020-12-04
+Panama,Naypyidaw,false,female,1972-12-09,5477,true,single,2019-06-05
+Nicaragua,Andorra la Vella,true,female,2006-12-30,1652,false,married,2023-05-14
+United Arab Emirates,Malmö,false,female,1971-06-25,1694,false,divorced,2024-02-04
+Croatia,Lubumbashi,false,male,2002-08-08,7818,false,single,2019-04-12
+Maldives,Quito,true,male,1996-11-21,1892,true,married,2024-08-26
+Netherlands Antilles,Pyongyang,false,female,2009-10-13,3300,false,single,2022-04-22
+Fiji,Lhasa,true,male,2006-06-27,2927,false,single,2024-11-29
+Trinidad and Tobago,Nakhon Ratchasima,false,male,2008-02-20,2003,false,single,2022-09-10
+Myanmar,Aberdeen,false,male,1990-12-23,7380,true,married,2021-04-25
+Qatar,Dushanbe,true,female,1962-04-03,2619,true,married,2022-07-25
+French Polynesia,Buenos Aires,false,male,1954-05-19,1365,false,divorced,2019-01-26
+Kuwait,Las Palmas de Gran Canaria,true,female,1992-04-06,5951,true,married,2019-09-02
+Cameroon,Andorra la Vella,true,male,2007-06-18,7241,true,single,2024-05-27
+Tonga,Blantyre,false,female,1959-06-18,8639,true,divorced,2024-12-07
+Haiti,Athens,true,male,1957-07-12,3816,true,married,2023-08-14
+Montserrat,Tiraspol,true,male,1999-09-05,5152,false,married,2021-02-17
+Australia,Rawalpindi,false,female,2006-05-30,2855,false,single,2023-01-02
+Denmark,Indianapolis,false,male,1991-01-07,5610,false,divorced,2022-11-01
+RWANDA,Nuuk,false,female,1987-01-28,7214,true,divorced,2021-07-11
+Mozambique,Hargeisa,true,male,1984-09-17,6194,false,married,2021-02-06
+"Cote D""Ivoire",Patna,false,female,1972-03-02,1075,true,divorced,2020-01-13
+"Korea, Republic of",Houston,true,female,1967-04-24,3539,true,married,2022-04-11
+"Palestinian Territory, Occupied",Bloemfontein,true,male,1975-02-22,8572,false,married,2023-08-22
+Slovakia,Ankara,true,male,1999-10-06,8918,true,divorced,2023-07-06
+United Arab Emirates,Nukulaelae,true,male,2009-04-29,9868,false,married,2022-12-23
+Ghana,Salt Lake City,true,female,2000-08-04,4570,false,divorced,2022-12-12
+Mayotte,Rotterdam,true,female,1972-01-15,7037,false,married,2020-10-11
+Cook Islands,Luanda,true,female,1960-03-14,3443,true,single,2024-08-12
+Turkmenistan,Córdoba,false,female,1980-11-25,5079,true,divorced,2021-01-25
+Kenya,Belize City,false,female,2000-11-24,9815,true,married,2023-11-07
+Russian Federation,Port Blair,false,male,1961-03-12,6653,false,married,2022-10-12
+Niger,Bern,true,male,2006-08-14,4640,false,single,2021-10-29
+Isle of Man,Muscat,true,male,1976-08-11,1272,true,single,2023-05-02
+Northern Mariana Islands,Quebec City,false,male,1989-02-19,6416,true,divorced,2024-01-18
+New Zealand,Saipan,false,female,1965-12-01,6185,false,single,2023-04-14
+Mauritania,Alexandria,true,male,1979-11-21,6057,true,single,2019-02-18
+Kyrgyzstan,Lomé,true,female,1988-02-24,3729,false,married,2023-10-02
+Grenada,Koulikoro,true,male,2001-01-12,9859,false,married,2019-06-09
+Uganda,Almaty,false,female,1993-02-23,1971,true,single,2019-10-02
+Syrian Arab Republic,Yogyakarta (city),true,female,1975-05-04,9477,true,married,2024-01-02
+Algeria,Greenwich,true,female,1955-07-14,4437,true,single,2023-10-11
+Honduras,Rabi Island,true,male,1992-01-19,3766,false,married,2024-08-20
+Mali,Belém,true,male,2004-09-02,9884,false,married,2024-05-28
+Congo,Cartagena,true,male,2009-10-26,4670,false,divorced,2023-08-25
+Bolivia,Prague,false,male,1990-09-14,7484,false,single,2019-08-20
+"Macedonia, The Former Yugoslav Republic of",Tampere,false,male,1978-12-20,4203,false,single,2022-04-03
+Guam,Shijiazhuang,false,female,1961-08-05,1202,true,single,2019-08-24
+AndorrA,Gaziantep,true,female,1961-03-14,7609,true,divorced,2023-10-25
+Guinea,Tskhinvali,false,female,1996-12-08,2672,false,divorced,2019-08-15
+"Korea, Democratic People""S Republic of",Lusaka,false,male,1983-09-06,8551,true,married,2019-11-07
+"Macedonia, The Former Yugoslav Republic of",Bilbao,true,male,1967-03-14,5302,false,divorced,2019-12-03
+Costa Rica,Suva,true,male,2008-01-04,7761,false,divorced,2023-11-13
+"Taiwan, Province of China",Palikir,false,male,1974-06-17,3919,false,single,2019-05-10
+Pitcairn,Maceió,false,male,1959-05-24,1845,false,single,2023-08-03
+New Zealand,Bandar Seri Begawan,true,female,1977-03-19,7361,true,married,2024-06-18
+Guinea,Frankfurt,false,male,1976-12-14,6611,false,married,2023-02-20
+Malta,Wuhan,false,male,1963-07-11,4928,false,single,2019-07-02
+Cameroon,Birkirkara,false,male,1991-04-17,8043,true,single,2024-05-10
+Niger,Las Palmas de Gran Canaria,false,male,1991-09-23,8954,false,single,2023-05-08
+Mauritania,La Paz,true,male,2007-10-09,3499,true,divorced,2022-07-22
+Romania,Tunis,false,male,1974-03-05,4827,false,married,2020-11-11
+"Taiwan, Province of China",Ushuaia,true,female,1956-05-11,5583,true,married,2020-06-20
+Lebanon,Newcastle,true,male,1994-04-17,1859,true,divorced,2023-03-24
+Swaziland,Sri Jayawardenapura-Kotte,false,male,1979-12-25,3207,false,divorced,2023-06-30
+Ukraine,Incheon,true,male,2006-02-23,8976,true,divorced,2022-02-21
+Serbia and Montenegro,Norilsk,false,male,1980-08-18,7518,false,divorced,2021-10-03
+Lebanon,Cayenne,true,female,1971-02-11,7428,true,single,2024-04-18
+Cape Verde,Denpasar,true,male,1971-11-04,9181,false,divorced,2021-08-23
+Netherlands,Yaoundé,true,female,1989-02-04,9926,true,single,2023-02-24
+Sao Tome and Principe,Kharkiv,true,female,1962-05-17,9953,true,single,2019-10-17
+United Arab Emirates,Kobe,false,female,2003-11-22,1617,true,single,2019-07-03
+Saint Pierre and Miquelon,Nairobi,false,male,1974-02-01,7200,true,single,2019-09-09
+Portugal,Faisalabad,true,female,1996-12-10,8014,false,single,2023-12-30
+Brazil,Boston,false,male,1965-02-09,3027,false,single,2020-03-20
+Holy See (Vatican City State),Padang,false,male,1982-06-26,6721,true,single,2023-10-03
+South Georgia and the South Sandwich Islands,Yamoussoukro,false,female,1971-05-13,8052,true,single,2020-05-14
+Lithuania,Pristina,true,male,2001-12-08,8794,false,married,2022-06-02
+Trinidad and Tobago,Tel Aviv,false,male,1993-02-28,5335,false,married,2021-10-28
+Austria,Bamako,true,female,2006-08-29,8865,true,divorced,2024-04-28
+Kyrgyzstan,Baltimore,false,male,1965-10-21,5137,true,divorced,2022-01-08
+Burkina Faso,Wichita,true,female,1973-11-26,3749,false,divorced,2023-08-25
+Pakistan,Zanzibar City,false,male,1992-06-02,1763,false,divorced,2020-12-19
+Malaysia,Miri,false,male,1976-06-18,9586,false,single,2019-02-05
+Australia,Salt Lake City,true,male,2000-02-23,4132,true,divorced,2019-01-18
+Faroe Islands,Muscat,true,male,1969-09-13,4053,false,divorced,2024-11-22
+Bulgaria,Kota Bharu,true,female,2003-12-04,5724,false,married,2023-01-29
+Vanuatu,Wollongong,true,female,1971-02-12,3114,true,divorced,2023-02-14
+Croatia,Saint-Pierre,true,male,1983-06-27,7968,true,divorced,2023-06-26
+Monaco,Medellín,true,female,2002-06-06,7959,false,divorced,2020-07-26
+France,Apia,false,male,1985-07-16,4427,false,divorced,2019-07-17
+Chad,Brazzaville,false,male,1967-06-19,7654,false,divorced,2022-01-31
+Iraq,Andorra la Vella,true,male,2004-12-05,3739,false,married,2023-02-01
+Canada,Port Louis,false,female,1993-10-17,8571,true,married,2019-08-13
+Australia,Bishkek,false,male,1958-08-25,3210,false,divorced,2021-12-18
+Malawi,Madrid,false,male,1962-05-09,1773,false,divorced,2020-11-14
+Syrian Arab Republic,Siem Reap,false,female,1985-10-12,4514,false,married,2020-01-15
+Gambia,Minneapolis,true,female,1973-03-24,1591,true,divorced,2024-04-04
+Solomon Islands,Tartu,false,female,1996-05-22,1803,true,married,2020-11-01
+Heard Island and Mcdonald Islands,Cleveland,false,male,1974-04-05,2768,true,married,2021-08-25
+French Polynesia,Helsinki,false,female,1990-03-31,1300,true,married,2020-01-20
+Bangladesh,Belize City,true,female,1981-08-03,2064,true,married,2024-06-19
+Brunei Darussalam,Dar es Salaam,false,male,1990-09-24,5306,false,single,2020-06-11
+Botswana,Khartoum,true,female,2001-04-29,9094,true,single,2023-01-15
+Botswana,Tianjin,false,female,2007-02-22,3108,false,single,2022-09-28
+British Indian Ocean Territory,Darwin,false,male,1998-02-03,8261,false,divorced,2022-02-19
+Burundi,Balikpapan,false,female,1994-10-13,8993,false,divorced,2020-10-12
+Gibraltar,Vientiane,true,male,2000-08-26,2784,true,divorced,2022-11-14
+French Southern Territories,Nuuk,false,male,2001-06-10,4121,false,divorced,2019-07-27
+Anguilla,Tamale,false,male,1987-06-02,6917,true,single,2021-11-28
+Saint Pierre and Miquelon,Jersey City,false,female,1968-11-03,1447,false,married,2020-10-20
+Tajikistan,Düsseldorf,true,female,2002-05-08,2131,false,single,2019-09-07
+Spain,Houston,true,male,1963-10-07,3800,false,single,2023-11-12
+Bahrain,Skopje,false,female,1999-07-17,2263,true,married,2022-03-30
+Liberia,Praia,false,male,1972-07-25,6822,false,single,2019-11-27
+Saint Helena,Basse-Terre,false,female,1955-04-26,3304,true,single,2021-03-22
+Australia,Hanga Roa,true,male,1979-09-23,2577,true,single,2021-11-29
+Liechtenstein,Yerevan,false,male,1997-05-06,3160,true,single,2023-03-31
+Bahamas,Mexico City,true,male,1965-06-20,5840,true,married,2024-12-02
+Uruguay,Ndola,true,female,1996-03-16,6490,true,married,2023-03-06
+Congo,Nairobi,true,female,1971-02-06,9238,true,divorced,2020-11-30
+Sudan,Hyderabad,false,male,2004-05-06,6507,false,divorced,2024-07-11
+Bosnia and Herzegovina,Abidjan,true,male,1997-12-16,4276,true,single,2022-03-20
+Suriname,Mecca,false,male,1963-04-28,3121,false,married,2021-12-27
+United States,Podgorica,false,female,1993-04-29,5251,false,divorced,2022-09-24
+Niger,Brisbane,true,female,1972-10-16,2650,false,divorced,2021-04-21
+Marshall Islands,Bishkek,true,male,1978-03-15,9291,false,single,2021-05-10
+Tokelau,Makati City,false,female,1965-02-09,7161,false,single,2024-06-03
+Swaziland,Monterrey,true,female,1996-12-09,4034,false,married,2022-12-02
+Brunei Darussalam,Dushanbe,false,female,1984-03-06,4381,true,single,2022-05-05
+Antigua and Barbuda,Lomé,false,male,1987-05-07,5419,true,divorced,2023-12-30
+Puerto Rico,Tunis,true,male,1955-11-30,7633,false,divorced,2023-04-27
+China,Roseau,true,female,2001-09-07,8539,true,married,2020-03-19
+Greece,Indianapolis,false,male,1968-09-13,4291,true,single,2020-02-12
+Sweden,Palikir,true,female,1982-12-25,1620,true,married,2022-12-29
+New Caledonia,Libreville,true,female,1996-11-27,9988,true,single,2022-06-03
+United Kingdom,Sarajevo,true,female,1981-01-18,9432,true,married,2023-01-13
+Russian Federation,Palikir,true,male,1963-03-20,7385,true,single,2020-09-27
+Cameroon,Rockhampton,false,male,1987-05-09,7137,false,married,2023-12-05
+Argentina,Fukuoka,false,female,2005-07-28,2197,false,divorced,2024-11-27
+Malta,Faisalabad,true,female,1957-05-22,8270,true,divorced,2022-09-02
+Ethiopia,Bursa,true,female,1970-04-20,5832,false,divorced,2023-12-01
+Iraq,Douala,true,male,2007-05-25,6242,false,divorced,2023-02-02
+Martinique,Taichung,false,female,1981-09-06,8656,true,divorced,2022-03-28
+Palau,Francistown,false,male,1971-08-04,3574,true,married,2022-02-17
+Gambia,Vitória,false,male,1964-07-20,7421,false,married,2023-03-31
+Algeria,Graz,false,female,1991-01-24,4749,false,divorced,2020-12-30
+Cuba,Edmonton,false,female,1980-10-27,5692,true,married,2019-08-04
+Uruguay,Cologne,false,female,2004-10-06,2594,false,single,2019-03-14
+Western Sahara,Lahore,false,female,1963-05-24,9532,false,single,2021-12-28
+Japan,Djibouti (city),false,female,1980-01-23,4990,false,married,2021-05-02
+Lebanon,Rio de Janeiro,false,female,2009-12-20,1564,false,married,2022-08-29
+Costa Rica,Campinas,true,male,1999-02-04,4402,true,married,2022-12-30
+Ukraine,Changchun,false,male,1991-12-18,3492,true,single,2022-02-26
+Uganda,Virginia Beach,false,female,1961-03-24,6036,true,divorced,2020-09-30
+South Georgia and the South Sandwich Islands,Gaborone,false,female,1989-07-26,5782,true,single,2023-03-08
+Indonesia,Nouméa,false,female,1977-02-13,7729,false,single,2022-08-03
+Suriname,Hyderabad,false,male,1958-10-20,9230,false,married,2020-08-25
+New Caledonia,Luanda,false,female,1982-03-07,3105,true,single,2023-09-20
+Turkey,Okinawa,false,male,2008-06-27,2236,false,single,2021-01-26
+Northern Mariana Islands,Miami,true,female,1964-04-26,4004,true,single,2022-04-19
+Czech Republic,Buenos Aires,true,male,1987-01-03,3605,true,married,2021-07-04
+Dominica,Cusco,true,male,1954-03-18,3419,false,married,2019-01-29
+Turkmenistan,City of San Marino,true,male,1977-07-08,1047,true,married,2021-09-09
+Chad,Sucre,false,female,1962-05-26,3756,true,divorced,2022-06-11
+China,Santo Domingo,true,male,1979-05-25,9409,true,divorced,2022-04-23
+Cameroon,Hamilton,true,male,1977-09-12,7176,false,divorced,2020-03-20
+Ukraine,Sarajevo,false,male,1976-03-02,7044,true,divorced,2020-09-18
+Sri Lanka,Niamey,false,male,1989-11-30,4439,false,married,2021-02-09
+Fiji,Kaesong,false,female,1960-01-30,9123,true,single,2020-07-03
+"Palestinian Territory, Occupied",Durango,false,female,2004-10-21,2457,true,married,2021-02-22
+Kuwait,Philadelphia,false,male,1999-06-30,5718,true,divorced,2021-05-13
+Fiji,Yerevan,true,male,1984-09-07,2864,false,single,2021-12-15
+Malawi,Dili,false,male,1985-02-02,7356,true,married,2021-10-18
+Sweden,Magadan,true,female,1982-07-09,4506,false,single,2022-07-06
+Christmas Island,Reykjavík,true,male,1985-02-27,3267,false,single,2023-06-14
+Kenya,Kuala Lumpur,true,male,1965-05-03,8109,true,single,2019-07-19
+Greece,Port Vila,false,male,2005-08-29,2088,true,single,2022-12-09
+RWANDA,Kuala Lumpur,true,male,1966-12-06,2247,true,divorced,2024-04-17
+"Macedonia, The Former Yugoslav Republic of",Las Vegas,true,male,1961-02-16,5111,false,married,2019-05-23
+Nauru,Tegucigalpa,false,male,2006-02-07,9182,false,married,2024-09-08
+Palau,Rotterdam,false,male,1998-04-06,1276,true,divorced,2024-05-19
+Argentina,Hamilton,true,female,1987-08-21,9287,true,married,2021-05-06
+Saint Lucia,Santa Cruz de la Sierra,false,male,1972-10-12,5218,false,single,2021-02-04
+"Moldova, Republic of",Ilhéus,true,female,1987-06-10,9292,false,single,2019-04-17
+Hong Kong,Magadan,false,male,1982-04-15,9178,false,married,2020-10-01
+Jamaica,Tianjin,true,male,1966-05-23,1648,false,divorced,2020-09-14
+Kenya,Fairbanks,true,male,1989-06-23,4521,false,married,2022-06-29
+Uruguay,Busan,true,female,1956-04-12,3193,true,divorced,2023-01-13
+Jordan,Tskhinvali,false,female,2001-01-28,9373,false,divorced,2024-01-05
+Switzerland,Jinan,false,female,1962-08-15,9330,true,single,2019-10-18
+Tuvalu,Cuiabá,false,male,2000-10-13,8210,true,divorced,2020-11-16
+Belarus,Quezon City,true,male,1970-07-23,8489,false,married,2020-07-16
+"Taiwan, Province of China",Porto Velho,true,female,2007-01-18,2181,false,divorced,2023-12-09
+Jordan,Vatican City,false,female,1985-09-28,3020,true,single,2022-05-05
+Finland,Mata-Utu,false,female,1958-05-08,6715,true,divorced,2020-12-19
+Jamaica,Horta (Azores),false,male,1988-07-04,8464,true,married,2019-08-01
+Uruguay,Chuí,true,male,1988-02-26,9282,false,divorced,2023-06-13
+Heard Island and Mcdonald Islands,Tampere,true,male,1972-07-13,3351,true,single,2020-12-23
+Malawi,Budapest,false,male,1965-04-20,5245,true,divorced,2021-11-15
+Brunei Darussalam,Darwin,false,male,1999-09-08,1430,false,single,2019-01-07
+Bhutan,Warsaw,true,male,1994-02-25,2517,true,married,2023-01-26
+"Korea, Democratic People""S Republic of",Hagåtña,false,female,2007-10-02,1967,false,married,2023-07-08
+Tokelau,Jerusalem,false,male,1987-02-21,4415,true,married,2022-11-02
+Uganda,Mumbai,true,male,1955-03-27,7206,true,married,2021-06-25
+Slovakia,Quetzaltenango,false,male,1966-09-26,2183,true,divorced,2019-08-18
+"Congo, The Democratic Republic of the",Medina,false,female,1979-04-13,7969,true,single,2022-02-07
+"Lao People""S Democratic Republic",Freetown,true,male,1958-08-10,1455,true,married,2019-01-20
+Liechtenstein,Dakar,false,male,2003-10-24,8390,true,married,2019-08-19
+British Indian Ocean Territory,Liverpool,true,male,1976-03-21,4136,false,divorced,2019-01-14
+"Lao People""S Democratic Republic",Dalian,true,female,1968-08-28,5353,false,married,2024-09-11
+Costa Rica,San Juan,false,male,1993-03-12,1143,true,married,2019-02-02
+Oman,Beijing,false,female,1970-08-25,6007,false,single,2023-02-11
+Belize,George Town,false,female,1959-12-09,5020,true,divorced,2019-11-04
+Mali,Iquique,false,female,1967-11-05,2127,true,divorced,2021-11-28
+Mauritania,Barranquilla,true,female,1971-04-26,1729,false,single,2022-07-16
+Bhutan,Düsseldorf,true,male,1955-12-15,2527,false,single,2019-06-28
+Brunei Darussalam,Seoul,false,female,1956-05-06,5965,true,married,2024-12-29
+"Micronesia, Federated States of",Santiago,false,female,1985-03-06,2050,true,married,2021-10-11
+Cook Islands,Rabi Island,false,female,1966-03-08,6995,true,divorced,2019-12-17
+Palau,Hamilton,true,male,1976-05-27,6379,true,single,2024-12-04
+Syrian Arab Republic,San Carlos de Bariloche,true,male,1993-04-29,9049,false,married,2022-03-21
+Kuwait,Kansas City,true,male,2005-04-29,1132,false,married,2020-11-16
+Thailand,Multan,true,male,1979-05-29,2414,false,single,2022-07-07
+Saudi Arabia,Banjul,false,male,1975-09-30,7596,true,divorced,2019-10-23
+Hungary,Daegu,false,female,1957-11-16,6412,true,divorced,2022-11-08
+Zambia,Kaesong,false,female,2007-07-30,4255,false,divorced,2024-11-10
+Puerto Rico,Sana'a,true,female,1954-03-24,8805,true,single,2021-09-16
+Mali,Rome,true,female,1999-05-24,9210,false,single,2021-08-01
+Yemen,Fukuoka,true,female,1963-05-09,8129,true,divorced,2023-10-18
+Guinea-Bissau,Dili,false,male,1958-05-27,4273,false,divorced,2021-08-20
+Liechtenstein,Luxor,false,female,1959-03-28,1311,false,married,2023-12-04
+Sierra Leone,Graz,true,female,1998-01-14,2251,true,divorced,2019-11-24
+Vanuatu,Shenyang,true,female,2005-07-16,1149,true,married,2021-05-31
+Italy,Khartoum,false,female,1994-03-29,7853,true,married,2021-04-06
+Philippines,Kingstown,true,male,2000-07-31,8486,false,married,2022-06-11
+"Taiwan, Province of China",Vancouver,true,male,1972-06-28,5819,false,divorced,2024-04-12
+Brunei Darussalam,Kiev,true,male,1967-05-30,6144,true,single,2023-12-02
+Cameroon,Córdoba,false,male,1967-11-04,7076,false,single,2023-07-13
+Namibia,Kaohsiung,true,male,2004-04-17,7782,false,single,2024-03-25
+"Tanzania, United Republic of",Karachi,true,male,1974-11-01,1494,true,married,2019-02-11
+Brazil,Srinagar,false,male,1962-04-01,9616,false,married,2021-08-30
+Bangladesh,Xining,false,male,2005-12-20,6046,false,married,2021-10-26
+Luxembourg,Doha,true,male,1977-10-19,2030,false,single,2020-08-11
+Suriname,Louisville,true,female,1972-01-07,2782,true,single,2021-07-18
+Mexico,Praia,false,female,1993-09-08,6034,true,married,2020-11-29
+"Korea, Republic of",Porto Alegre,true,female,1963-07-11,1038,false,single,2021-05-01
+Mongolia,Wuhan,true,male,1963-03-29,7895,false,married,2023-10-10
+Georgia,Bratsk,false,female,1992-02-21,1198,false,divorced,2020-01-28
+Uganda,Seattle,false,male,1964-07-21,8819,true,married,2021-03-25
+Niue,Kharkiv,true,male,1976-04-09,8353,false,single,2022-12-30
+French Southern Territories,Nassau,true,male,1987-02-22,6805,false,divorced,2023-09-03
+Lithuania,Hamburg,true,female,2001-02-20,6947,true,married,2023-07-15
+San Marino,Ürümqi,true,male,1999-12-08,4084,false,married,2020-01-29
+Portugal,Forked River,false,male,2005-09-14,3742,false,divorced,2022-04-09
+Northern Mariana Islands,Karachi,false,male,1979-12-03,5297,false,single,2023-07-10
+Panama,Perm,false,female,1967-06-27,7312,false,single,2021-11-19
+Tunisia,Canberra,false,male,1963-05-31,4072,true,divorced,2022-03-04
+Faroe Islands,Osaka,true,female,1955-09-30,2521,false,single,2019-03-23
+Wallis and Futuna,Luxembourg (city),false,female,1958-05-31,2526,false,divorced,2021-09-13
+"Palestinian Territory, Occupied",Gothenburg,false,male,1960-05-11,3663,true,single,2024-08-12
+Burundi,Hanga Roa,false,female,1962-04-28,7469,false,married,2021-05-04
+Dominica,Saskatoon,true,male,2005-01-23,8163,true,married,2019-06-02
+Cocos (Keeling) Islands,Amsterdam,true,female,2009-03-25,9522,false,single,2022-06-13
+Sweden,Nagoya,false,female,1998-10-29,5489,true,divorced,2022-02-06
+Guinea-Bissau,Huế,false,female,1959-07-28,5685,true,single,2022-07-27
+Uganda,Chuí,true,female,1990-03-27,5614,true,single,2022-11-11
+Swaziland,Buffalo,true,male,1957-03-04,2698,true,divorced,2022-06-12
+Czech Republic,Rawalpindi,false,female,2008-05-21,5555,false,divorced,2023-08-04
+AndorrA,Peshawar,true,female,1996-12-26,3534,false,single,2022-05-03
+Madagascar,Ipoh,true,female,2004-11-25,4795,true,single,2023-02-17
+Finland,St. George's,false,female,1979-03-17,3603,true,single,2023-07-24
+Russian Federation,Malang,false,male,1972-07-16,1384,false,divorced,2020-09-22
+Belgium,Whitehorse,true,female,1957-11-14,3234,true,single,2019-12-09
+South Georgia and the South Sandwich Islands,Liverpool,false,male,1960-07-23,3222,false,divorced,2024-04-06
+Romania,Turin,false,female,1961-10-12,8077,true,divorced,2021-12-04
+Honduras,Nairobi,true,female,1980-01-02,9339,true,married,2024-03-08
+Honduras,Basse-Terre,false,male,1982-02-23,9754,true,divorced,2024-04-27
+Uganda,Asunción,true,female,1976-08-15,1739,true,married,2021-01-13
+Sweden,Davao City,true,female,1970-06-28,2717,true,divorced,2020-05-08
+Myanmar,Surabaya,false,male,1970-11-19,1212,true,single,2021-11-11
+Syrian Arab Republic,Denpasar,true,female,1976-07-12,5168,false,single,2019-01-28
+Tokelau,Manzini,false,male,1956-03-15,1778,true,single,2021-04-14
+Hungary,Dallas,true,male,1983-07-30,8164,false,single,2024-09-24
+Western Sahara,Lanzhou,true,female,1970-01-28,8262,true,single,2020-08-11
+Israel,São Tomé,false,male,1990-10-08,2888,false,single,2020-08-04
+Oman,Puerto Williams,false,male,1958-10-09,1585,true,single,2024-10-10
+Serbia and Montenegro,Geneva,true,male,1975-07-18,8291,false,single,2020-03-18
+Aruba,Saint Petersburg,false,female,1959-12-07,2598,true,divorced,2022-01-18
+Ethiopia,Labasa,true,male,1988-11-08,3715,true,single,2021-09-02
+"Macedonia, The Former Yugoslav Republic of",Quito,false,male,2004-08-11,3723,true,divorced,2020-05-04
+Kazakhstan,Norilsk,true,female,1991-09-17,5258,true,single,2023-12-09
+Colombia,Kharkiv,true,female,1989-11-26,6922,true,married,2021-05-15
+"Taiwan, Province of China",Gdańsk,true,female,2006-06-28,7198,true,divorced,2023-03-23
+Georgia,Stanley,true,male,2002-10-14,8971,false,divorced,2023-09-01
+Seychelles,Tbilisi,true,female,1999-03-25,4886,false,single,2024-05-28
+Iraq,Amsterdam,true,male,1958-09-27,5083,true,single,2020-09-21
+Germany,Veracruz,false,female,1981-10-31,2818,true,single,2024-05-09
+El Salvador,Toronto,false,female,1977-10-29,8992,false,divorced,2022-08-24
+Tunisia,Labasa,true,female,1966-05-01,2817,false,divorced,2024-04-04
+Panama,Zamboanga City,true,female,1967-02-08,1061,true,divorced,2023-11-18
+Falkland Islands (Malvinas),Thiès,true,male,1998-12-14,6207,true,divorced,2022-09-30
+Niue,Vilnius,true,female,1993-05-10,5259,true,married,2020-12-19
+Slovenia,Addis Ababa,true,female,1995-12-11,4561,false,single,2021-10-17
+"Virgin Islands, British",Gothenburg,false,male,1984-01-08,9910,true,divorced,2019-07-15
+South Georgia and the South Sandwich Islands,Miami,false,female,1991-10-18,3996,false,single,2024-05-28
+Saint Helena,Dili,false,male,1998-08-26,3441,true,divorced,2023-05-25
+Saint Helena,Miami,false,female,1978-06-23,2586,true,divorced,2019-01-13
+Philippines,Rabat,false,female,1960-01-10,2199,false,single,2022-10-27
+Norfolk Island,Quetzaltenango,false,female,1966-06-08,1100,true,single,2022-04-16
+Austria,Kinshasa,false,male,1964-08-28,5724,false,single,2019-08-16
+Cyprus,Livingstone,false,female,2006-02-24,8808,true,married,2024-04-30
+Bangladesh,Toronto,true,female,1956-12-14,5292,true,married,2023-02-23
+China,Aberdeen,false,male,1986-12-05,6504,false,single,2023-11-18
+Gambia,Vientiane,true,male,2005-12-02,6913,true,divorced,2021-01-28
+Northern Mariana Islands,Castries,true,female,1998-05-06,6813,false,divorced,2019-08-05
+Svalbard and Jan Mayen,Rio Branco,true,female,1999-04-06,4824,false,single,2021-12-16
+Dominica,La Paz,true,female,1984-07-03,6217,true,single,2021-01-28
+Brazil,Handan,false,male,1992-06-19,3516,true,single,2022-02-08
+Equatorial Guinea,Santa Cruz de la Sierra,false,male,2003-08-30,8226,true,single,2021-01-16
+Bouvet Island,Vienna,false,male,1974-06-17,3914,true,divorced,2023-09-09
+Luxembourg,Bangalore,true,male,1969-12-19,2695,true,married,2020-12-08
+Madagascar,Seoul,true,female,1969-09-19,4989,true,divorced,2019-08-16
+"Virgin Islands, U.S.",Malmö,true,female,2006-01-22,6834,false,single,2019-06-04
+Mozambique,Sana'a,true,male,1970-02-25,6976,true,married,2024-12-15
+"Palestinian Territory, Occupied",Kano,false,male,2003-09-03,6425,false,divorced,2021-09-02
+"Palestinian Territory, Occupied",Charlotte,false,male,1966-08-08,9030,false,married,2019-12-24
+Tajikistan,Boa Vista,false,female,1997-03-23,5360,false,divorced,2023-02-26
+Kuwait,Kobe,false,female,2000-09-02,5109,false,divorced,2019-09-08
+Lebanon,Tskhinvali,true,male,1955-03-21,2897,false,married,2022-01-30
+Åland Islands,Bangalore,true,male,1991-08-18,8251,false,divorced,2019-10-12
+Liechtenstein,Douglas,true,male,1967-02-13,5769,false,single,2024-11-24
+Guam,Udon Thani,false,female,1966-09-23,4581,false,married,2022-06-06
+South Africa,San Diego,true,female,1962-11-08,5012,true,single,2020-07-21
+Poland,Calgary,false,female,1963-07-15,8117,false,married,2021-07-21
+Finland,Nice,true,female,1964-02-01,2781,true,divorced,2021-11-12
+Montserrat,Mecca,false,female,2006-07-21,4987,false,married,2023-01-01
+Syrian Arab Republic,Lilongwe,true,male,2005-01-08,8808,true,single,2019-10-13
+Liechtenstein,Cuiabá,true,male,2009-03-27,8349,false,single,2024-07-30
+Singapore,Taiyuan,false,male,1978-05-26,4377,false,divorced,2022-09-01
+Malawi,Freetown,true,male,1990-04-23,7898,false,single,2024-06-21
+South Georgia and the South Sandwich Islands,Marseille,true,male,1984-09-17,6326,true,divorced,2019-12-10
+Chad,Okinawa,true,male,1960-01-08,7034,true,single,2021-12-23
+Ecuador,Patna,true,male,1956-07-17,5122,true,divorced,2024-04-17
+"Korea, Republic of",Bursa,true,male,1987-07-06,5473,false,single,2022-06-12
+Trinidad and Tobago,Canberra,false,female,1975-12-18,6580,false,single,2024-04-28
+New Zealand,Recife,true,female,1961-06-17,6020,false,divorced,2024-02-20
+Pitcairn,Campinas,true,male,1990-06-20,9208,true,single,2019-11-07
+Nigeria,Yekaterinburg,true,female,1981-07-06,6554,true,married,2024-02-20
+Georgia,Virginia Beach,true,male,1996-02-07,2440,true,single,2020-07-20
+South Africa,Nagpur,true,female,1972-11-20,3794,false,divorced,2023-04-19
+Malaysia,Washington,false,female,1990-04-04,9209,true,single,2022-03-04
+Angola,Birmingham,false,female,1975-02-08,1779,true,single,2020-12-05
+South Africa,Guatemala City,true,female,1980-06-17,6589,false,single,2023-12-15
+Gabon,Francistown,true,female,1973-12-30,4780,true,single,2023-07-20
+Zimbabwe,Córdoba,true,male,2006-01-22,7204,true,single,2020-05-27
+Nigeria,Saipan,true,male,1980-07-15,6588,false,divorced,2021-11-22
+Syrian Arab Republic,Omdurman,true,female,1958-11-20,2812,true,married,2020-06-17
+Iceland,Algiers,true,male,1980-07-26,4948,false,single,2023-01-23
+Malta,Busan,true,female,1992-11-28,2482,true,divorced,2024-05-03
+South Africa,Basra,true,female,2000-12-30,6936,true,married,2022-02-21
+China,Vatican City,false,female,2008-09-07,1186,true,single,2021-01-25
+Guam,Ambon,true,female,1995-01-14,5529,true,married,2024-04-15
+Russian Federation,Damascus,true,male,1965-06-08,4659,false,divorced,2019-01-15
+Turkey,San Diego,false,male,2005-09-22,1531,true,divorced,2023-12-20
+Sao Tome and Principe,Ludhiana,true,male,2003-06-25,2146,false,divorced,2021-02-20
+"Macedonia, The Former Yugoslav Republic of",Winnipeg,true,female,1970-02-02,4103,true,divorced,2024-09-24
+Madagascar,Miami,false,female,1991-07-15,9354,false,single,2022-02-06
+Trinidad and Tobago,Sri Jayawardenapura-Kotte,false,female,1985-11-30,1167,true,divorced,2019-06-22
+Poland,Tucson,true,male,1978-07-31,2875,false,single,2022-12-30
+"Lao People""S Democratic Republic",Ciudad del Este,false,female,1988-06-27,6384,true,married,2019-03-23
+Saudi Arabia,Bandar Seri Begawan,true,female,1984-09-06,2175,false,single,2023-07-31
+San Marino,Turin,true,female,1967-09-17,1656,false,married,2020-04-28
+Ecuador,Macapá,true,male,2000-10-11,2102,true,divorced,2023-06-05
+Azerbaijan,Puerto Williams,false,male,1972-01-31,1374,false,married,2023-09-08
+United States Minor Outlying Islands,Skopje,false,female,1994-03-10,4506,false,divorced,2019-02-21
+Poland,Pune,false,male,2002-08-29,9849,true,married,2019-11-28
+Pitcairn,Greenwich,true,female,1985-08-24,2369,true,single,2020-05-27
+Thailand,Brasília,false,female,1960-07-05,8249,true,single,2021-07-02
+Benin,Port Louis,false,female,1969-09-06,3268,true,married,2022-03-13
+Swaziland,Willemstad,true,female,2004-12-10,2970,true,married,2020-06-08
+Jordan,Cuiabá,false,male,1954-07-20,9085,false,single,2022-10-22
+Spain,Petropavlovsk-Kamchatsky,false,male,1995-10-12,9597,false,divorced,2022-04-20
+"Korea, Republic of",Managua,true,male,1977-02-22,4560,false,married,2021-04-07
+Guadeloupe,Iquique,false,female,1983-02-16,9251,true,single,2020-09-16
+Kiribati,Odessa,true,male,1970-01-28,9306,false,divorced,2024-02-04
+Costa Rica,La Paz,false,male,1981-12-21,3832,false,married,2024-08-24
+Sao Tome and Principe,Hangzhou,false,female,2000-09-18,6870,false,divorced,2022-06-26
+Gibraltar,Quetzaltenango,false,female,1996-02-28,7530,true,married,2021-12-23
+Central African Republic,Hat Yai,true,female,1981-07-04,8449,true,married,2020-02-20
+Belgium,Las Palmas de Gran Canaria,true,female,1970-02-18,2237,true,divorced,2019-11-26
+Algeria,Kaohsiung,true,male,2000-11-27,1601,true,divorced,2020-12-17
+Madagascar,Shigatse,false,female,1998-02-26,6571,true,single,2021-09-01
+French Southern Territories,Minneapolis,false,female,1993-12-18,6615,true,single,2019-10-25
+Malaysia,Dibrugarh,true,male,1994-11-06,6005,true,divorced,2023-01-19
+Mozambique,Aarhus,true,male,2003-02-15,6905,true,divorced,2019-11-08
+Christmas Island,Kunming,false,male,2007-11-25,9623,false,married,2022-04-11
+France,Ibiza,false,male,1993-07-22,2438,false,single,2023-12-19
+Slovenia,Philadelphia,true,male,1961-09-12,8316,true,single,2022-07-10
+"Macedonia, The Former Yugoslav Republic of",Bogor,false,female,1966-07-10,9267,true,divorced,2019-08-06
+Bouvet Island,Daegu,true,female,1955-12-22,6606,false,divorced,2020-02-23
+Jersey,Cusco,false,male,1975-06-09,2187,true,married,2021-06-19
+Wallis and Futuna,Riverside,false,female,1976-03-13,5507,false,married,2019-02-12
+Denmark,Chihuahua,false,male,2009-05-28,6511,false,divorced,2021-07-12
+Cocos (Keeling) Islands,Dublin,false,female,2001-06-27,4488,true,married,2019-07-18
+Saint Lucia,Malabo,true,female,1998-03-18,3471,true,single,2019-11-01
+Turkey,Charlottetown,true,male,1987-11-19,9416,false,married,2022-10-09
+Mongolia,Austin,false,female,1964-02-25,5326,true,single,2024-12-21
+French Polynesia,Virginia Beach,false,male,1996-04-21,8058,false,divorced,2019-07-30
+Saint Lucia,Washington,false,male,1980-10-06,3170,false,divorced,2024-04-15
+Brunei Darussalam,Nakhon Ratchasima,false,female,2007-08-20,5253,true,divorced,2020-04-02
+Ghana,Dunedin,false,male,2005-09-22,2395,true,married,2020-04-04
+Guam,Sukhumi,false,female,1989-10-12,3128,true,divorced,2024-09-22
+Georgia,Kigali,true,female,2008-07-11,4713,false,single,2024-04-19
+Turkmenistan,Nuuk,true,male,2004-11-16,9842,true,single,2019-03-28
+Maldives,Cayenne,false,male,1981-01-20,7420,true,married,2020-09-13
+New Zealand,Antwerp,true,female,1989-06-09,7671,true,single,2020-11-24
+Tajikistan,Honolulu,true,female,1992-11-26,7421,true,married,2019-10-12
+Bhutan,Strasbourg,false,female,1979-02-23,6717,false,divorced,2022-01-31
+Martinique,Washington,false,female,1999-10-28,7842,true,divorced,2020-02-16
+Saint Lucia,Vientiane,false,male,1959-03-21,5302,false,married,2020-06-14
+"Tanzania, United Republic of",Andorra la Vella,true,female,1972-11-25,5035,false,divorced,2021-10-01
+Indonesia,Alofi,false,male,1975-01-19,4750,true,single,2024-09-30
+Cameroon,Hiroshima,false,male,1994-02-09,7664,false,divorced,2023-02-04
+Brunei Darussalam,Manama,false,male,1983-11-25,3155,true,married,2020-06-08
+Papua New Guinea,Makati City,false,male,1977-04-03,1747,false,married,2021-12-12
+Tajikistan,Nice,false,female,1963-02-21,7811,true,married,2020-03-24
+Thailand,Vatican City,false,female,2007-09-23,1854,false,single,2019-01-29
+Burkina Faso,Wonsan,false,male,1966-06-21,4977,false,married,2020-06-09
+Oman,Stanley,true,female,1962-05-29,7164,true,married,2020-08-25
+Switzerland,Singapore,false,male,1976-09-04,1759,true,single,2023-12-17
+Cyprus,Melekeok,false,female,2007-08-17,5940,false,single,2024-08-27
+Mexico,Gold Coast,false,female,1974-03-29,7426,true,married,2020-06-02
+"Cote D""Ivoire",Nukulaelae,true,female,1966-06-05,9367,true,divorced,2022-03-06
+Saint Vincent and the Grenadines,Oslo,false,male,2009-09-11,9295,false,single,2022-02-18
+Cape Verde,Koror,false,male,2000-11-21,2255,true,single,2021-01-04
+United Kingdom,Zhengzhou,true,male,1990-07-07,4300,false,divorced,2022-08-14
+Portugal,São José dos Campos,false,male,1993-03-02,4289,true,single,2023-05-20
+Yemen,Málaga,true,female,1975-05-31,7193,true,married,2023-10-17
+United Arab Emirates,Porto,false,male,2003-01-02,3450,true,single,2021-10-24
+Bouvet Island,N'Djamena,false,female,1990-01-17,3120,false,single,2020-11-29
+Cuba,Denver,false,male,1999-11-04,2347,false,married,2022-05-04
+Nauru,Vladivostok,false,female,2005-01-20,1242,true,married,2019-09-03
+Italy,Udon Thani,false,female,1993-11-10,6005,false,married,2024-12-16
+Ecuador,Lisbon,true,female,1969-07-09,7679,false,married,2021-03-17
+Netherlands,Nantes,true,female,1970-06-02,8134,true,single,2020-07-01
+Heard Island and Mcdonald Islands,Curitiba,true,female,1965-02-14,8816,false,divorced,2020-09-28
+Anguilla,Indianapolis,true,female,1973-01-17,4722,false,divorced,2020-05-25
+Tajikistan,Port Moresby,false,male,1978-01-25,3325,true,married,2024-10-20
+Libyan Arab Jamahiriya,Honolulu,true,male,1965-09-06,7170,true,single,2021-03-09
+South Africa,Nukulaelae,false,male,1998-03-23,6637,false,single,2022-04-29
+Guadeloupe,Moroni,false,male,1981-01-10,9980,false,married,2020-04-03
+Antarctica,Beirut,false,male,2000-12-10,2637,false,divorced,2023-09-27
+Bolivia,Shijiazhuang,true,female,2001-03-31,3403,true,single,2021-07-14
+Marshall Islands,Udon Thani,true,female,1996-09-26,9198,true,married,2024-09-24
+Canada,Adamstown,false,female,1964-09-18,4011,false,divorced,2020-03-19
+Denmark,Mexico City,false,male,1959-10-02,1968,true,single,2019-03-21
+Svalbard and Jan Mayen,Agartala,false,female,1973-01-19,8119,true,divorced,2023-11-07
+El Salvador,Charlotte,false,female,1989-03-18,2931,true,married,2023-01-30
+Norway,Bandar Seri Begawan,true,male,1994-05-11,2333,false,divorced,2024-06-16
+Malaysia,Bratislava,true,female,1956-10-10,8327,false,divorced,2024-07-01
+Botswana,Veracruz,true,male,2002-06-24,9432,true,married,2021-01-24
+France,Chongqing,false,male,1957-11-19,4899,false,single,2023-04-09
+Honduras,Jersey City,false,male,1968-11-07,2861,true,single,2020-09-03
+Trinidad and Tobago,Suva,false,male,1985-11-29,4301,true,divorced,2019-07-10
+Wallis and Futuna,Blantyre,false,male,1982-08-29,4503,false,single,2020-05-21
+Burundi,Lubumbashi,true,male,1981-05-03,9591,false,married,2020-08-29
+British Indian Ocean Territory,Valparaíso,false,male,1960-10-21,4651,true,married,2021-11-22
+Estonia,Norilsk,true,male,1956-03-14,3981,true,divorced,2024-09-03
+Suriname,Veracruz,false,female,2002-09-05,7468,true,single,2021-02-06
+India,Dibrugarh,false,male,1994-10-18,7823,true,married,2019-10-08
+Namibia,Kaohsiung,false,female,1969-02-23,4906,true,married,2024-03-26
+Lesotho,Denver,false,female,1973-08-04,9937,true,married,2020-06-27
+Fiji,Dunedin,true,male,2003-05-17,3889,true,single,2021-07-05
+"Tanzania, United Republic of",Gdańsk,true,female,1999-02-17,8710,false,married,2024-07-20
+Reunion,Lanzhou,false,male,2007-05-16,1723,false,divorced,2024-08-09
+Egypt,Tokyo,false,female,2008-08-02,3610,false,single,2020-01-30
+Algeria,Reykjavík,false,male,1982-12-21,1512,true,married,2024-05-05
+Reunion,Guwahati,true,female,1960-04-28,9888,false,married,2023-09-04
+New Caledonia,Düsseldorf,true,female,1962-05-26,4738,false,married,2024-01-02
+RWANDA,La Serena,false,female,1972-02-26,5573,true,single,2024-03-29
+Timor-Leste,Ndola,true,male,1983-06-11,4609,true,single,2021-10-01
+Fiji,Lanzhou,true,male,1975-10-31,6241,true,single,2023-06-29
+Malawi,Lima,false,female,1976-02-19,4706,true,married,2020-11-08
+Brunei Darussalam,Yaren District,false,female,1990-07-12,4203,true,divorced,2019-03-11
+Bahrain,Dunedin,false,male,2002-02-05,4687,true,single,2024-07-13
+Guyana,Los Angeles,false,female,2006-11-02,2551,true,married,2024-01-26
+Bulgaria,Pelotas,true,female,1965-08-17,7640,true,single,2024-09-09
+Cocos (Keeling) Islands,Medina,false,female,1988-04-06,7555,false,single,2021-01-25
+Swaziland,Handan,false,male,1960-03-25,6236,false,divorced,2022-05-28
+Saint Kitts and Nevis,São Paulo,true,male,2009-11-20,8331,false,single,2024-08-31
+Saint Lucia,Palikir,false,male,1999-01-27,7243,false,divorced,2024-05-30
+Ukraine,Pelotas,true,male,1982-07-30,2688,true,single,2020-01-12
+Burundi,Brikama,false,female,1983-12-13,4142,true,divorced,2023-03-25
+Ecuador,Melbourne,true,female,2006-08-09,7076,true,single,2021-11-07
+Belize,Port Moresby,false,female,1954-04-17,2035,true,married,2023-02-25
+Bouvet Island,Denver,true,male,2003-02-01,4420,true,married,2024-09-11
+Czech Republic,Yerevan,false,female,1984-05-28,5271,false,married,2022-01-26
+Nigeria,Port Blair,false,female,2001-01-30,7287,true,divorced,2023-07-13
+Barbados,Calgary,true,male,1988-04-23,4949,true,single,2023-08-14
+Bosnia and Herzegovina,Surabaya,true,female,1994-01-20,1747,true,single,2020-12-09
+Honduras,Kathmandu,false,female,1981-01-23,6029,true,married,2022-06-21
+Paraguay,Belém,false,male,1962-04-21,7064,false,married,2020-10-04
+Madagascar,São José dos Campos,true,male,1983-12-30,9154,false,married,2019-07-25
+"Lao People""S Democratic Republic",Faisalabad,true,female,1979-09-03,8417,true,single,2024-03-24
+Estonia,Auckland,false,male,1974-03-17,9324,true,divorced,2024-05-31
+Colombia,Phoenix,true,female,1988-11-25,2250,false,single,2020-11-25
+Nigeria,Linz,true,female,1970-07-19,7390,true,married,2019-10-17
+RWANDA,Ahmedabad,true,female,1973-08-30,5033,true,single,2024-05-09
+Saudi Arabia,Luanda,false,male,1977-09-20,3133,false,single,2023-04-30
+Japan,Islamabad,true,male,1963-02-11,4841,true,single,2020-01-16
+Tokelau,Gibraltar,false,male,1963-10-28,1544,false,single,2023-07-18
+Guinea-Bissau,Whitehorse,true,female,1980-02-28,9741,false,married,2020-07-17
+Mauritius,Zürich,true,female,1957-04-22,7927,true,divorced,2019-11-28
+Albania,Stockholm,true,female,1989-09-13,3409,false,divorced,2024-11-17
+Solomon Islands,Mexicali,false,female,1961-06-28,2580,false,divorced,2020-06-27
+Zambia,Yakutsk,false,male,2003-06-02,8065,true,divorced,2020-05-19
+Eritrea,Bergen,true,male,1975-04-26,5513,true,divorced,2022-03-31
+Heard Island and Mcdonald Islands,Qingdao,false,female,2007-11-01,2205,true,married,2022-10-16
+Åland Islands,Banda Aceh,false,male,1976-03-24,6303,false,single,2019-08-18
+Mayotte,Belmopan,true,male,1964-04-07,4074,false,single,2024-02-09
+South Africa,Yakutsk,false,male,2001-08-07,3992,false,single,2022-10-05
+Cyprus,New Delhi,false,female,1967-08-11,8682,true,divorced,2024-05-11
+Puerto Rico,Fukuoka,false,male,2002-09-03,4088,true,single,2019-08-30
+Hungary,Jacksonville,false,female,1981-06-20,1814,false,divorced,2023-08-24
+China,Bratsk,false,female,2005-03-30,6906,false,divorced,2021-11-05
+Fiji,Kano,true,male,1996-12-19,1891,true,single,2024-01-18
+Cyprus,Malacca Town,true,male,1982-07-09,4211,false,divorced,2023-01-08
+Lebanon,Naples,true,male,1966-10-13,6968,false,divorced,2019-04-13
+South Africa,Baku,true,female,2005-06-26,6822,true,divorced,2024-10-15
+Central African Republic,Ndola,false,male,1972-03-17,8009,true,married,2022-02-24
+Guinea-Bissau,Bangkok,false,male,1961-03-30,1237,true,married,2023-01-07
+Oman,Suez,true,male,1980-09-10,2696,false,divorced,2023-10-31
+"Taiwan, Province of China",Kharkiv,false,male,1974-01-14,5614,false,divorced,2019-05-26
+Zambia,Toulouse,false,female,1958-02-18,6188,true,divorced,2024-04-26
+Panama,Andorra la Vella,false,female,1976-05-06,8458,true,divorced,2024-12-19
+Nauru,São Tomé,true,female,1959-02-24,2372,true,single,2023-02-03
+Samoa,Bulawayo,false,female,1973-10-04,5522,true,divorced,2022-06-04
+New Zealand,Zhengzhou,false,male,1984-06-02,7313,false,divorced,2019-01-31
+Brazil,Leipzig,false,female,2003-03-25,7290,true,divorced,2022-10-04
+Wallis and Futuna,Vilnius,true,male,1962-11-07,7680,true,married,2022-05-05
+Bermuda,Nizhny Novgorod,false,male,1974-04-08,4870,false,single,2022-04-15
+Heard Island and Mcdonald Islands,Santo Domingo,true,male,1995-10-23,3465,true,divorced,2021-04-03
+Cocos (Keeling) Islands,Brisbane,true,female,1998-10-31,1777,false,divorced,2022-04-14
+Hungary,Yaoundé,true,female,1955-08-04,3386,false,married,2024-02-20
+Cambodia,Bilbao,true,female,2005-09-25,5840,false,single,2023-10-22
+Guyana,Hai Phong,true,male,1982-05-27,3546,false,married,2019-06-26
+Ecuador,Suez,false,female,1965-07-24,5457,true,married,2020-11-05
+Qatar,Edmonton,false,male,1996-08-09,5159,true,single,2024-09-07
+Venezuela,Athens,false,male,1985-07-02,2678,false,married,2019-12-01
+Myanmar,Oranjestad,true,male,1996-02-15,2656,true,single,2021-05-29
+Yemen,Omsk,true,female,1998-09-13,4176,true,single,2022-07-02
+Cuba,Jersey City,false,female,1971-07-07,7289,false,married,2024-04-23
+Estonia,Abidjan,true,female,1955-01-13,6243,false,single,2020-08-08
+Malaysia,Gibraltar,false,male,1963-08-18,1858,true,divorced,2024-05-18
+Japan,Tallinn,true,male,2007-05-23,2692,false,divorced,2022-08-10
+Jamaica,Adak,false,female,1956-08-29,7931,false,married,2023-03-06
+Spain,Riyadh,false,female,1970-04-15,5684,true,married,2021-04-06
+Sri Lanka,Tallinn,true,female,2002-06-28,6922,true,married,2022-03-26
+Dominica,Valdivia,false,male,1998-09-07,7964,true,married,2021-02-11
+Uganda,Brussels,false,male,1956-11-20,3645,true,single,2019-08-18
+Montserrat,Vladivostok,false,female,2003-06-01,2548,true,single,2019-01-31
+Czech Republic,Porto Alegre,true,male,1962-07-23,5714,false,married,2022-09-17
+Viet Nam,Tbilisi,false,male,1980-05-06,1641,false,married,2021-03-09
+Niger,Dededo,false,female,1992-11-17,3598,true,married,2019-02-23
+Bangladesh,La Paz,false,female,1989-06-11,2251,true,single,2023-03-18
+"Virgin Islands, British",Serekunda,true,female,1974-09-13,6823,true,single,2022-01-20
+Spain,Almaty,true,female,1994-07-08,7106,true,married,2024-12-03
+Bangladesh,Lusaka,false,female,1954-10-20,6357,false,married,2021-04-26
+Brazil,Enugu,true,female,1980-10-25,4453,false,single,2023-09-27
+Tonga,Yogyakarta (city),false,male,1981-08-31,6501,true,divorced,2022-07-25
+Tokelau,Calama,true,male,1983-02-28,7549,true,divorced,2020-02-01
+AndorrA,Havana,true,male,1963-07-09,2696,true,single,2022-04-26
+"Taiwan, Province of China",Petropavlovsk-Kamchatsky,false,male,1959-05-12,1262,true,divorced,2019-02-22
+Thailand,Santa Cruz de la Sierra,false,male,1999-06-05,6072,true,single,2021-03-07
+Finland,La Serena,false,female,1966-11-02,6120,false,divorced,2019-12-13
+Slovenia,Sarajevo,false,male,1958-01-07,7622,false,divorced,2023-11-24
+Sudan,Kano,true,female,1956-11-29,5396,false,married,2024-01-04
+Czech Republic,Yogyakarta (city),false,female,1956-04-28,1763,true,married,2024-03-13
+Nicaragua,Malang,true,female,1978-01-18,7168,false,married,2023-08-22
+Syrian Arab Republic,Omsk,true,male,1962-02-14,2827,true,divorced,2021-05-21
+Libyan Arab Jamahiriya,Las Palmas de Gran Canaria,true,female,1958-05-04,9753,true,single,2021-03-26
+Iceland,Seattle,false,male,1978-04-25,3890,true,single,2021-08-04
+Wallis and Futuna,Hyderabad,false,female,1958-10-29,3552,true,divorced,2023-10-23
+"Tanzania, United Republic of",Hamburg,false,female,1956-02-16,5372,true,married,2023-10-14
+Antigua and Barbuda,Port Vila,true,female,2008-05-29,6136,true,married,2020-06-01
+New Caledonia,Ljubljana,true,male,2003-02-28,6483,true,divorced,2023-02-08
+Cayman Islands,Charlotte Amalie,true,female,1997-07-20,6769,false,married,2020-10-10
+Saint Lucia,Barranquilla,false,female,2000-01-29,8838,false,divorced,2021-12-07
+Qatar,Helsinki,false,male,1990-05-07,9640,false,single,2021-04-16
+Liechtenstein,Jamestown,false,male,1983-05-27,8539,true,married,2021-08-27
+Lithuania,Tirana,false,male,2009-06-25,3543,true,divorced,2019-06-28
+Djibouti,Cape Town,false,female,1972-08-09,3337,true,single,2021-04-27
+Saint Kitts and Nevis,Puebla,false,female,1976-09-15,2138,false,divorced,2021-08-31
+Benin,Port Blair,true,female,1996-08-05,3423,false,married,2019-08-08
+Thailand,Valdivia,true,male,1964-08-22,1519,true,married,2024-10-19
+Czech Republic,Bogotá,true,female,1970-07-02,9316,true,divorced,2024-09-28
+"Virgin Islands, British",Djibouti (city),true,female,1967-01-31,4978,true,married,2023-06-26
+Gabon,South Tarawa,false,male,2005-01-28,8262,true,divorced,2024-02-06
+Syrian Arab Republic,Bursa,false,female,1994-03-07,7355,false,married,2024-06-03
+Heard Island and Mcdonald Islands,Singapore,false,male,1986-10-04,2924,true,single,2021-12-08
+Gabon,Oklahoma City,true,female,1962-08-23,6854,true,married,2021-03-26
+Ukraine,Juneau,false,female,1992-10-15,8970,true,divorced,2022-09-02
+Qatar,Seattle,false,female,2008-06-23,7331,false,married,2020-01-17
+Tonga,Anadyr (town),false,male,1956-06-28,3087,true,single,2020-01-28
+Mauritius,Lisbon,false,male,1975-04-27,6817,false,single,2019-03-24
+Turkmenistan,Iquitos,false,male,1957-08-24,9970,false,single,2022-12-29
+Senegal,Lviv,true,male,1966-10-01,2767,true,single,2022-09-15
+Papua New Guinea,Luanda,true,female,1992-09-02,7648,false,single,2021-08-22
+Svalbard and Jan Mayen,Yerevan,true,female,1984-05-06,8936,true,single,2024-01-12
+Thailand,Juneau,true,male,1985-08-29,1972,false,married,2020-08-04
+Azerbaijan,Cincinnati,true,female,1971-06-09,2859,false,married,2023-05-18
+Western Sahara,Ludhiana,true,female,1999-01-21,1453,false,single,2020-11-17
+Burundi,Mandurah,false,male,1956-05-10,5143,true,divorced,2021-11-06
+Thailand,Lusaka,false,male,2001-12-13,4964,true,married,2020-07-16
+Trinidad and Tobago,Beijing,false,male,1999-11-28,9690,false,married,2023-12-23
+Canada,Cayenne,false,female,1998-02-09,3003,false,single,2023-08-31
+Norfolk Island,Iquitos,false,male,2007-07-17,2847,false,married,2021-05-08
+Togo,Dunedin,false,female,1962-07-21,3469,true,single,2022-11-01
+Niger,Monaco,false,female,1966-01-08,7052,true,divorced,2020-12-17
+Argentina,Santa Cruz de Tenerife,true,female,2005-05-06,5362,false,single,2024-06-12
+Tajikistan,Chongqing,false,male,1975-06-06,9243,true,married,2024-10-05
+"Taiwan, Province of China",Córdoba,false,male,2005-07-27,2987,false,married,2022-06-06
+Slovenia,Tegucigalpa,true,male,1993-01-02,2400,false,single,2022-11-08
+Syrian Arab Republic,Dhaka,false,female,1973-06-18,5644,false,married,2021-07-24
+Morocco,Chuí,false,female,1980-01-03,9648,false,single,2023-09-08
+Cuba,Batticaloa,true,female,1979-07-14,5486,true,single,2023-01-05
+Mongolia,Yangon,false,female,1993-04-27,6140,true,divorced,2022-07-04
+France,Toulouse,false,female,1964-04-04,7483,true,divorced,2019-07-18
+Netherlands,Adana,true,female,1994-02-28,8629,true,married,2020-07-13
+Bahamas,Quetzaltenango,false,female,1986-12-16,8077,true,divorced,2024-07-02
+Indonesia,Tashkent,false,female,1992-11-08,2060,true,married,2021-10-05
+Ghana,Invercargill,true,male,2007-02-18,9720,true,married,2021-01-07
+Gabon,Zagreb,true,female,1958-06-16,5126,true,single,2022-01-14
+Slovenia,Hanga Roa,false,female,1956-08-25,9738,true,single,2024-07-06
+Zambia,Valdivia,false,male,1984-06-25,4179,false,single,2021-01-26
+Liechtenstein,Kota Kinabalu,true,female,1999-11-22,3878,true,single,2024-04-24
+Syrian Arab Republic,Tehran,true,female,1978-10-02,1259,false,married,2021-07-28
+"Macedonia, The Former Yugoslav Republic of",Denpasar,true,female,1981-10-26,9918,false,single,2023-05-08
+Slovenia,Juneau,false,male,2009-01-13,3675,false,single,2024-05-30
+"Macedonia, The Former Yugoslav Republic of",Paris,false,female,2008-05-25,7968,true,married,2021-06-19
+"Iran, Islamic Republic Of",Oranjestad,false,male,1958-04-12,7864,true,divorced,2021-08-27
+Antarctica,Buenos Aires,false,female,1988-12-31,4791,true,divorced,2024-04-19
+Wallis and Futuna,Cairns,false,female,2008-08-06,4932,true,single,2022-01-30
+Anguilla,Manzini,false,female,1970-11-23,6442,true,divorced,2022-08-27
+Madagascar,Hangzhou,false,female,1970-04-08,8740,false,divorced,2024-07-11
+AndorrA,Sydney,true,female,2000-11-23,6351,true,single,2022-06-28
+Bhutan,Yerevan,true,female,1979-10-12,6570,true,single,2024-09-15
+Georgia,Copenhagen,true,female,1996-09-23,5647,true,married,2021-12-30
+Australia,Rabi Island,true,female,1995-12-13,4423,true,single,2022-05-07
+Israel,Palembang,false,male,1997-06-13,1410,false,divorced,2022-05-16
+Malawi,Koror,false,male,1996-05-25,8591,false,single,2023-01-08
+Christmas Island,Columbus,true,male,1974-06-21,7055,true,married,2022-02-13
+Croatia,Shillong,true,male,1988-08-28,7780,false,divorced,2023-05-18
+Bahamas,Hobart,false,female,1986-02-28,6689,true,divorced,2022-08-23
+Finland,Huế,false,male,1993-01-05,6960,true,divorced,2019-10-27
+Brunei Darussalam,Fukuoka,true,male,2002-10-14,8515,true,single,2019-07-12
+Montserrat,Milan,true,female,1961-11-27,8804,false,married,2023-07-17
+Svalbard and Jan Mayen,Porto Velho,false,female,1988-11-12,6121,true,married,2024-05-02
+Greenland,Busan,true,male,1976-11-27,5494,false,married,2023-11-06
+"Moldova, Republic of",Kobe,true,female,1980-11-25,1543,true,divorced,2024-10-15
+Qatar,Manzini,true,male,1993-12-17,3748,true,married,2022-01-13
+Haiti,Skopje,false,female,1991-12-11,8922,false,married,2024-05-20
+United Arab Emirates,Quetzaltenango,false,male,1981-04-08,6622,true,single,2021-08-17
+Bulgaria,Ashgabat,false,male,1978-01-11,7225,true,married,2023-09-01
+Romania,Roseau,false,male,1994-05-10,5408,false,divorced,2020-04-06
+"Taiwan, Province of China",Istanbul,true,male,1961-12-05,8485,false,married,2022-04-18
+Estonia,Konya,false,male,1980-04-13,2520,true,married,2023-09-24
+New Zealand,Lobamba,false,female,1979-03-14,6718,true,divorced,2021-12-19
+Ireland,Kuching,false,female,1980-02-13,5411,true,married,2022-11-24
+Reunion,Iquitos,true,male,1971-04-16,3002,false,divorced,2021-07-12
+Puerto Rico,Dili,true,female,1962-05-14,4324,true,married,2019-09-23
+Malta,Rosario,false,male,1969-11-05,2405,false,married,2024-11-07
+Senegal,Tunis,false,female,1988-05-17,7743,true,married,2021-10-30
+Saudi Arabia,Stockholm,true,male,1964-05-15,4518,false,single,2024-12-14
+"Macedonia, The Former Yugoslav Republic of",Ottawa,false,male,1993-03-14,8531,true,single,2024-01-24
+Jordan,Malacca Town,true,female,1971-03-09,2481,false,divorced,2021-08-23
+Peru,Omdurman,true,female,1994-07-18,5604,false,divorced,2020-02-02
+Macao,Guadalajara,false,female,1982-01-15,9584,true,single,2023-12-08
+Brunei Darussalam,Suva,false,female,1964-06-23,8262,true,divorced,2022-08-30
+Sierra Leone,Shigatse,true,female,1975-07-11,4794,true,divorced,2022-03-17
+Bouvet Island,Baghdad,false,female,1986-10-20,5430,true,married,2023-06-30
+Malaysia,Washington,true,female,2000-07-26,1154,true,single,2020-07-09
+Northern Mariana Islands,Prague,true,female,1957-11-03,7897,false,single,2024-12-30
+United Kingdom,Brasília,false,male,1968-06-25,7848,false,divorced,2022-11-01
+New Caledonia,Hai Phong,true,male,1960-05-05,7434,false,married,2021-12-31
+Russian Federation,Lima,true,male,2003-08-31,9563,false,divorced,2019-03-31
+Zimbabwe,Shenzhen,false,male,1992-10-11,4113,true,married,2021-01-25
+Finland,Vaduz,true,male,1989-01-09,8223,false,divorced,2024-02-24
+Paraguay,Düsseldorf,false,male,1959-02-23,7379,true,divorced,2024-06-16
+Bangladesh,Tel Aviv,true,female,1959-10-24,4738,false,single,2021-04-07
+United States,Ludhiana,true,female,1960-10-09,7189,false,single,2019-12-30
+Montserrat,Port Louis,true,male,1994-10-06,5230,true,divorced,2021-09-21
+Algeria,Dresden,false,female,1957-03-28,1588,false,single,2024-08-17
+India,Changchun,false,female,1958-12-12,3254,false,divorced,2020-03-27
+Gibraltar,Handan,false,male,1990-11-02,9026,true,married,2022-03-03
+Senegal,Naypyidaw,false,male,1995-09-30,5299,true,divorced,2023-02-12
+Germany,Leeds,false,male,2003-07-07,1158,true,single,2020-03-04
+Malawi,Wuhan,true,female,1999-06-07,1739,false,married,2022-07-18
+Kiribati,Graz,false,male,1963-04-14,2636,false,married,2022-04-25
+"Macedonia, The Former Yugoslav Republic of",Changchun,true,male,1962-06-16,2027,false,single,2021-05-02
+French Southern Territories,Weno,true,female,1979-03-13,8308,true,divorced,2023-06-10
+United Arab Emirates,Adelaide,false,female,1954-03-08,4425,false,single,2022-10-29
+Tajikistan,Cayenne,true,female,2004-01-16,4191,true,divorced,2024-10-21
+Norfolk Island,Brazzaville,false,male,2008-10-06,5021,true,married,2020-05-06
+United States,Majuro,true,male,1996-10-29,2161,true,divorced,2020-03-14
+Guernsey,Ankara,false,male,1986-05-10,1598,false,single,2023-01-15
+Cameroon,Mandurah,false,male,2001-05-18,5306,false,married,2021-11-12
+Ukraine,Saint John,true,male,1958-11-18,3836,false,married,2024-08-06
+Yemen,Nashville,true,male,1999-12-18,1816,true,married,2022-03-28
+Papua New Guinea,Minneapolis,true,male,2008-06-15,3702,true,married,2024-09-12
+Madagascar,Serekunda,true,male,1975-09-21,4442,false,divorced,2019-12-28
+India,Chişinău,true,female,1994-02-01,3863,false,divorced,2020-08-16
+Vanuatu,Enugu,false,male,2000-02-19,7949,false,divorced,2020-02-19
+Ghana,Tamale,false,female,1998-07-05,1022,true,married,2023-06-07
+Kenya,Pristina,false,male,1961-06-17,2119,false,married,2021-02-17
+Svalbard and Jan Mayen,Jayapura,true,female,2008-11-25,8914,true,single,2020-03-11
+Malta,Buenos Aires,true,female,1974-09-06,3869,true,married,2024-06-19
+Italy,Cotonou,true,male,2001-08-11,9854,true,divorced,2023-08-11
+French Southern Territories,Okinawa,true,male,2009-09-28,2533,true,single,2023-05-09
+China,Indianapolis,true,female,1972-07-20,9964,false,divorced,2020-04-08
+Singapore,Kuching,true,female,2003-09-19,6280,false,divorced,2020-09-12
+"Virgin Islands, U.S.",Phuket (city),true,female,1954-09-22,7610,false,divorced,2021-10-04
+Svalbard and Jan Mayen,Calama,false,male,1988-03-18,9624,false,married,2022-12-23
+Guadeloupe,Shenzhen,false,male,1989-10-28,5402,false,divorced,2023-07-31
+Mali,Tampere,true,female,1999-03-15,3877,false,single,2020-02-17
+Svalbard and Jan Mayen,Whitehorse,false,male,1989-10-02,1702,false,divorced,2022-01-05
+Benin,Lubumbashi,false,female,1976-11-21,8990,true,single,2022-06-17
+Botswana,Dallas,false,male,1980-05-30,7518,false,divorced,2024-09-10
+Saint Lucia,Muscat,true,female,1971-02-08,5025,false,divorced,2023-06-30
+Colombia,Hagåtña,false,female,1992-06-02,3641,true,single,2023-03-04
+Gabon,Bern,true,female,1963-08-31,9116,true,married,2024-11-01
+AndorrA,Monrovia,false,female,2000-05-21,3871,false,married,2020-03-01
+Oman,Surat Thani,false,female,1960-06-18,4191,true,divorced,2019-08-02
+Lithuania,Tucson,true,male,1975-09-28,9526,false,married,2019-10-13
+Japan,Dongguan,false,female,2004-09-10,7484,true,single,2023-09-29
+"Korea, Republic of",Cusco,true,female,1955-05-27,9280,false,single,2021-11-10
+Niue,Omdurman,true,female,1979-08-03,6699,false,married,2022-03-07
+Ghana,Porto,true,female,1998-06-03,4483,false,single,2021-04-01
+San Marino,Alor Star,true,female,1988-01-27,1122,true,married,2023-04-25
+Suriname,Hanover,true,male,1972-12-11,7935,false,divorced,2023-07-15
+Slovakia,Cairo,true,female,1998-08-14,7581,true,divorced,2022-10-13
+Nauru,Buffalo,false,female,1998-03-17,7349,true,divorced,2021-04-21
+Turks and Caicos Islands,Yogyakarta (city),true,male,1954-05-23,3090,true,single,2023-12-11
+Canada,Lanzhou,true,female,1970-06-30,7051,false,divorced,2021-08-04
+Saint Helena,Bulawayo,false,female,1975-07-11,6146,true,single,2020-02-01
+Saint Helena,Innsbruck,true,female,1958-11-12,6373,false,divorced,2020-12-13
+Georgia,Jakarta,true,male,1974-12-20,9333,true,single,2019-08-14
+Ireland,Salzburg,false,female,2006-01-15,3079,true,married,2023-05-18
+"Lao People""S Democratic Republic",Bergen,false,male,1969-10-03,3422,false,divorced,2022-06-02
+Saint Pierre and Miquelon,Mandurah,false,male,1964-12-22,5116,false,married,2022-08-01
+Mali,Tampere,true,female,1958-05-13,1662,false,married,2021-08-14
+Guinea-Bissau,Calama,true,male,1985-06-28,9345,false,single,2023-03-20
+Equatorial Guinea,Cuiabá,false,female,1976-09-14,7647,true,single,2023-10-22
+Mongolia,Amsterdam,true,male,1965-04-07,7476,true,married,2020-05-03
+Zimbabwe,Sri Jayawardenapura-Kotte,true,female,1990-05-02,4899,true,single,2022-06-12
+Turkey,Kharkiv,true,male,1987-05-26,3777,false,single,2024-08-15
+Indonesia,London,true,male,1993-01-09,1130,false,divorced,2020-09-09
+Ethiopia,Timbuktu,false,male,1981-01-04,1879,false,single,2021-05-18
+Romania,Huế,true,male,1989-08-01,9806,false,divorced,2024-07-10
+Algeria,Siem Reap,true,female,2007-07-18,2676,false,single,2022-03-09
+Vanuatu,Apia,false,male,1995-08-01,4862,true,married,2020-05-30
+Kazakhstan,Quebec City,true,male,1990-02-13,6619,false,divorced,2021-11-06
+Holy See (Vatican City State),Pretoria,true,female,2006-04-07,1507,true,single,2024-05-27
+Jamaica,New Delhi,false,male,1982-03-27,8267,true,divorced,2024-04-08
+Eritrea,Hai Phong,true,male,2009-03-09,7010,true,single,2022-10-14
+French Polynesia,Hilo,false,female,1980-01-08,3120,true,divorced,2020-11-14
+Angola,Amsterdam,true,female,1960-04-09,8255,false,married,2020-08-23
+"Taiwan, Province of China",Ludhiana,false,female,1978-05-08,6753,true,divorced,2024-03-22
+French Polynesia,Beirut,true,male,1973-11-08,2073,true,married,2021-05-08
+AndorrA,Saint-Pierre,true,female,1955-11-12,9999,true,single,2022-05-15
+Haiti,Honolulu,true,male,1993-10-22,7842,false,divorced,2024-09-23
+Turkmenistan,Townsville,false,male,2007-05-31,6551,false,married,2024-10-11
+French Guiana,Nantes,false,female,1992-01-27,4908,false,single,2024-11-12
+Australia,Majuro,false,female,2001-07-25,7704,false,divorced,2023-06-15
+Burkina Faso,Oranjestad,false,female,2008-09-22,5250,true,married,2023-03-23
+Fiji,Chengdu,false,male,1981-04-19,9281,false,single,2024-08-09
+Puerto Rico,Majuro,false,female,1979-10-11,7505,true,married,2022-05-08
+Sudan,Praia,true,male,1998-06-28,4746,true,married,2022-04-14
+Anguilla,Makassar,true,male,1996-02-05,8496,true,single,2024-07-20
+Netherlands Antilles,Ho Chi Minh City,true,female,1973-02-17,4978,true,married,2024-05-23
+Monaco,Taiyuan,true,female,1966-02-05,9721,true,married,2019-03-29
+Heard Island and Mcdonald Islands,Johannesburg,false,female,1987-01-15,9088,false,married,2024-08-20
+Malaysia,Simferopol,false,male,1975-12-17,3832,true,single,2019-03-07
+"Virgin Islands, U.S.",Cleveland,true,female,1993-08-06,7761,true,single,2020-06-21
+Suriname,Asmara,true,male,1965-11-13,5459,false,divorced,2021-09-08
+Central African Republic,Mogadishu,false,female,1984-01-25,2035,false,divorced,2019-01-21
+Haiti,Algiers,false,male,1982-08-12,2438,false,single,2024-10-11
+Estonia,Dar es Salaam,true,female,2007-01-26,6510,false,married,2023-09-25
+Qatar,Shenyang,true,female,1983-11-04,1595,true,divorced,2019-07-07
+Austria,Yamoussoukro,true,female,1959-04-06,7588,true,single,2021-03-16
+South Africa,Osaka,true,female,1972-09-07,3399,true,single,2024-11-11
+"Iran, Islamic Republic Of",Mexicali,false,female,1959-09-12,3079,true,married,2024-03-28
+Norway,Riverside,false,female,1973-09-17,8922,false,single,2023-07-27
+Viet Nam,Bogotá,false,male,1963-12-11,9059,true,single,2022-03-11
+Bhutan,Split (city),false,female,2008-10-25,6411,false,divorced,2022-02-28
+Martinique,Dakar,true,male,1969-12-21,9910,false,divorced,2024-03-22
+Nepal,Tabriz,true,female,1972-09-03,7986,true,single,2019-07-21
+Ethiopia,Malabo,true,female,2009-07-31,5746,false,married,2022-02-11
+Estonia,Guayaquil,true,female,1994-02-12,2704,true,single,2019-08-14
+Malawi,Hanoi,true,female,1960-01-13,4397,true,married,2020-09-11
+French Southern Territories,Chongqing,false,male,2009-10-28,9276,false,married,2024-04-12
+Saint Vincent and the Grenadines,Nuuk,true,female,1971-12-13,3828,false,married,2024-01-15
+Mongolia,İzmir,false,female,1969-10-08,6681,true,single,2023-05-26
+Armenia,Thimphu,false,female,1987-08-03,9506,true,married,2021-08-18
+Mayotte,Brisbane,false,male,1981-01-29,8498,true,divorced,2023-10-01
+China,Valletta,true,male,1957-04-11,4819,true,married,2020-05-09
+Azerbaijan,Columbus,false,male,1991-06-26,7724,true,single,2020-01-21
+Canada,Da Nang,true,female,1973-07-15,2768,false,divorced,2022-12-12
+Niue,Sucre,true,female,1969-01-17,5869,false,single,2023-08-16
+Georgia,Birkirkara,false,male,2009-07-04,9846,true,divorced,2022-09-18
+Philippines,Düsseldorf,false,female,1960-07-27,9727,true,married,2021-05-02
+Wallis and Futuna,Nantes,true,female,2001-05-29,7446,false,single,2019-08-21
+Angola,Francistown,false,male,2009-03-14,7298,false,divorced,2020-06-02
+"Lao People""S Democratic Republic",Tiraspol,true,male,1985-05-08,9163,false,married,2021-08-21
+American Samoa,Cusco,false,female,1960-08-23,2723,false,single,2024-04-11
+Egypt,Lahore,true,female,2002-03-03,4686,false,divorced,2022-02-26
+Sierra Leone,Padang,true,male,1980-05-01,3634,true,married,2024-10-23
+Bhutan,Jakarta,true,female,2001-01-02,2462,true,married,2019-09-30
+Saint Vincent and the Grenadines,Manzini,false,female,1956-10-01,9796,false,divorced,2024-01-01
+Northern Mariana Islands,Bissau,true,female,1966-06-16,2050,false,single,2022-12-07
+French Guiana,San Antonio,true,female,1981-11-03,1968,false,divorced,2024-02-19
+Egypt,Balikpapan,true,female,1969-04-16,9574,false,married,2020-09-04
+Poland,Portland,false,female,2003-09-28,3057,false,married,2020-02-10
+Sierra Leone,Austin,false,male,1971-06-11,6186,false,single,2020-07-06
+Cambodia,Port Moresby,false,male,1979-05-13,7504,true,married,2019-02-01
+Algeria,Dibrugarh,true,female,2002-08-19,7796,false,married,2023-09-17
+Bahamas,Memphis,false,female,1977-03-31,6503,false,single,2023-10-05
+Swaziland,Düsseldorf,false,male,1970-12-11,6670,true,single,2024-08-14
+New Zealand,Porto,false,female,2006-04-09,4972,false,married,2021-01-20
+"Lao People""S Democratic Republic",Tamale,true,female,1999-06-10,9835,false,married,2020-06-15
+Canada,Busan,false,female,1984-08-07,4530,true,single,2024-12-01
+Guinea,Manila,false,female,1983-08-16,9608,true,single,2024-09-25
+Mozambique,Frankfurt,true,male,2000-11-02,7087,false,single,2019-08-21
+Israel,Palikir,true,male,2001-07-20,3645,true,single,2024-04-29
+Solomon Islands,Manaus,false,male,1969-12-10,5678,true,married,2024-03-30
+Philippines,La Serena,true,male,1978-12-01,8703,false,married,2019-03-01
+Saudi Arabia,Saint John,false,male,1971-02-18,1443,false,single,2021-12-16
+Brunei Darussalam,Las Vegas,true,female,1986-02-17,5368,false,single,2020-03-18
+Jordan,Dubai,true,female,1996-04-23,9298,false,divorced,2020-02-14
+Turkey,Agartala,false,female,1977-06-09,7948,true,divorced,2019-12-15
+Åland Islands,Pristina,true,female,1982-01-16,9247,false,single,2022-10-23
+"Macedonia, The Former Yugoslav Republic of",San José,true,female,1956-04-13,8419,true,divorced,2020-09-16
+Tunisia,Lagos,true,female,1965-11-09,7115,false,divorced,2020-02-12
+Mali,Tel Aviv,false,female,2008-10-19,8381,true,single,2020-04-21
+Saudi Arabia,Punta Arenas,false,female,1991-04-07,4881,true,married,2023-07-05
+Sri Lanka,Pekanbaru,false,male,1997-01-23,5974,true,divorced,2019-05-08
+Yemen,Vancouver,false,male,2009-02-23,2744,false,married,2024-09-18
+Romania,Tijuana,true,female,1963-09-04,4458,false,single,2023-05-20
+Bolivia,San Antonio,true,female,1965-02-23,6695,true,married,2019-12-19
+Cambodia,Kaohsiung,false,female,1955-10-27,3971,false,divorced,2020-03-23
+Kazakhstan,Belize City,false,female,1974-05-03,4278,true,divorced,2022-02-14
+Oman,Perm,false,male,1963-02-15,5853,true,married,2024-06-03
+"Palestinian Territory, Occupied",Basse-Terre,true,male,1963-06-29,8345,true,married,2020-02-17
+Lesotho,Miami,true,female,1966-07-01,3460,false,single,2019-05-13
+South Georgia and the South Sandwich Islands,Rio Branco,false,female,2007-08-25,8039,false,single,2019-12-15
+Singapore,Barranquilla,false,male,1997-04-27,7919,false,single,2023-12-21
+Christmas Island,Cleveland,false,male,2007-08-09,6085,true,single,2021-01-04
+Gambia,Bern,true,female,1957-03-15,6755,false,divorced,2020-02-25
+French Southern Territories,Milan,false,male,1990-03-08,7623,true,single,2019-08-14
+Mexico,Ciudad del Este,true,male,2006-07-07,8653,false,divorced,2021-11-16
+Martinique,Willemstad,false,female,1983-06-12,1300,false,divorced,2019-07-02
+Norfolk Island,Denpasar,false,female,1956-05-16,5689,false,married,2022-01-04
+Niue,Djibouti (city),true,female,1961-09-01,2959,true,married,2020-06-21
+Afghanistan,Denver,false,male,1982-11-27,2852,false,single,2024-09-21
+Uganda,Perth,false,male,1966-09-25,5105,true,married,2022-09-01
+Jamaica,Ottawa,false,female,1961-07-25,1777,false,divorced,2024-08-21
+Trinidad and Tobago,Las Vegas,true,female,1968-10-17,5469,false,divorced,2019-03-28
+Turkey,Dibrugarh,true,male,1978-06-27,6858,true,single,2024-07-06
+India,Stuttgart,true,female,1972-01-23,2892,false,married,2020-03-04
+Belarus,Angra do Heroísmo,false,female,1992-09-23,9072,true,married,2020-12-20
+Kuwait,Albuquerque,true,male,1958-11-03,7506,true,divorced,2023-02-14
+Nepal,Serekunda,true,male,1995-07-12,9689,false,married,2024-12-19
+Cape Verde,Bamako,true,male,1984-05-14,3531,true,single,2024-03-21
+Dominica,Francistown,true,male,1991-07-07,5134,true,married,2022-12-10
+Western Sahara,Shillong,false,female,1966-09-08,5870,true,divorced,2019-09-23
+Sierra Leone,Bulawayo,true,male,1990-12-22,7193,false,single,2022-05-11
+Svalbard and Jan Mayen,Francistown,true,female,1956-07-04,3036,false,divorced,2021-08-19
+Holy See (Vatican City State),Petropavlovsk-Kamchatsky,true,female,2005-01-31,7608,false,divorced,2023-01-21
+Spain,Newcastle,true,female,1996-07-19,2789,true,single,2019-09-18
+"Korea, Democratic People""S Republic of",Omsk,true,female,1969-08-10,8927,false,married,2023-12-08
+Viet Nam,Cuiabá,false,female,1964-03-14,1634,false,married,2023-01-01
+Guam,Siem Reap,true,female,1961-03-24,3308,true,divorced,2019-02-06
+Ukraine,Pune,false,male,1959-07-28,2059,false,divorced,2019-11-09
+Kyrgyzstan,Murmansk,true,female,1986-05-13,3391,false,married,2021-11-15
+Swaziland,Yellowknife,true,male,1956-04-27,2197,true,married,2022-07-10
+Cambodia,Maceió,true,female,2008-03-08,6873,true,married,2024-09-11
+"Moldova, Republic of",Nakhon Ratchasima,true,female,1987-07-14,5106,false,single,2021-08-28
+Samoa,Bandung,true,male,1967-04-21,8188,true,divorced,2021-07-05
+Tajikistan,Las Palmas de Gran Canaria,false,female,1954-12-04,3865,false,divorced,2022-02-01
+United Kingdom,Bangalore,true,male,1974-06-30,8191,true,single,2021-08-02
+Tuvalu,Addis Ababa,true,male,2003-08-27,9079,false,single,2024-09-15
+Bhutan,Birmingham,false,male,2007-01-10,7344,false,single,2022-04-03
+Nauru,Hamilton,true,male,1976-11-27,6020,false,single,2020-04-27
+Bouvet Island,La Paz,true,male,1957-04-04,5407,true,single,2022-11-01
+Mauritania,Yangon,false,male,1982-04-26,7299,true,married,2024-07-05
+Czech Republic,Birkirkara,true,male,1970-06-09,6630,false,single,2020-12-01
+Estonia,Graz,false,male,1975-04-14,3145,true,single,2023-01-14
+Svalbard and Jan Mayen,Yogyakarta (city),true,male,1965-03-11,5505,true,married,2023-06-11
+Chad,Adamstown,true,female,1973-05-07,6622,false,married,2024-03-15
+Cocos (Keeling) Islands,Petropavlovsk-Kamchatsky,false,female,1999-04-23,7252,true,single,2021-07-09
+United States,Kota Bharu,true,male,1999-02-23,5603,false,married,2022-03-28
+Spain,Patna,false,male,1960-04-13,3321,true,single,2021-08-21
+Monaco,Port Vila,true,male,1961-08-25,2225,true,divorced,2019-07-29
+Canada,Reykjavík,true,male,1957-08-30,5957,true,divorced,2024-04-21
+Malaysia,Vilnius,false,male,1976-05-29,2168,true,single,2022-07-20
+Swaziland,Tampa,true,male,1961-02-02,2286,false,married,2023-01-27
+Philippines,Ahmedabad,true,male,1990-05-29,6272,true,single,2024-05-22
+Mayotte,San Antonio,false,male,2001-09-09,5017,false,married,2019-02-05
+Cape Verde,Belfast,true,male,1987-11-20,3461,false,single,2023-09-11
+Congo,Milwaukee,false,female,1987-05-14,5344,true,single,2022-10-30
+Qatar,Santa Cruz de Tenerife,true,male,1970-11-29,9351,false,married,2021-04-04
+Liechtenstein,Dushanbe,true,male,1967-08-19,7114,false,married,2023-05-08
+Netherlands Antilles,Moscow,false,female,1973-09-13,4072,false,single,2022-06-18
+Sudan,Wonsan,true,female,1969-08-05,6605,false,divorced,2024-01-20
+Bosnia and Herzegovina,Stanley,false,female,2000-04-09,7988,false,divorced,2024-03-29
+Brunei Darussalam,Wellington,true,female,1982-02-18,4774,false,divorced,2022-07-14
+"Cote D""Ivoire",Macapá,true,female,1992-04-22,9728,false,single,2023-06-22
+"Virgin Islands, U.S.",Palikir,true,female,2007-10-28,1501,true,married,2021-09-23
+Georgia,Incheon,false,male,1989-07-26,8213,false,divorced,2022-10-10
+Western Sahara,Asunción,false,male,1959-10-15,7961,true,single,2021-07-06
+Greece,Lucknow,false,female,1985-11-16,5814,false,single,2021-01-12
+Zimbabwe,Karachi,true,female,1958-01-04,9714,true,single,2020-03-02
+Nicaragua,Porto-Novo,true,female,1982-02-13,6849,true,divorced,2020-11-20
+RWANDA,Doha,true,female,1981-02-27,1841,true,married,2021-02-18
+"Tanzania, United Republic of",Bamako,false,male,2004-02-06,4410,false,divorced,2023-01-16
+Fiji,Vilnius,false,female,1993-01-27,8009,false,married,2023-11-21
+Switzerland,Tartu,true,male,1981-10-11,7648,false,married,2021-04-27
+Slovenia,Aberdeen,false,male,1955-05-31,5248,true,divorced,2022-11-02
+AndorrA,Lomé,false,male,1955-07-22,8830,true,divorced,2024-01-15
+Malawi,Monaco,true,female,2007-04-29,3664,false,married,2019-09-15
+Argentina,Charlotte,true,male,1969-08-15,6089,true,married,2019-10-09
+Pitcairn,Seoul,true,female,1969-09-17,5867,false,married,2021-07-16
+Saudi Arabia,Samara,false,male,1999-06-18,6071,false,single,2023-03-14
+Turkmenistan,Rawalpindi,true,male,1982-02-28,6825,false,divorced,2020-09-23
+Syrian Arab Republic,Honiara,true,female,1983-08-23,4203,false,married,2022-06-19
+Guinea-Bissau,N'Djamena,false,male,1966-05-17,8749,false,divorced,2021-09-10
+Australia,Ouagadougou,false,female,2003-01-02,6952,false,married,2023-03-17
+Liberia,Handan,false,male,1980-08-12,2908,true,single,2024-12-19
+Zambia,Tehran,false,male,1965-07-10,6228,true,single,2019-11-09
+Guinea-Bissau,Zhengzhou,true,female,1992-08-13,2248,true,married,2023-04-25
+Syrian Arab Republic,Naypyidaw,true,male,1957-06-15,5896,true,single,2019-11-01
+Romania,La Paz,true,female,1961-10-22,7082,true,divorced,2019-01-07
+British Indian Ocean Territory,Majuro,false,female,1957-05-24,5021,true,married,2022-06-17
+India,Lahore,false,female,1963-11-04,1087,false,single,2021-05-13
+Syrian Arab Republic,Omdurman,true,male,1959-09-02,4553,false,single,2019-10-16
+India,Pekanbaru,false,female,1984-04-16,5644,false,divorced,2024-10-28
+Sweden,Port Said,false,male,1959-11-06,7413,true,married,2023-12-26
+Malawi,Kraków,true,male,1990-11-11,1160,true,single,2021-11-23
+Antigua and Barbuda,Buenos Aires,false,female,1978-10-29,8353,true,married,2023-05-13
+Gibraltar,Ahmedabad,true,male,2004-10-14,6362,false,divorced,2023-08-06
+Ecuador,Tegucigalpa,true,male,1985-12-03,1044,false,married,2021-09-01
+Ecuador,Naples,true,male,1982-07-13,7528,false,married,2020-07-18
+Gambia,Handan,false,male,1983-10-19,5853,true,married,2023-08-29
+Italy,Bogotá,true,male,1988-04-22,6877,true,single,2019-08-21
+Suriname,Okinawa,true,female,1980-01-12,6113,true,single,2023-09-01
+Georgia,Rawalpindi,false,female,1967-08-30,8625,true,married,2023-01-04
+Malaysia,Indianapolis,true,male,1976-11-27,1218,false,single,2023-06-03
+Montserrat,Kraków,false,female,1954-02-25,3520,true,divorced,2021-06-08
+Mali,Hilo,false,female,1996-07-23,7890,true,married,2020-09-08
+Niger,St. George's,true,female,1976-03-15,6289,true,married,2024-01-30
+Poland,Kinshasa,false,male,1983-01-01,5492,false,single,2019-09-07

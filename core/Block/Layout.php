@@ -27,8 +27,11 @@ class Layout
      */
     protected array $blockData = [];
 
-
-    public function __construct($moduleName, $controllerName)
+    /**
+     * @param string $moduleName
+     * @param string $controllerName
+     */
+    public function __construct(string $moduleName, string $controllerName)
     {
         $this->moduleName = $moduleName;
         $this->controllerName = $controllerName;
@@ -61,9 +64,9 @@ class Layout
     /**
      * @param string $filePath
      *
-     * @return bool|SimpleXMLElement
+     * @return false|SimpleXMLElement
      */
-    private function loadLayoutFile(string $filePath): bool|SimpleXMLElement
+    private function loadLayoutFile(string $filePath): false|SimpleXMLElement
     {
         $realFilePath = App::BASE_APP_DIR . '/frontend/layouts/' . $filePath;
         if (file_exists($realFilePath)) {
@@ -145,9 +148,9 @@ class Layout
                     }
                 }
                 $block->setChildBlocks($childBlocks);
-            }
 
-            return array($attributes['name'] => $block);
+                return array($attributes['name'] => $block);
+            }
         }
 
         return null;

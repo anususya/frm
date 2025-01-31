@@ -2,7 +2,7 @@
 
 namespace Core\Block;
 
-use app;
+use App;
 
 class Block
 {
@@ -21,7 +21,9 @@ class Block
      */
     public array $childBlocks = [];
 
-
+    /**
+     * @param array<string, string> $attributes
+     */
     public function __construct(array $attributes)
     {
         $this->attributes = $attributes;
@@ -38,7 +40,7 @@ class Block
     }
 
     /**
-     * @return Block[]
+     * @return array<string, Block>
      */
     public function getChildBlocks(): array
     {
@@ -50,7 +52,8 @@ class Block
     public function render(): void
     {
         ob_start();
-        $realPath = app::BASE_APP_DIR . '/frontend/front/' . $this->attributes['file'] ?? '';
+        $filePath = isset($this->attributes['file']) ? $this->attributes['file'] : '';
+        $realPath = App::BASE_APP_DIR . '/frontend/front/' . $filePath;
         include $realPath;
         $block = ob_get_clean();
         echo $block ?: '';

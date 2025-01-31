@@ -2,4 +2,4 @@
 
 require_once "../autoload.php";
 
-app::run();
+App::run();

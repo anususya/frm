@@ -17,11 +17,12 @@ function my_custom_autoloader(string $path_to_class): void
         $path = implode('/', $path_parts);
         $file = __DIR__ . '/' . $path . '.php';
 
-        if ( file_exists($file) ) {
+        if (file_exists($file)) {
             require_once $file;
         }
     }
 }
 
-// add a new autoloader by passing a callable into spl_autoload_register()
-spl_autoload_register( 'my_custom_autoloader' );
+// phpcs:disable
+spl_autoload_register('my_custom_autoloader');
+// phpcs:disable

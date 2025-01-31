@@ -2,6 +2,6 @@
 
 $baseDir = __DIR__ . '/app/';
 
-return array (
+return array(
     'Core\\Import\\DB' => $baseDir . 'Import/DB.php'
 );

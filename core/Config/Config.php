@@ -2,11 +2,11 @@
 
 namespace Core\Config;
 
-use app;
+use App;
 
 class Config
 {
-    private const CONFIG_DIR = app::BASE_APP_DIR . '/config/';
+    private const CONFIG_DIR = App::BASE_APP_DIR . '/config/';
 
     /**
      * @var array<string, mixed>|null

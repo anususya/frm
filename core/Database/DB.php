@@ -3,7 +3,7 @@
 namespace Core\Database;
 
 use PDO as PDO;
-use core\Config\Config as Config;
+use Core\Config\Config;
 use RuntimeException;
 use Exception;
 use PDOException;

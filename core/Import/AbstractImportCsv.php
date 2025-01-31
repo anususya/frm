@@ -2,7 +2,7 @@
 
 namespace Core\Import;
 
-use app;
+use App;
 use Core\Database\DB as DB;
 use Exception;
 use Generator;
@@ -44,7 +44,7 @@ abstract class AbstractImportCsv extends AbstractImport
         $counter = 0;
         $lines = [];
 
-        if (($handle = @fopen(app::BASE_APP_DIR . '/import/' . $this->importConfig['fileName'], "r")) !== false) {
+        if (($handle = @fopen(App::BASE_APP_DIR . '/import/' . $this->importConfig['fileName'], "r")) !== false) {
             $connection = DB::getConnection();
 
             foreach ($this->getLine($handle) as $line) {

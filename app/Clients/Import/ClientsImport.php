@@ -2,7 +2,7 @@
 
 namespace App\Clients\Import;
 
-use app;
+use App;
 use Core\Database\DB as DB;
 use Core\Import\AbstractImportCsv;
 use Exception;
@@ -44,7 +44,7 @@ class ClientsImport extends AbstractImportCsv
      */
     public function runInstallTableScript(string $tableName): void
     {
-        $filePath = app::BASE_APP_DIR . '/migration/' . $tableName . '.sql';
+        $filePath = App::BASE_APP_DIR . '/migration/' . $tableName . '.sql';
         $script = file_get_contents($filePath);
         if ($script) {
             $connection = DB::getConnection();

@@ -1,0 +1,22 @@
+<?php
+/**
+ * @var Core\Block\Block $this
+ */
+?>
+<div class="custom-bg text-dark">
+    <div class="d-flex align-items-center justify-content-center min-vh-100 px-2">
+        <div class="text-center">
+            <?php if ($this->getData('result')) { ?>
+                <p class="mt-4 mb-5">File generated successfully. Please, load new clients data</p>
+                <a href="/parse" class="btn btn-light fw-semibold rounded-pill px-4 py-2 custom-btn">
+                    Load clients data
+                </a>
+            <?php } else { ?>
+                <p class="mt-4 mb-5">File generation failed. Please, generate new  clients data </p>
+                <a href="/generate" class="btn btn-light fw-semibold rounded-pill px-4 py-2 custom-btn">
+                    Generate clients data
+                </a>
+            <?php } ?>
+        </div>
+    </div>
+</div>

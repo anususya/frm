@@ -1,5 +1,6 @@
 <?php
 
+use App\Clients\Controller\GenerateController;
 use App\Clients\Controller\ParseController;
 use App\Clients\Controller\SearchController;
 use Core\Controller\PageNotFoundController;
@@ -23,6 +24,14 @@ class App
             case '/parse':
                 $cont = new ParseController('clients', 'parse');
                 $cont->index();
+                break;
+            case '/generate':
+                $cont = new GenerateController('clients', 'generate/index');
+                $cont->index();
+                break;
+            case '/generate/generate':
+                $cont = new GenerateController('clients', 'generate/generate');
+                $cont->generate();
                 break;
             default:
                 $cont = new pageNotFoundController('default', '404');

@@ -55,7 +55,11 @@ abstract class AbstractImportCsv extends AbstractImport
                     $lines = [];
                 }
             }
-            $connection?->insert($this->importConfig['tableName'], $this->importConfig['columns'], $lines);
+
+            if ($lines) {
+                $connection?->insert($this->importConfig['tableName'], $this->importConfig['columns'], $lines);
+            }
+
             fclose($handle);
         } else {
             throw new RuntimeException('Can\'t open the import file');

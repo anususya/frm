@@ -4,6 +4,6 @@ parameters:
 		- app
 		- core
 	scanFiles:
-	- app.php
+	- App.php
 	excludePaths:
 	- core/Env

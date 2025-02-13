@@ -1,0 +1,24 @@
+clients_generate:
+  path: /generate/generate
+  controller: App\Clients\Controller\GenerateController::generate
+  methods: [POST]
+clients_generate_page:
+  path: /generate
+  controller: App\Clients\Controller\GenerateController::index
+  methods: [GET]
+clients_parse:
+  path: /parse
+  controller: App\Clients\Controller\ParseController::index
+  methods: [GET, POST]
+clients_search:
+  path: /analyze
+  controller: App\Clients\Controller\SearchController::index
+  methods: [GET]
+clients_load_file_page:
+  path: /load
+  controller: App\Clients\Controller\UploadFileController::index
+  methods: [GET]
+clients_load_file:
+  path: /load/file
+  controller: App\Clients\Controller\UploadFileController::load
+  methods: [POST]

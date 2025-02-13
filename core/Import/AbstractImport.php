@@ -68,14 +68,4 @@ abstract class AbstractImport
             throw new RuntimeException('Import configuration is wrong. Please check import configuration file');
         }
     }
-
-    /**
-     * @param string $log
-     *
-     * @return void
-     */
-    protected function log(string $log): void
-    {
-        //file_put_contents(app::BASE_APP_DIR . '/log/import.log', $log, FILE_APPEND);
-    }
 }

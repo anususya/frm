@@ -3,6 +3,8 @@
 namespace Core\Block;
 
 use App;
+use LogicException;
+use SplFileInfo;
 
 class Block
 {
@@ -52,9 +54,14 @@ class Block
     public function render(): void
     {
         ob_start();
-        $filePath = isset($this->attributes['file']) ? $this->attributes['file'] : '';
+        $filePath = $this->attributes['file'] ?? '';
         $realPath = App::BASE_APP_DIR . '/frontend/front/' . $filePath;
-        include $realPath;
+        $fileInfo = new SplFileInfo($realPath);
+        if ($fileInfo->isFile() && $fileInfo->isReadable()) {
+            include $realPath;
+        } else {
+            throw new LogicException('File not found: ' . $realPath);
+        }
         $block = ob_get_clean();
         echo $block ?: '';
     }

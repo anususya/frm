@@ -12,7 +12,7 @@ class GenerateController extends FrontendController
      */
     public function index(): void
     {
-        $this->prepareLayout();
+        $this->prepareLayout('clients/generate/index');
         $this->renderLayout();
     }
 
@@ -21,7 +21,7 @@ class GenerateController extends FrontendController
      */
     public function generate(): void
     {
-        $this->prepareLayout();
+        $this->prepareLayout('clients/generate/generate');
 
         if (isset($_POST['count'])) {
             $fileGenerator = new ClientsDataGenerator();

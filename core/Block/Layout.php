@@ -4,13 +4,14 @@ namespace Core\Block;
 
 use App;
 use SimpleXMLElement;
+use SplFileInfo;
 
 class Layout
 {
     /**
      * @var string
      */
-    protected string $moduleName;
+    protected string $layoutName;
 
     /**
      * @var string
@@ -28,13 +29,11 @@ class Layout
     protected array $blockData = [];
 
     /**
-     * @param string $moduleName
-     * @param string $controllerName
+     * @param string $layoutName
      */
-    public function __construct(string $moduleName, string $controllerName)
+    public function __construct(string $layoutName)
     {
-        $this->moduleName = $moduleName;
-        $this->controllerName = $controllerName;
+        $this->layoutName = $layoutName;
     }
 
     /**
@@ -42,7 +41,7 @@ class Layout
      */
     public function prepare(): void
     {
-        $filePath = $this->moduleName . '/' . $this->controllerName . '.xml';
+        $filePath = $this->layoutName . '.xml';
         $layout = $this->loadLayoutFile($filePath);
         if ($layout) {
             $this->parse($layout);
@@ -69,7 +68,8 @@ class Layout
     private function loadLayoutFile(string $filePath): false|SimpleXMLElement
     {
         $realFilePath = App::BASE_APP_DIR . '/frontend/layouts/' . $filePath;
-        if (file_exists($realFilePath)) {
+        $fileInfo = new SplFileInfo($realFilePath);
+        if ($fileInfo->isFile() && $fileInfo->isReadable()) {
             return simplexml_load_file($realFilePath);
         }
 

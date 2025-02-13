@@ -9,7 +9,7 @@ class PageNotFoundController extends FrontendController
      */
     public function index(): void
     {
-        $this->prepareLayout();
+        $this->prepareLayout('default/404');
         $this->renderLayout();
     }
 }

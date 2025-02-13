@@ -11,6 +11,10 @@ use RuntimeException;
 abstract class AbstractImportCsv extends AbstractImport
 {
     /**
+     * @var string
+     */
+    protected string $importDirectory = App::BASE_APP_DIR . '/import/';
+    /**
      * @return void
      */
     protected function setImportType(): void
@@ -44,7 +48,7 @@ abstract class AbstractImportCsv extends AbstractImport
         $counter = 0;
         $lines = [];
 
-        if (($handle = @fopen(App::BASE_APP_DIR . '/import/' . $this->importConfig['fileName'], "r")) !== false) {
+        if (($handle = @fopen($this->importDirectory . $this->importConfig['fileName'], "r")) !== false) {
             $connection = DB::getConnection();
 
             foreach ($this->getLine($handle) as $line) {

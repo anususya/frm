@@ -20,7 +20,7 @@ class SearchController extends FrontendController
 
         $data = ['searchResult' => $searchResult];
 
-        $this->prepareLayout();
+        $this->prepareLayout('clients/search');
         $this->setBlockData('search', $data);
         $this->renderLayout();
     }

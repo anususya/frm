@@ -1,41 +1,24 @@
 <?php
 
-use App\Clients\Controller\GenerateController;
-use App\Clients\Controller\ParseController;
-use App\Clients\Controller\SearchController;
-use Core\Controller\PageNotFoundController;
+use Core\Router\Router;
 
 // phpcs:ignore
 class App
 {
     public const BASE_APP_DIR = __DIR__;
 
-    /**
-     * @throws Exception
-     */
-    public static function run(): void
+    private Router $router;
+
+    public function __construct()
     {
-        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        switch ($path) {
-            case '/analyze':
-                $cont = new SearchController('clients', 'search');
-                $cont->index();
-                break;
-            case '/parse':
-                $cont = new ParseController('clients', 'parse');
-                $cont->index();
-                break;
-            case '/generate':
-                $cont = new GenerateController('clients', 'generate/index');
-                $cont->index();
-                break;
-            case '/generate/generate':
-                $cont = new GenerateController('clients', 'generate/generate');
-                $cont->generate();
-                break;
-            default:
-                $cont = new pageNotFoundController('default', '404');
-                $cont->index();
-        }
+        $this->router = new Router();
+    }
+
+    /**
+     * @return void
+     */
+    public function run(): void
+    {
+        $this->router->dispatch();
     }
 }

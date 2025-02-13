@@ -3,6 +3,7 @@
 namespace Core\Config;
 
 use App;
+use DirectoryIterator;
 
 class Config
 {
@@ -29,32 +30,16 @@ class Config
      */
     private static function loadConfig(): void
     {
-        foreach (self::getConfigFiles() as $file) {
-            $filePath = self::CONFIG_DIR . $file;
-            $path_parts = pathinfo($filePath);
-
-            if (isset($path_parts['extension']) && $path_parts['extension'] == 'php') {
-                $loadConfig = include_once $filePath;
+        foreach (new DirectoryIterator(self::CONFIG_DIR) as $fileInfo) {
+            if ($fileInfo->isDot()) {
+                continue;
+            }
+            if ($fileInfo->getExtension() === 'php' && $fileInfo->isReadable()) {
+                $loadConfig = include_once $fileInfo->getPathname();
                 foreach ($loadConfig as $key => $value) {
                     self::$config[$key] = $value;
                 }
             }
         }
-    }
-
-    /**
-     * @return array<string>
-     */
-    private static function getConfigFiles(): array
-    {
-        $dir = ['.','..'];
-        $configFiles = [];
-
-        $files = scandir(self::CONFIG_DIR);
-        if ($files) {
-            $configFiles = array_diff($files, $dir);
-        }
-
-        return $configFiles;
     }
 }

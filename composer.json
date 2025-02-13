@@ -21,7 +21,8 @@
     "require": {
         "ext-pdo": "*",
         "ext-simplexml": "*",
-        "fakerphp/faker": "^1.24"
+        "fakerphp/faker": "^1.24",
+        "ext-yaml": "*"
     },
     "autoload": {
         "psr-4": {

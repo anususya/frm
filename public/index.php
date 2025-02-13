@@ -2,4 +2,5 @@
 
 $loader = require("../vendor/autoload.php");
 
-App::run();
+$app = new App();
+$app->run();

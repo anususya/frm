@@ -2,4 +2,5 @@
 vendor/
 .env
 .php-cs-fixer.cache
-log/
+logs/
+uploads/

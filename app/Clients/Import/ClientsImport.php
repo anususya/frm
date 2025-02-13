@@ -5,6 +5,7 @@ namespace App\Clients\Import;
 use App;
 use Core\Database\DB as DB;
 use Core\Import\AbstractImportCsv;
+use Core\Log\Log;
 use Exception;
 use PDOException;
 
@@ -30,7 +31,7 @@ class ClientsImport extends AbstractImportCsv
             $this->runInstallTableScript($this->importConfig['tableName']);
             return parent::run();
         } catch (Exception $e) {
-            $this->log($e->getMessage());
+            Log::write($e->getMessage());
         }
 
         return null;

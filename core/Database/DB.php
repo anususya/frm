@@ -2,11 +2,12 @@
 
 namespace Core\Database;
 
-use PDO as PDO;
+use PDO;
 use Core\Config\Config;
 use RuntimeException;
 use Exception;
 use PDOException;
+use Core\Log\Log;
 
 class DB
 {
@@ -26,7 +27,11 @@ class DB
     public static function getConnection(): ?DB
     {
         if (!self::$instance) {
-            self::$instance = new DB();
+            try {
+                self::$instance = new DB();
+            } catch (Exception $e) {
+                Log::write($e->getMessage());
+            }
         }
 
         return self::$instance;
@@ -64,7 +69,7 @@ class DB
                 [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
             );
         } catch (PDOException $e) {
-            die($e->getMessage());
+            Log::write($e->getMessage());
         }
     }
 

@@ -12,27 +12,11 @@ class FrontendController
     protected Layout $layout;
 
     /**
-     * @var string
-     */
-    protected string $moduleName;
-
-    /**
-     * @var string
-     */
-    protected string $controllerName;
-
-    public function __construct(string $moduleName, string $controllerName)
-    {
-        $this->moduleName = $moduleName;
-        $this->controllerName = $controllerName;
-    }
-
-    /**
      * @return $this
      */
-    protected function prepareLayout(): FrontendController
+    protected function prepareLayout(string $layoutName): FrontendController
     {
-        $this->layout = new Layout($this->moduleName, $this->controllerName);
+        $this->layout = new Layout($layoutName);
         $this->layout->prepare();
 
         return $this;

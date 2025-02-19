@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\File\Upload;
 
 use Exception;
@@ -12,11 +14,6 @@ class UploadException extends Exception
         parent::__construct($message, $code);
     }
 
-    /**
-     * @param int $code
-     *
-     * @return string
-     */
     private function codeToMessage(int $code): string
     {
         return match ($code) {

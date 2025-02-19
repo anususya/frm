@@ -1,31 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Clients\Import;
 
-use App;
-use Core\Database\DB as DB;
+use Core\App\App;
+use Core\Database\DB;
 use Core\Import\AbstractImportCsv;
 use Core\Log\Log;
 use Exception;
-use PDOException;
 
-/**
- * extends AbstractImportCsv
- */
 class ClientsImport extends AbstractImportCsv
 {
-    /**
-     * @return void
-     */
-    protected function setImportName(): void
-    {
-        $this->importName = 'clients';
-    }
+    protected const IMPORT_NAME = 'clients';
 
-    /**
-     * @return ?bool
-     */
-    public function run(): ?bool
+    public function run(): bool
     {
         try {
             $this->runInstallTableScript($this->importConfig['tableName']);
@@ -34,7 +23,7 @@ class ClientsImport extends AbstractImportCsv
             Log::write($e->getMessage());
         }
 
-        return null;
+        return false;
     }
 
     /**
@@ -47,13 +36,12 @@ class ClientsImport extends AbstractImportCsv
     {
         $filePath = App::BASE_APP_DIR . '/migration/' . $tableName . '.sql';
         $script = file_get_contents($filePath);
-        if ($script) {
-            $connection = DB::getConnection();
-            try {
-                $connection?->exec($script);
-            } catch (PDOException $e) {
-                throw new Exception($e->getMessage());
-            }
+
+        if ($script === false) {
+            return;
         }
+
+        $connection = DB::getConnection();
+        $connection?->exec($script);
     }
 }

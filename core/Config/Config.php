@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\Config;
 
-use App;
+use Core\App\App;
 use DirectoryIterator;
 
 class Config
@@ -14,31 +16,59 @@ class Config
      */
     private static ?array $config = null;
 
-    /**
-     * @return array<string, mixed>|null
-     */
-    public static function getConfig(string $name): ?array
+    public static function get(string $path): mixed
     {
         if (is_null(self::$config)) {
-            self::loadConfig();
+            self::load();
         }
-        return self::$config[$name] ?? null;
+
+        if (empty(self::$config)) {
+            return null;
+        }
+
+        $keys = explode('.', $path);
+
+        return self::getValue(self::$config, $keys);
     }
 
     /**
-     * @return void
+     * @param array<string, mixed> $config
+     * @param array<int, string> $keys
+     *
+     * @return mixed
      */
-    private static function loadConfig(): void
+    private static function getValue(array $config, array $keys): mixed
+    {
+        $key = array_shift($keys);
+
+        if ($key && isset($config[$key])) {
+            if (empty($keys)) {
+                return $config[$key];
+            }
+
+            if (is_array($config[$key])) {
+                return self::getValue($config[$key], $keys);
+            }
+        }
+
+        return null;
+    }
+
+    private static function load(): void
     {
         foreach (new DirectoryIterator(self::CONFIG_DIR) as $fileInfo) {
             if ($fileInfo->isDot()) {
                 continue;
             }
-            if ($fileInfo->getExtension() === 'php' && $fileInfo->isReadable()) {
-                $loadConfig = include_once $fileInfo->getPathname();
-                foreach ($loadConfig as $key => $value) {
-                    self::$config[$key] = $value;
-                }
+
+            if ($fileInfo->getExtension() !== 'php' || !$fileInfo->isReadable()) {
+                continue;
+            }
+
+            $loadConfig = include_once $fileInfo->getPathname();
+
+            foreach ($loadConfig as $key => $value) {
+                self::$config[$key] = $value;
             }
         }
     }

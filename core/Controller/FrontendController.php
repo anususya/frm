@@ -1,19 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\Controller;
 
 use Core\Block\Layout;
 
 class FrontendController
 {
-    /**
-     * @var Layout
-     */
     protected Layout $layout;
 
-    /**
-     * @return $this
-     */
     protected function prepareLayout(string $layoutName): FrontendController
     {
         $this->layout = new Layout($layoutName);
@@ -23,21 +19,34 @@ class FrontendController
     }
 
     /**
-     * @param string $blockName
-     * @param array<string, mixed> $blockData
+     * @param array<string, mixed> $data
      *
      * @return void
      */
-    protected function setBlockData(string $blockName, array $blockData): void
+    protected function setBlockData(array $data): void
     {
-        $this->layout->setBlockData($blockName, $blockData);
+        $this->layout->setBlockData($data);
     }
 
-    /**
-     * @return void
-     */
     protected function renderLayout(): void
     {
         $this->layout->render();
+    }
+
+    /**
+     * @param string $layoutName
+     * @param null|array<string, mixed> $data
+     *
+     * @return void
+     */
+    protected function render(string $layoutName, array $data = null): void
+    {
+        $this->prepareLayout($layoutName);
+
+        if ($data) {
+            $this->setBlockData($data);
+        }
+
+        $this->renderLayout();
     }
 }

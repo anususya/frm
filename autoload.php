@@ -1,13 +1,11 @@
 <?php
 
-/**
- * @param string $path_to_class
- *
- * @return void
- */
+declare(strict_types=1);
+
 function my_custom_autoloader(string $path_to_class): void
 {
     $fileMap = include_once 'autoload_classmap.php';
+
     if (isset($fileMap[$path_to_class]) && file_exists($fileMap[$path_to_class])) {
         require_once $fileMap[$path_to_class];
     } else {
@@ -25,4 +23,4 @@ function my_custom_autoloader(string $path_to_class): void
 
 // phpcs:disable
 spl_autoload_register('my_custom_autoloader');
-// phpcs:disable
+// phpcs:enable

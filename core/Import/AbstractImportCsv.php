@@ -1,45 +1,40 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\Import;
 
-use App;
-use Core\Database\DB as DB;
+use Core\App\App;
+use Core\Database\DB;
+use Core\Log\Log;
 use Exception;
 use Generator;
 use RuntimeException;
 
 abstract class AbstractImportCsv extends AbstractImport
 {
-    /**
-     * @var string
-     */
-    protected string $importDirectory = App::BASE_APP_DIR . '/import/';
-    /**
-     * @return void
-     */
-    protected function setImportType(): void
-    {
-        $this->importType = 'csv';
-    }
+    protected const IMPORT_TYPE = 'csv';
 
-    /**
-     * @return ?bool
-     */
-    public function run(): ?bool
+    protected string $importDirectory = App::BASE_APP_DIR . '/import/';
+
+    public function run(): bool
     {
         $this->checkImportConfig();
         $this->checkFormat();
+
         try {
             $this->import();
-
             return true;
         } catch (Exception $e) {
-            throw new RuntimeException($e->getMessage());
+            Log::write($e->getMessage(), 'error');
         }
+
+        return false;
     }
 
     /**
      * @return void
+     *
      * @throws Exception
      */
     protected function import(): void
@@ -86,6 +81,7 @@ abstract class AbstractImportCsv extends AbstractImport
                         'Please, check fields name in import file'
                     );
                 }
+
                 $row++;
                 continue;
             }

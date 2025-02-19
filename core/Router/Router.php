@@ -1,18 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\Router;
 
-use App;
 use ArrayObject;
-use Core\Controller\PageNotFoundController;
+use Core\App\App;
+use Core\App\Superglobals\Variables;
 use Core\Config\Config;
+use Core\Controller\PageNotFoundController;
 use Core\Log\Log;
 
 class Router
 {
-    /**
-     * @var ArrayObject
-     */
     // @phpstan-ignore missingType.generics
     private ArrayObject $routes;
 
@@ -25,17 +25,16 @@ class Router
         $this->routes = new ArrayObject($yaml);
     }
 
-    /**
-     * @return void
-     */
     public function dispatch(): void
     {
-        $path = (string) parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $path = (string) parse_url(Variables::getParamValue(Variables::TYPE_SERVER, 'REQUEST_URI'), PHP_URL_PATH);
         $result = $this->match($path);
+
         if ($result) {
             try {
                 $controllerInstance = new $result['file']();
                 $controllerInstance->{$result['method']}();
+
                 return;
             } catch (\Throwable $e) {
                 Log::write($e->getMessage());
@@ -57,12 +56,14 @@ class Router
      */
     private function match(string $path): ?array
     {
-        //Check is path in routes file
-        $routerIterator = new RouterFilter($this->routes->getIterator(), $path);
+        //Check if path is in routes file
+        $routerIterator = new RouterFilter($path, $this->routes->getIterator());
+
         foreach ($routerIterator as $route) {
             $controllerInfo = explode('::', $route['controller']);
             $controllerFile = $controllerInfo[0];
             $controllerMethod = $controllerInfo[1];
+
             if ($this->isValidController($controllerFile, $controllerMethod)) {
                 return ['file' => $controllerFile, 'method' => $controllerMethod];
             }
@@ -70,23 +71,16 @@ class Router
 
         //Check default routing module/controller/action
 
-        $moduleList = Config::getConfig('modules');
-        $test = explode('/', trim($path, '/'));
-        $moduleName = $test[0];
+        $moduleList = Config::get('modules');
+        $pathParts = explode('/', trim($path, '/'));
+        $moduleName = $pathParts[0];
 
         if (!empty($moduleList) && array_key_exists($moduleName, $moduleList)) {
             $moduleDir = $moduleList[$moduleName];
             $controllerFile = $moduleDir . '\\Controller\\';
-            if (!isset($test[1])) {
-                $controllerFile .= 'IndexController';
-            } else {
-                $controllerFile .= ucfirst($test[1]) . 'Controller';
-            }
-            if (!isset($test[2])) {
-                $controllerMethod = 'index';
-            } else {
-                $controllerMethod = $test[2];
-            }
+
+            $controllerFile .= isset($pathParts[1]) ? ucfirst($pathParts[1]) . 'Controller' : 'IndexController';
+            $controllerMethod = $pathParts[2] ?? 'index';
 
             if ($this->isValidController($controllerFile, $controllerMethod)) {
                 return ['file' => $controllerFile, 'method' => $controllerMethod];
@@ -96,12 +90,6 @@ class Router
         return null;
     }
 
-    /**
-     * @param string $controllerFile
-     * @param string $controllerMethod
-     *
-     * @return bool
-     */
     private function isValidController(string $controllerFile, string $controllerMethod): bool
     {
         return class_exists($controllerFile) && method_exists($controllerFile, $controllerMethod);

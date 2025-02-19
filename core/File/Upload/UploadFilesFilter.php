@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\File\Upload;
 
 use FilterIterator;
@@ -23,9 +25,6 @@ class UploadFilesFilter extends FilterIterator
         $this->params = $params;
     }
 
-    /**
-     * @return bool
-     */
     public function accept(): bool
     {
         $file = $this->current();

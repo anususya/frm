@@ -1,11 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Core\App;
+
 use Core\Router\Router;
 
 // phpcs:ignore
 class App
 {
-    public const BASE_APP_DIR = __DIR__;
+    public const BASE_APP_DIR = __DIR__ . '/../../';
 
     private Router $router;
 
@@ -14,9 +18,6 @@ class App
         $this->router = new Router();
     }
 
-    /**
-     * @return void
-     */
     public function run(): void
     {
         $this->router->dispatch();

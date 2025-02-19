@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Clients\Controller;
 
 use App\Clients\Model\Import\ClientsModel as ClientsImportModel;
@@ -7,18 +9,17 @@ use Core\Controller\FrontendController;
 
 class ParseController extends FrontendController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
         $importModel = new ClientsImportModel();
         $importResult = $importModel->import();
 
-        $data = ['importResult' => $importResult];
+        $blockData = [
+            'search' => [
+                'importResult' => $importResult
+            ]
+        ];
 
-        $this->prepareLayout('clients/parse');
-        $this->setBlockData('search', $data);
-        $this->renderLayout();
+        $this->render('clients/parse', $blockData);
     }
 }

@@ -1,27 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Clients\Controller;
 
 use App\Clients\Model\ClientsModel;
+use Core\App\Superglobals\Variables;
 use Core\Controller\FrontendController;
-use Exception;
 
 class SearchController extends FrontendController
 {
-    /**
-     * @return void
-     * @throws Exception
-     */
     public function index(): void
     {
         $clientsModel = new ClientsModel();
-        $searchParams = $clientsModel->convertRequestParams($_GET);
+        $searchParams = $clientsModel->convertRequestParams(Variables::get(Variables::TYPE_GET));
         $searchResult = $clientsModel->getClients($searchParams);
 
-        $data = ['searchResult' => $searchResult];
+        $blockData = [
+            'search' => [
+                'searchResult' => $searchResult
+            ]
+        ];
 
-        $this->prepareLayout('clients/search');
-        $this->setBlockData('search', $data);
-        $this->renderLayout();
+        $this->render('clients/search', $blockData);
     }
 }

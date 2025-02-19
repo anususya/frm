@@ -3,7 +3,3 @@ parameters:
 	paths:
 		- app
 		- core
-	scanFiles:
-	- App.php
-	excludePaths:
-	- core/Env

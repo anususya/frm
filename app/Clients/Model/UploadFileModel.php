@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Clients\Model;
 
 use Core\Config\Config;
@@ -17,21 +19,13 @@ class UploadFileModel
         'maxSize' => '5242880'
     ];
 
-    /**
-     * @var string
-     */
     public string $fileName = '';
+
     public function __construct()
     {
-        $config = Config::getConfig('import');
-        $this->fileName = $config['clients']['fileName'] ?? '';
+        $this->fileName = Config::get('import.clients.fileName') ?? '';
     }
 
-    /**
-     * @param string $uploadFormName
-     *
-     * @return bool
-     */
     public function upload(string $uploadFormName): bool
     {
         if ($this->fileName == '') {
@@ -39,6 +33,7 @@ class UploadFileModel
         }
 
         $result = UploadFiles::load($uploadFormName, self::UPLOAD_DIR, $this->params, [$this->fileName]);
+
         foreach ($result['uploadFiles'] as $file) {
             if ($file['newName'] == $this->fileName) {
                 return true;

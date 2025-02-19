@@ -1,44 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\Block;
 
-use App;
+use Core\App\App;
 use SimpleXMLElement;
 use SplFileInfo;
 
 class Layout
 {
     /**
-     * @var string
-     */
-    protected string $layoutName;
-
-    /**
-     * @var string
-     */
-    protected string $controllerName;
-
-    /**
      * @var array<string, Block>
      */
-    public array $blocks = [];
+    protected array $blocks = [];
 
     /**
      * @var array<string, mixed>
      */
     protected array $blockData = [];
 
-    /**
-     * @param string $layoutName
-     */
-    public function __construct(string $layoutName)
-    {
-        $this->layoutName = $layoutName;
+    public function __construct(
+        protected readonly string $layoutName
+    ) {
     }
 
-    /**
-     * @return void
-     */
     public function prepare(): void
     {
         $filePath = $this->layoutName . '.xml';
@@ -48,9 +34,6 @@ class Layout
         }
     }
 
-    /**
-     * @return void
-     */
     public function render(): void
     {
         $this->mergeBlocksData($this->blocks);
@@ -60,15 +43,11 @@ class Layout
         }
     }
 
-    /**
-     * @param string $filePath
-     *
-     * @return false|SimpleXMLElement
-     */
     private function loadLayoutFile(string $filePath): false|SimpleXMLElement
     {
         $realFilePath = App::BASE_APP_DIR . '/frontend/layouts/' . $filePath;
         $fileInfo = new SplFileInfo($realFilePath);
+
         if ($fileInfo->isFile() && $fileInfo->isReadable()) {
             return simplexml_load_file($realFilePath);
         }
@@ -77,14 +56,15 @@ class Layout
     }
 
     /**
-     * @param string $blockName
-     * @param mixed $data
+     * @param array<string, mixed> $data
      *
      * @return void
      */
-    public function setBlockData(string $blockName, mixed $data): void
+    public function setBlockData(array $data): void
     {
-        $this->blockData[$blockName] = $data;
+        foreach ($data as $blockName => $blockData) {
+            $this->blockData[$blockName] = $blockData;
+        }
     }
 
     /**
@@ -111,12 +91,17 @@ class Layout
     private function parse(SimpleXMLElement $layout): void
     {
         foreach ($layout as $element) {
-            if ($element) {
-                $block = $this->createElement($element);
-                if ($block) {
-                    $this->blocks = array_merge($this->blocks, $block);
-                }
+            if (!$element) {
+                continue;
             }
+
+            $block = $this->createElement($element);
+
+            if (!$block) {
+                continue;
+            }
+
+            $this->blocks = array_merge($this->blocks, $block);
         }
     }
 
@@ -133,26 +118,33 @@ class Layout
             $attributes[$key] = (string)$value;
         }
 
-        $blockClass = $attributes['class'] ?? '';
-        $blockName = $attributes['name'] ?? '';
-        if ($blockClass && $blockName && class_exists($blockClass)) {
-            $block = new $blockClass($attributes);
-            if ($block instanceof Block) {
-                $childBlocks = [];
-                if (isset($element->childBlock->block)) {
-                    foreach ($element->childBlock->block as $child) {
-                        $childBlock = $this->createElement($child);
-                        if ($childBlock) {
-                            $childBlocks = array_merge($childBlocks, $childBlock);
-                        }
-                    }
-                }
-                $block->setChildBlocks($childBlocks);
+        $blockClass = $attributes['class'] ?? null;
+        $blockName = $attributes['name'] ?? null;
 
-                return array($attributes['name'] => $block);
+        if (!$blockClass || !$blockName || !class_exists($blockClass)) {
+            return null;
+        }
+
+        $block = new $blockClass($attributes);
+
+        if (!($block instanceof Block)) {
+            return null;
+        }
+
+        $childBlocks = [];
+
+        if (isset($element->childBlock->block)) {
+            foreach ($element->childBlock->block as $child) {
+                $childBlock = $this->createElement($child);
+
+                if ($childBlock) {
+                    $childBlocks = array_merge($childBlocks, $childBlock);
+                }
             }
         }
 
-        return null;
+        $block->setChildBlocks($childBlocks);
+
+        return array($attributes['name'] => $block);
     }
 }

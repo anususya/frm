@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Clients\Model;
 
-use App;
+use Core\App\App;
 use Core\Config\Config;
 use Faker\Factory;
 use Faker\Generator;
@@ -12,38 +14,34 @@ class ClientsDataGenerator
 {
     private ?Generator $faker = null;
 
-    /**
-     * @param int $count
-     *
-     * @return bool
-     */
+    public int $maxCount = 2000;
+
     public function generateClientsDataFile(int $count): bool
     {
-        $config = Config::getConfig('import');
-        if ($count > 0 && isset($config['clients']['fileName']) && isset($config['clients']['columns'])) {
-            $fp = fopen(App::BASE_APP_DIR . '/import/' . $config['clients']['fileName'], 'w');
-            if ($fp !== false) {
-                $value = $config['clients']['columns'];
-                fputcsv($fp, $value, ',', '"', '');
+        $fileName = Config::get('import.clients.fileName');
+        $columns = Config::get('import.clients.columns');
 
-                foreach ($this->generateFakeData($count - 1) as $value) {
-                    fputcsv($fp, $value, ',', '"', '');
-                }
-
-                fclose($fp);
-
-                return true;
-            }
+        if ($count < 1 || $count > $this->maxCount || !$fileName || !$columns) {
+            return false;
         }
 
-        return false;
+        $fp = fopen(App::BASE_APP_DIR . 'import/' . $fileName, 'w');
+
+        if ($fp === false) {
+            return false;
+        }
+
+        fputcsv($fp, $columns, ',', '"', '');
+
+        foreach ($this->generateFakeData($count - 1) as $value) {
+            fputcsv($fp, $value, ',', '"', '');
+        }
+
+        fclose($fp);
+
+        return true;
     }
 
-    /**
-     * @param int $count
-     *
-     * @return Iterator
-     */
     public function generateFakeData(int $count): Iterator
     {
         for ($i = 0; $i <= $count; $i++) {

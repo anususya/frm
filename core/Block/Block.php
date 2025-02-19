@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\Block;
 
-use App;
+use Core\App\App;
 use LogicException;
 use SplFileInfo;
 
@@ -14,11 +16,6 @@ class Block
     protected array $data = [];
 
     /**
-     * @var array<string, string>
-     */
-    public array $attributes;
-
-    /**
      * @var array<string, Block>
      */
     public array $childBlocks = [];
@@ -26,9 +23,9 @@ class Block
     /**
      * @param array<string, string> $attributes
      */
-    public function __construct(array $attributes)
-    {
-        $this->attributes = $attributes;
+    public function __construct(
+        public readonly array $attributes
+    ) {
     }
 
     /**
@@ -48,29 +45,24 @@ class Block
     {
         return $this->childBlocks;
     }
-    /**
-     * @return void
-     */
+
     public function render(): void
     {
-        ob_start();
         $filePath = $this->attributes['file'] ?? '';
         $realPath = App::BASE_APP_DIR . '/frontend/front/' . $filePath;
         $fileInfo = new SplFileInfo($realPath);
+
         if ($fileInfo->isFile() && $fileInfo->isReadable()) {
+            ob_start();
             include $realPath;
+            $block = ob_get_clean();
         } else {
             throw new LogicException('File not found: ' . $realPath);
         }
-        $block = ob_get_clean();
+
         echo $block ?: '';
     }
 
-    /**
-     * @param string $name
-     *
-     * @return mixed
-     */
     public function getData(string $name): mixed
     {
         if ($this->data && array_key_exists($name, $this->data)) {

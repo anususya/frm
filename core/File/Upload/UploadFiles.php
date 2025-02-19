@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\File\Upload;
 
-use App;
 use ArrayObject;
+use Core\App\App;
+use Core\App\Superglobals\Variables;
 
 class UploadFiles
 {
@@ -26,18 +29,20 @@ class UploadFiles
     ): array {
         $uploadFiles = [];
         $failedFiles = [];
+        $uploadsFiles = Variables::getParamValue(Variables::TYPE_FILES, $uploadFormName);
 
-        if (!isset($_FILES[$uploadFormName])) {
+        if (!$uploadsFiles) {
             return ['uploadFiles' => $uploadFiles, 'failedFiles' => $failedFiles];
         }
 
         $uploadDir = trim($uploadDir, '/');
         $uploadDir = self::UPLOAD_FOLDER . "{$uploadDir}/";
+
         if (!file_exists($uploadDir)) {
             mkdir($uploadDir, 0777, true);
         }
 
-        $files = self::covertUploadFilesArray($_FILES[$uploadFormName]);
+        $files = self::covertUploadFilesArray($uploadsFiles);
         $filesArrayObject = new ArrayObject($files);
         $filesIterator = new UploadFilesFilter($filesArrayObject->getIterator(), $params);
 
@@ -50,6 +55,7 @@ class UploadFiles
             }
 
             $uploadFile = $uploadDir . $uploadFileName;
+
             if (move_uploaded_file($file['tmp_name'], $uploadFile)) {
                 chmod($uploadFile, 0777);
                 $uploadFiles[$key] = $file;
@@ -75,16 +81,19 @@ class UploadFiles
     {
         $keys = array_keys($uploadFiles);
         $files = [];
-        if (isset($uploadFiles['error'])) {
-            if (is_array($uploadFiles['error'])) {
-                $count = count($uploadFiles['error']);
-                for ($i = 0; $i < $count; $i++) {
-                    foreach ($keys as $key) {
-                        $files[$i][$key] = $uploadFiles[$key][$i];
-                    }
-                }
-            } else {
-                $files[] = $uploadFiles;
+
+        if (!isset($uploadFiles['error'])) {
+            return $files;
+        }
+        if (!is_array($uploadFiles['error'])) {
+            return [$uploadFiles];
+        }
+
+        $count = count($uploadFiles['error']);
+
+        for ($i = 0; $i < $count; $i++) {
+            foreach ($keys as $key) {
+                $files[$i][$key] = $uploadFiles[$key][$i];
             }
         }
 

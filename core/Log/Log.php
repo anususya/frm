@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\Log;
 
-use App;
+use Core\App\App;
 
 class Log
 {
@@ -21,7 +23,9 @@ class Log
         if (file_exists(self::DEFAULT_LOG_FILE)) {
             chmod(self::DEFAULT_LOG_FILE, 0777);
         }
+
         $fp = fopen(self::DEFAULT_LOG_FILE, 'a');
+
         if ($fp !== false) {
             $message = date('Y-m-d H:i:s') . ' ' . $level . ': ' . $message . PHP_EOL;
             fwrite($fp, $message);

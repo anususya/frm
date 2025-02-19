@@ -1,15 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\Controller;
 
 class PageNotFoundController extends FrontendController
 {
-    /**
-     * @return void
-     */
     public function index(): void
     {
-        $this->prepareLayout('default/404');
-        $this->renderLayout();
+        $this->render('default/404');
     }
 }

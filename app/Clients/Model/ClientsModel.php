@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Clients\Model;
 
-use Core\Config\Config as Config;
-use Core\Database\DB as DB;
+use Core\Config\Config;
+use Core\Database\DB;
 use Exception;
 
 class ClientsModel
@@ -11,21 +13,20 @@ class ClientsModel
     /**
      * @param array<string> $params $params
      *
-     * @return array<list<string>>|null
-     * @throws Exception
+     * @return null|array<list<string>>
      */
     public function getClients(array $params): ?array
     {
-        $config = Config::getConfig('import');
-        if (isset($config['clients']['tableName'])) {
-            $tableName = $config['clients']['tableName'];
+        $tableName = Config::get('import.clients.tableName');
+
+        if (!$tableName) {
+            return [];
+        }
+
+        try {
             $connection = DB::getConnection();
-            try {
-                return $connection?->selectAll($tableName, $params);
-            } catch (Exception $e) {
-                return [];
-            }
-        } else {
+            return $connection?->selectAll($tableName, $params);
+        } catch (Exception $e) {
             return [];
         }
     }
@@ -37,11 +38,10 @@ class ClientsModel
      */
     public function convertRequestParams(array $requestParams): array
     {
-        $config = Config::getConfig('import');
-        if (!isset($config['clients'])) {
+        $importConfig = Config::get('import.clients');
+
+        if (!$importConfig) {
             return [];
-        } else {
-            $importConfig = $config['clients'];
         }
 
         foreach ($requestParams as $key => $value) {
@@ -55,10 +55,10 @@ class ClientsModel
             }
         }
 
-        $params = array_filter($requestParams, function ($key) use ($importConfig) {
-            return in_array($key, $importConfig['columns']);
-        }, ARRAY_FILTER_USE_KEY);
-
-        return $params;
+        return array_filter(
+            $requestParams,
+            static fn ($key) => in_array($key, $importConfig['columns']),
+            ARRAY_FILTER_USE_KEY
+        );
     }
 }

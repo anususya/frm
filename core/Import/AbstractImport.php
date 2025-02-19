@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\Import;
 
 use RuntimeException;
@@ -7,58 +9,33 @@ use Core\Config\Config;
 
 abstract class AbstractImport
 {
-    /**
-     * @var string
-     */
-    public string $importName = '';
-
-    /**
-     * @var string
-     */
-    protected string $importType = '';
+    protected const IMPORT_TYPE = '';
+    protected const IMPORT_NAME = '';
 
     /**
      * @var array<string, mixed>
      */
     protected array $importConfig = [];
 
-    /**
-     * @return void
-     */
-    abstract protected function setImportName(): void;
-
-    /**
-     * @return void
-     */
-    abstract protected function setImportType(): void;
-
-    /**
-     * @return ?bool
-     */
     abstract public function run(): ?bool;
+
     public function __construct()
     {
-        $this->setImportName();
-        $this->setImportType();
-        $config = Config::getConfig('import');
-        if ($config) {
-            $this->importConfig = $config[$this->importName] ?? [];
-        }
+        $this->importConfig = Config::get('import.' . $this->getImportName()) ?? [];
     }
 
-    /**
-     * @return void
-     */
+    public function getImportName(): string
+    {
+        return static::IMPORT_NAME;
+    }
+
     protected function checkFormat(): void
     {
-        if ($this->importConfig['format'] !== $this->importType) {
+        if ($this->importConfig['format'] !== static::IMPORT_TYPE) {
             throw new RuntimeException();
         }
     }
 
-    /**
-     * @return void
-     */
     protected function checkImportConfig(): void
     {
         if (

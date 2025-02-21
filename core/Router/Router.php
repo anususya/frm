@@ -6,7 +6,7 @@ namespace Core\Router;
 
 use ArrayObject;
 use Core\App\App;
-use Core\App\Superglobals\Variables;
+use Core\App\Superglobals;
 use Core\Config\Config;
 use Core\Controller\PageNotFoundController;
 use Core\Log\Log;
@@ -27,7 +27,11 @@ class Router
 
     public function dispatch(): void
     {
-        $path = (string) parse_url(Variables::getParamValue(Variables::TYPE_SERVER, 'REQUEST_URI'), PHP_URL_PATH);
+        if (!is_string($url = Superglobals::Server->getParamValue('REQUEST_URI'))) {
+            return;
+        }
+
+        $path = (string) parse_url($url, PHP_URL_PATH);
         $result = $this->match($path);
 
         if ($result) {

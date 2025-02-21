@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Core\Router;
 
-use Core\App\Superglobals\Variables;
+use Core\App\Superglobals;
 use FilterIterator;
 use Iterator;
 
@@ -20,7 +20,11 @@ class RouterFilter extends FilterIterator
 
     public function accept(): bool
     {
-        $method = strtoupper(Variables::getParamValue(Variables::TYPE_SERVER, 'REQUEST_METHOD'));
+        if (!is_string($method = Superglobals::Server->getParamValue('REQUEST_METHOD'))) {
+            return false;
+        }
+
+        $method = strtoupper($method);
         $route = $this->current();
 
         if ($this->path === $route['path'] && in_array($method, $route['methods'])) {

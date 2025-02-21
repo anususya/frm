@@ -6,7 +6,7 @@ namespace Core\File\Upload;
 
 use ArrayObject;
 use Core\App\App;
-use Core\App\Superglobals\Variables;
+use Core\App\Superglobals;
 
 class UploadFiles
 {
@@ -29,7 +29,8 @@ class UploadFiles
     ): array {
         $uploadFiles = [];
         $failedFiles = [];
-        $uploadsFiles = Variables::getParamValue(Variables::TYPE_FILES, $uploadFormName);
+
+        $uploadsFiles = Superglobals::Files->getParamValue($uploadFormName);
 
         if (!$uploadsFiles) {
             return ['uploadFiles' => $uploadFiles, 'failedFiles' => $failedFiles];
@@ -42,7 +43,7 @@ class UploadFiles
             mkdir($uploadDir, 0777, true);
         }
 
-        $files = self::covertUploadFilesArray($uploadsFiles);
+        $files = self::covertUploadFilesArray((array) $uploadsFiles);
         $filesArrayObject = new ArrayObject($files);
         $filesIterator = new UploadFilesFilter($filesArrayObject->getIterator(), $params);
 

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Clients\Controller;
 
 use App\Clients\Model\ClientsModel;
-use Core\App\Superglobals\Variables;
+use Core\App\Superglobals;
 use Core\Controller\FrontendController;
 
 class SearchController extends FrontendController
@@ -13,7 +13,7 @@ class SearchController extends FrontendController
     public function index(): void
     {
         $clientsModel = new ClientsModel();
-        $searchParams = $clientsModel->convertRequestParams(Variables::get(Variables::TYPE_GET));
+        $searchParams = $clientsModel->convertRequestParams(Superglobals::Get->getParamsValue());
         $searchResult = $clientsModel->getClients($searchParams);
 
         $blockData = [

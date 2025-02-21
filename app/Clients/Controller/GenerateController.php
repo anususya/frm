@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Clients\Controller;
 
 use App\Clients\Model\ClientsDataGenerator;
-use Core\App\Superglobals\Variables;
+use Core\App\Request;
 use Core\Controller\FrontendController;
 
 class GenerateController extends FrontendController
@@ -18,7 +18,7 @@ class GenerateController extends FrontendController
     public function generate(): void
     {
         $blockData = null;
-        $count = Variables::getParamValue(Variables::TYPE_POST, 'count');
+        $count = Request::getParam('count');
 
         if ($count) {
             $fileGenerator = new ClientsDataGenerator();

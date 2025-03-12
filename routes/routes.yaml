@@ -22,3 +22,7 @@ clients_load_file:
   path: /load/file
   controller: App\Clients\Controller\UploadFileController::load
   methods: [POST]
+clients_search_test:
+  path: /analyze/test
+  controller: App\Clients\Controller\SearchController::test
+  methods: [GET]

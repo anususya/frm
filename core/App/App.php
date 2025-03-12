@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Core\App;
 
+use Core\Env\Env;
 use Core\Router\Router;
 
 // phpcs:ignore
@@ -20,6 +21,7 @@ class App
 
     public function run(): void
     {
+        Env::load();
         $this->router->dispatch();
     }
 }

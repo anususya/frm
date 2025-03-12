@@ -43,18 +43,25 @@ class ClientsModel
         if (!$importConfig) {
             return [];
         }
-
+        $result = [];
+        $operator = '=';
         foreach ($requestParams as $key => $value) {
+            if (empty($value)) {
+                continue;
+            }
             if (str_ends_with($key, '_to')) {
+                $operator = '<=';
                 $key = str_replace('_to', '', $key);
                 $requestParams[$key]['to'] = $value;
             }
             if (str_ends_with($key, '_from')) {
+                $operator = '>=';
                 $key = str_replace('_from', '', $key);
                 $requestParams[$key]['from'] = $value;
             }
+            $result[] = [$key,  $operator,  $value];
         }
-
+        return $result;
         return array_filter(
             $requestParams,
             static fn ($key) => in_array($key, $importConfig['columns']),

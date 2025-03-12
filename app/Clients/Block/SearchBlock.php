@@ -13,6 +13,9 @@ class SearchBlock extends CoreBlock
      */
     public function getSearchResult(): string
     {
+        $data = $this->getData('searchResult1');
+        //$result = $data->toJson();
         return json_encode($this->getData('searchResult')) ?: '{}';
     }
+
 }

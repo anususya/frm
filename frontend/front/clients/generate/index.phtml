@@ -1,0 +1,20 @@
+<?php
+/**
+ * @var Core\Block\Block $this
+ */
+?>
+<div class="custom-bg text-dark">
+    <div class="d-flex align-items-center justify-content-center min-vh-100 px-2">
+        <div class="text-center">
+            <h2>Generate clients data</h2>
+            <form action="/generate/generate" method="post" class="row g-2" >
+                <div class="col-md-6">
+                    <input type="number" class="form-control" min="1" max="2000" id="count" name="count" placeholder="count">
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary" type="submit">Generate</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

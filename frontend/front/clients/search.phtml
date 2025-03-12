@@ -1,0 +1,78 @@
+<?php
+/**
+ * @var \app\Clients\Block\SearchBlock $this
+ */
+?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.24.0/dist/bootstrap-table.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.24.0/dist/bootstrap-table.min.js"></script>
+
+<div class="form-row">
+    <div class="form-group col-md-8">
+        <h1>Clients</h1>
+    </div>
+    <div class="form-group col-md-2">
+        <a href="/generate" class="btn btn-light fw-semibold rounded-pill px-4 py-2 custom-btn">
+            Generate clients data
+        </a>
+    </div>
+    <div class="form-group col-md-2">
+        <a href="/load" class="btn btn-light fw-semibold rounded-pill px-4 py-2 custom-btn">
+            Load clients data from file
+        </a>
+    </div>
+</div>
+<form action="/analyze" method="get">
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="country">Country</label>
+            <input type="text" class="form-control" id="country" name="country" aria-describedby="countryHelp" placeholder="Enter country">
+            <small id="countryHelp" class="form-text text-muted">Add more then one country use , </small>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" name="city" placeholder="City">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="isactive">Active</label>
+            <input type="text" class="form-control" id="active" name="isActive" placeholder="Active">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="gender">Gender</label>
+            <input type="text" class="form-control" id="gender" name="gender" placeholder="Gender">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="birthdate_from">BD From</label>
+            <input type="date" class="form-control" id="birthdate_from" name="birthDate_from">
+            <label for="birthdate_to">DB To</label>
+            <input type="date" class="form-control" id="birthdate_to" name="birthDate_to">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+<br>
+<table id="table"  data-pagination="true">
+    <thead>
+    <tr>
+        <th data-field="client_id">ID</th>
+        <th data-field="country">Country</th>
+        <th data-field="city">City</th>
+        <th data-field="isactive">Active</th>
+        <th data-field="gender">Gender</th>
+        <th data-field="birthdate">Birth Date</th>
+        <th data-field="salary">Salary</th>
+        <th data-field="haschildren">Children</th>
+        <th data-field="familystatus">Family Status</th>
+        <th data-field="registrationdate">Registration Date</th>
+    </tr>
+    </thead>
+</table>
+
+<script>
+    var $table = $('#table')
+
+    $(function() {
+        var data = <?php echo $this->getSearchResult();?>;
+        $table.bootstrapTable({data: data})
+    })
+</script>

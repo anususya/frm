@@ -4,19 +4,16 @@ declare(strict_types=1);
 
 namespace App\Clients\Controller;
 
-use App\Clients\Model\Import\ClientsModel as ClientsImportModel;
+use App\Clients\Import\ClientsImport;
 use Core\Controller\FrontendController;
 
 class ParseController extends FrontendController
 {
     public function index(): void
     {
-        $importModel = new ClientsImportModel();
-        $importResult = $importModel->import();
-
         $blockData = [
             'search' => [
-                'importResult' => $importResult
+                'importResult' => (new ClientsImport())->run()
             ]
         ];
 

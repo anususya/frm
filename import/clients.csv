@@ -1,4 +1,4 @@
-country,city,isActive,gender,birthDate,salary,hasChildren,familyStatus,registrationDate
+country,city,is_active,gender,birth_date,salary,has_children,family_status,registration_date
 Denmark,Turnerburgh,true,male,1984-12-30,9091,true,single,2023-07-08
 Mozambique,Walkerburgh,true,male,1983-04-28,8042,false,married,2016-03-05
 Vietnam,"East Busterland",false,male,2002-03-27,7024,false,single,2020-12-10

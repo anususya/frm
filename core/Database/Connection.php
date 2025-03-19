@@ -1,132 +1,83 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\Database;
 
+use Closure;
 use Core\Database\Query\Builder as QueryBuilder;
-use Core\Database\Schema\Schema as Schema;
-use Core\Database\Query\Grammars\Grammar as QueryGrammar;
-use PDOStatement;
+use Core\Database\Query\Grammar as QueryGrammar;
+use Core\Database\Schema\Grammar as SchemaGrammar;
+use Core\Database\Schema\Builder as SchemaBuilder;
+use DateTimeInterface;
 use PDO;
+use PDOStatement;
 
-class Connection implements ConnectionInteface
+class Connection implements ConnectionInterface
 {
-    protected $fetchMode = PDO::FETCH_OBJ;
-    //protected $fetchMode = PDO::FETCH_ASSOC;
-
-
-    /**
-     * The active PDO connection.
-     *
-     * @var \PDO|\Closure
-     */
-    protected $pdo;
+    protected int $fetchMode = PDO::FETCH_OBJ;
+    protected bool $recordsModified = false;
+    protected QueryGrammar $queryGrammar;
+    protected SchemaGrammar $schemaGrammar;
 
     /**
-     * The name of the connected database.
-     *
-     * @var string
+     * @param PDO|Closure $pdo
+     * @param string $database
+     * @param string $tablePrefix
+     * @param array<string, mixed> $config
      */
-    protected $database;
-
-    /**
-     * The table prefix for the connection.
-     *
-     * @var string
-     */
-    protected $tablePrefix = '';
-
-    /**
-     * The database connection configuration options.
-     *
-     * @var array
-     */
-    protected $config = [];
-
-    protected $schema;
-
-    /**
-     * Indicates if changes have been made to the database.
-     *
-     * @var bool
-     */
-    protected $recordsModified = false;
-    protected $queryGrammar;
-
-    /**
-     * Create a new database connection instance.
-     *
-     * @param  \PDO|\Closure  $pdo
-     * @param  string  $database
-     * @param  string  $tablePrefix
-     * @param  array  $config
-     * @return void
-     */
-    public function __construct($pdo, $database = '', $tablePrefix = '', array $config = [])
-    {
-        $this->pdo = $pdo;
-        $this->database = $database;
-        $this->tablePrefix = $tablePrefix;
-        $this->config = $config;
-
-        $this->useDefaultQueryGrammar();
-
-        //$this->useDefaultPostProcessor();
+    public function __construct(
+        protected PDO|Closure $pdo,
+        protected string $database = '',
+        protected string $tablePrefix = '',
+        protected array $config = []
+    ) {
+        $this->queryGrammar = new QueryGrammar($this);
+        $this->schemaGrammar = new SchemaGrammar($this);
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->getConfig('driver');
     }
 
-    public function getConfig($option = null)
+    public function getConfig(string $option = null): mixed
     {
         return $this->config[$option] ?? null;
     }
-
-    public function useDefaultQueryGrammar()
-    {
-        $this->queryGrammar = $this->getDefaultQueryGrammar();
-    }
-
-    protected function getDefaultQueryGrammar()
-    {
-        return new QueryGrammar($this);
-    }
-    public function getQueryGrammar()
+    public function getQueryGrammar(): QueryGrammar
     {
         return $this->queryGrammar;
     }
 
-    public function getPdo()
+    public function getSchemaGrammar(): SchemaGrammar
     {
-        if ($this->pdo instanceof \Closure) {
+        return $this->schemaGrammar;
+    }
+
+    public function getSchemaBuilder(): SchemaBuilder
+    {
+        return new SchemaBuilder($this);
+    }
+
+    public function getPdo(): PDO
+    {
+        if ($this->pdo instanceof Closure) {
             return $this->pdo = call_user_func($this->pdo);
         }
 
         return $this->pdo;
     }
 
-    public function execute($sql)
-    {
-        if (!$this->pdo) {
-            throw new Exception('Connection not established');
-        }
-        $this->getPdo()->exec($sql);
-    }
-
-    /**
-     * Get a new query builder instance.
-     */
-    public function query()
+    public function query(): QueryBuilder
     {
         return new QueryBuilder(
             $this,
             $this->getQueryGrammar()
-            //$this->getPostProcessor()
         );
     }
 
-    public function select($query, $bindings = []): array
+    public function select(string $query, array $bindings = []): array
     {
         $statement = $this->prepared(
             $this->getPdo()->prepare($query)
@@ -136,10 +87,10 @@ class Connection implements ConnectionInteface
 
         $statement->execute();
 
-        return $statement->fetchAll($this->fetchMode);
+        return $statement->fetchAll();
     }
 
-    protected function prepared(PDOStatement $statement)
+    protected function prepared(PDOStatement $statement): PDOStatement
     {
         $statement->setFetchMode($this->fetchMode);
 
@@ -148,15 +99,9 @@ class Connection implements ConnectionInteface
 
     public function prepareBindings(array $bindings): array
     {
-        return $bindings;
-        $grammar = $this->getQueryGrammar();
-
         foreach ($bindings as $key => $value) {
-            // We need to transform all instances of DateTimeInterface into the actual
-            // date string. Each query grammar maintains its own date string format
-            // so we'll just ask the grammar for the format to get from the date.
             if ($value instanceof DateTimeInterface) {
-                $bindings[$key] = $value->format($grammar->getDateFormat());
+                $bindings[$key] = $value->format($this->getQueryGrammar()->getDateFormat());
             } elseif (is_bool($value)) {
                 $bindings[$key] = (int) $value;
             }
@@ -165,7 +110,13 @@ class Connection implements ConnectionInteface
         return $bindings;
     }
 
-    public function bindValues($statement, $bindings)
+    /**
+     * @param PDOStatement $statement
+     * @param array<int|string, mixed> $bindings
+     *
+     * @return void
+     */
+    public function bindValues(PDOStatement $statement, array $bindings): void
     {
         foreach ($bindings as $key => $value) {
             $statement->bindValue(
@@ -185,11 +136,8 @@ class Connection implements ConnectionInteface
         return $this->affectingStatement($query, $bindings);
     }
 
-    public function affectingStatement($query, $bindings = []): int
+    public function affectingStatement(string $query, array $bindings = []): int
     {
-        // For update or delete statements, we want to get the number of rows affected
-        // by the statement and return that back to the developer. We'll first need
-        // to execute the statement and then we'll use PDO to fetch the affected.
         $statement = $this->getPdo()->prepare($query);
 
         $this->bindValues($statement, $this->prepareBindings($bindings));
@@ -203,26 +151,33 @@ class Connection implements ConnectionInteface
         return $count;
     }
 
-    public function recordsHaveBeenModified($value = true)
+    public function recordsHaveBeenModified(bool $value = true): void
     {
         if (! $this->recordsModified) {
             $this->recordsModified = $value;
         }
     }
 
-    public function insert($query, $bindings = []): bool
+    public function insert(string $query, array $bindings = []): bool
     {
         $statement = $this->getPdo()->prepare($query);
         $bindings = array_values($bindings);
         $this->bindValues($statement, $this->prepareBindings($bindings));
 
         $this->recordsHaveBeenModified();
-        $res = $statement->execute();
-        return $statement->fetch(PDO::FETCH_ASSOC);
+
+        return $statement->execute();
     }
 
-    public function update($query, $bindings = []): int
+    public function update(string $query, array $bindings = []): int
     {
         return $this->affectingStatement($query, $bindings);
+    }
+
+    public function statement(string $query, array $bindings = []): void
+    {
+        $statement = $this->getPdo()->prepare($query);
+        $this->bindValues($statement, $this->prepareBindings($bindings));
+        $statement->execute();
     }
 }

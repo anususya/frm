@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Core\Import;
 
 use Core\App\App;
-use Core\Database\DB;
 use Core\Log\Log;
 use Exception;
 use Generator;
@@ -42,21 +41,22 @@ abstract class AbstractImportCsv extends AbstractImport
         $batchSize = 100;
         $counter = 0;
         $lines = [];
+        $columns = array_map(function ($column) {
+            return strtolower($column);
+        }, $this->importConfig['columns']);
 
         if (($handle = @fopen($this->importDirectory . $this->importConfig['fileName'], "r")) !== false) {
-            $connection = DB::getConnection();
-
             foreach ($this->getLine($handle) as $line) {
                 $counter++;
-                $lines[] = $line;
-                if ($counter % $batchSize == 0) {
-                    $connection?->insert($this->importConfig['tableName'], $this->importConfig['columns'], $lines);
+                $lines[] = array_combine($columns, $line);
+                if (($counter % $batchSize) == 0) {
+                    $this->model->insert($lines);
                     $lines = [];
                 }
             }
 
             if ($lines) {
-                $connection?->insert($this->importConfig['tableName'], $this->importConfig['columns'], $lines);
+                $this->model->insert($lines);
             }
 
             fclose($handle);

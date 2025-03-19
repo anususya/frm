@@ -46,7 +46,7 @@ class ConnectionFactory
     ): Connection {
         return match ($driver) {
             'pgsql' => new Connection($connection, $database, $prefix, $config),
-            default => throw new InvalidArgumentException("Unsupported driver [{$driver}]."),
+            default => throw new InvalidArgumentException("Unsupported driver [$driver]."),
         };
     }
 
@@ -63,9 +63,9 @@ class ConnectionFactory
     /**
      * @param array<string, mixed> $config
      *
-     * @return Connector
+     * @return ConnectorInterface
      */
-    public function createConnector(array $config): Connector
+    public function createConnector(array $config): ConnectorInterface
     {
         if (! isset($config['driver'])) {
             throw new InvalidArgumentException('A driver must be specified.');

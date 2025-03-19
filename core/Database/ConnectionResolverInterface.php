@@ -6,5 +6,5 @@ namespace Core\Database;
 
 interface ConnectionResolverInterface
 {
-    public function connection(string $name): Connection;
+    public function connection(?string $name): ConnectionInterface;
 }

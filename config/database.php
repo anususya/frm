@@ -2,21 +2,17 @@
 
 use Core\App\Superglobals;
 
-function env($key, $default = null)
-{
-    return Superglobals::Env->getParamValue($key) ?? $default;
-}
-
 return [
+    'default_connection' => 'pgsql',
     'connections' => [
         'pgsql' => [
-            'driver' => env('DB_DRIVER', 'pgsql'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'driver' => Superglobals::Env->getParamValue('DB_DRIVER') ?? 'pgsql',
+            'host' => Superglobals::Env->getParamValue('DB_HOST') ?? '127.0.0.1',
             'url' => 'DB_URL',
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_NAME', 'postgres'),
-            'username' => env('DB_USER', 'root'),
-            'password' => env('DB_PASS', 'root'),
+            'port' => Superglobals::Env->getParamValue('DB_PORT') ?? '5432',
+            'database' => Superglobals::Env->getParamValue('DB_NAME') ?? 'postgres',
+            'username' => Superglobals::Env->getParamValue('DB_USER') ?? 'root',
+            'password' => Superglobals::Env->getParamValue('DB_PASS') ?? 'root',
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,

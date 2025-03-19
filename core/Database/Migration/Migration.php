@@ -1,60 +1,28 @@
 <?php
 
-namespace logs\Env\DB\Migration;
+declare(strict_types=1);
 
-use logs\Env\DB\DatabaseManager;
-use logs\Env\Env;
+namespace Core\Database\Migration;
+
+use Core\Database\Connection;
+use Core\Database\DatabaseManager;
+use Exception;
 
 class Migration
 {
-    protected $connection;
+    protected static DatabaseManager $resolver;
+    protected Connection $connection;
 
-    protected $migrationFiles;
+    /**
+     * @throws Exception
+     */
     public function __construct()
     {
-        $name = 'pgsql';
-        $databaseManager = new DatabaseManager();
-        $this->connection = $databaseManager->connection($name);
+        $this->connection = self::$resolver->connection('');
     }
 
-    public function isMigrationNeeded()
+    public static function setConnectionResolver(DatabaseManager $resolver): void
     {
-        $version = Env::get('APP_VERSION');
-        if ($version != '0.0.0') {
-            return true;
-        }
-        return false;
-    }
-
-    protected function getMigrationFiles()
-    {
-        if (!$this->migrationFiles) {
-            $dir = ['.','..'];
-            $files = scandir('/var/www/html/migration');
-            if ($files) {
-                $this->migrationFiles  =  array_diff($files, $dir);
-            }
-        }
-        return $this->migrationFiles;
-    }
-
-    public function runMigrations()
-    {
-        if ($this->getMigrationFiles()) {
-            foreach ($this->getMigrationFiles() as $file) {
-                $filePath = '/var/www/html/migration/' . $file;
-                $path_parts = pathinfo($filePath);
-                if ($path_parts['extension'] == 'sql') {
-                    $fileNameParts = explode('-', $path_parts['filename']);
-                    if ($fileNameParts[0] == 'upgrade') {
-                        $script = file_get_contents($filePath);
-                        if ($script === false or $script == '') {
-                            continue;
-                        }
-                        $this->connection->execute($script);
-                    }
-                }
-            }
-        }
+        self::$resolver = $resolver;
     }
 }

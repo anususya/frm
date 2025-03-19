@@ -11,7 +11,7 @@ class Connector
     /**
      * @param string $dsn
      * @param array<string, mixed> $config
-     * @param array<mixed> $options
+     * @param array<string, mixed> $options
      *
      * @return PDO
      */
@@ -33,7 +33,7 @@ class Connector
      * @param string $dsn
      * @param string $username
      * @param string $password
-     * @param array<mixed> $options
+     * @param array<string, mixed> $options
      *
      * @return PDO
      */
@@ -45,7 +45,7 @@ class Connector
     /**
      * @param array<string, mixed> $config
      *
-     * @return array<mixed>
+     * @return array<string, mixed>
      */
     public function getOptions(array $config): array
     {

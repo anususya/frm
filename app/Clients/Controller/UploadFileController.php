@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Clients\Controller;
 
-use App\Clients\Model\Import\UploadFileModel as ImportUploadFileModel;
+use App\Clients\Import\UploadFileImport;
 use App\Clients\Model\UploadFileModel;
 use Core\Controller\FrontendController;
 
@@ -22,8 +22,7 @@ class UploadFileController extends FrontendController
         $importResult = false;
 
         if ($uploadResult) {
-            $importFile = new ImportUploadFileModel();
-            $importResult = $importFile->import();
+            $importResult = (new UploadFileImport())->run();
         }
 
         $blockData = [

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Core\Import;
 
+use Core\Database\Noname\Model;
 use RuntimeException;
 use Core\Config\Config;
 
@@ -11,6 +12,9 @@ abstract class AbstractImport
 {
     protected const IMPORT_TYPE = '';
     protected const IMPORT_NAME = '';
+    protected const MODEL_CLASS = '';
+
+    protected Model $model;
 
     /**
      * @var array<string, mixed>
@@ -22,11 +26,21 @@ abstract class AbstractImport
     public function __construct()
     {
         $this->importConfig = Config::get('import.' . $this->getImportName()) ?? [];
+        $this->model = $this->loadModel();
     }
 
     public function getImportName(): string
     {
         return static::IMPORT_NAME;
+    }
+
+    protected function loadModel(): Model
+    {
+        if (!(static::MODEL_CLASS instanceof Model)) {
+            throw new RuntimeException('Model not set or invalid');
+        }
+
+        return new (static::MODEL_CLASS);
     }
 
     protected function checkFormat(): void

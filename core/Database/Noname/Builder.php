@@ -1,24 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\Database\Noname;
 
 use Core\Database\Query\Builder as QueryBuilder;
-use Core\Database\Noname\Model;
 
+/**
+ * @mixin QueryBuilder
+ */
 class Builder
 {
-    /**
-     * @var Model
-     */
     protected Model $model;
-    protected $table;
+    protected string $table;
 
     public function __construct(
         protected QueryBuilder $query
     ) {
     }
 
-    public function setModel(Model $model)
+    public function setModel(Model $model): Builder
     {
         $this->model = $model;
 
@@ -27,140 +28,168 @@ class Builder
         return $this;
     }
 
-    /**
-     * @param $method
-     * @param $parameters
-     *
-     * @return void
-     */
-    public function __call($method, $parameters)
+    public function __call(string $method, $parameters): mixed // @phpstan-ignore-line
     {
-        $this->forwardCallTo($this->query, $method, $parameters);
+        return $this->forwardCallTo($this->query, $method, $parameters);
     }
 
-    /**
-     * @param $object
-     * @param $method
-     * @param $parameters
-     *
-     * @return mixed
-     */
-    protected function forwardCallTo($object, $method, $parameters)
+    protected function forwardCallTo(QueryBuilder $object, string $method, $parameters): mixed // @phpstan-ignore-line
     {
         return $object->{$method}(...$parameters);
     }
 
-    public function get($columns = ['*'])
+    /**
+     * @param string[] $columns
+     *
+     * @return Collection
+     */
+    public function get(array $columns = ['*']): Collection
     {
-        // return $this->query->get($columns)->all();
-        $builder = clone $this;
-        if (count($models = $builder->getModels($columns)) > 0) {
-            // $models = $builder->eagerLoadRelations($models);
-        }
+        $models = $this->getModels($columns);
 
-        return $builder->getModel()->newCollection($models);
-        //return $this->query->get($columns)->all();
+        return $this->getModel()->newCollection($models);
     }
 
-    public function delete()
+    public function delete(): int
     {
         return $this->query->delete();
     }
 
-    public function update(array $values)
+    /**
+     * @param array<string, mixed> $values
+     *
+     * @return int
+     */
+    public function update(array $values): int
     {
         return $this->query->update($values);
     }
 
-    public function getModel()
+    public function getModel(): Model
     {
         return $this->model;
     }
 
-    public function getModels($columns = ['*'])
+    /**
+     * @param string[] $columns
+     *
+     * @return mixed[]
+     */
+    public function getModels(array $columns = ['*']): array
     {
         return $this->hydrate($this->query->get($columns)->all())->all();
-        return $this->model->hydrate(
-            $this->query->get($columns)->all()
-        )->all();
     }
 
-    public function from($table, $as = null)
+    public function from(string $table): Builder
     {
-        if ($this->isQueryable($table)) {
-            return $this->fromSub($table, $as);
-        }
-
-        $this->from = $as ? "{$table} as {$as}" : $table;
+        $this->query->from = $table;
 
         return $this;
     }
 
-    public function hydrate(array $items)
+    /**
+     * @param array<mixed> $items
+     *
+     * @return Collection
+     */
+    public function hydrate(array $items): Collection
     {
         $instance = $this->newModelInstance();
 
         return $instance->newCollection(
-            array_map(function ($item) use ($items, $instance) {
-                $model = $instance->newFromBuilder($item);
-
-                //            if (count($items) > 1) {
-                //                $model->preventsLazyLoading = Model::preventsLazyLoading();
-                //            }
-
-                return $model;
+            array_map(function ($item) use ($instance) {
+                $item = is_array($item) ? $item : (array) $item;
+                return $instance->newFromBuilder($item);
             }, $items)
         );
     }
 
-    public function newModelInstance($attributes = [])
+    /**
+     * @param array<string, mixed> $attributes
+     *
+     * @return Model
+     */
+    public function newModelInstance(array $attributes = []): Model
     {
-        //$attributes = array_merge($this->pendingAttributes, $attributes);
-
         return $this->model->newInstance($attributes)->setConnection(
             $this->query->getConnection()->getName()
         );
     }
 
-    public function find($id, $columns = ['*'])
+    /**
+     * @param string|int|array<string|int> $id
+     * @param string[] $columns
+     *
+     * @return Collection
+     */
+    public function find(null|string|array|int $id, array $columns = ['*']): Collection
     {
+        if (empty($id)) {
+            return $this->model->newCollection([]);
+        }
+
         if (is_array($id)) {
             return $this->findMany($id, $columns);
         }
+
         $this->limit(1);
+
         return $this->whereKey($id)->get($columns)->first();
     }
 
-    public function findMany($ids, $columns = ['*'])
+    /**
+     * @param array<string|int> $ids
+     * @param string[] $columns
+     *
+     * @return Collection
+     */
+    public function findMany(array $ids, array $columns = ['*']): Collection
     {
         if (empty($ids)) {
-            return $this->model->newCollection();
+            return $this->model->newCollection([]);
         }
 
         return $this->whereKey($ids)->get($columns);
     }
 
-    public function whereKey($id)
+    /**
+     * @param string|int|null|array<string|int> $ids
+     *
+     * @return Builder
+     */
+    public function whereKey(string|int|null|array $ids): Builder
     {
-        if (is_array($id)) {
+        if (is_array($ids)) {
             if (in_array($this->model->getKeyType(), ['int', 'integer'])) {
-                $this->query->whereIntegerInRaw($this->model->getKeyName(), $id);
+                $this->query->whereIntegerInRaw($this->model->getKeyName(), $ids); // @phpstan-ignore-line
             } else {
-                $this->query->whereIn($this->model->getKeyName(), $id);
+                $this->query->whereIn($this->model->getKeyName(), $ids); // @phpstan-ignore-line
             }
 
             return $this;
         }
 
-        if ($id !== null && $this->model->getKeyType() === 'string') {
-            $id = (string) $id;
+        if ($ids !== null && $this->model->getKeyType() === 'string') {
+            $ids = (string) $ids;
         }
 
-        return $this->where($this->model->getKeyName(), '=', $id);
+        return $this->where($this->model->getKeyName(), '=', $ids);
     }
 
-    public function where($column, $operator = null, $value = null, $boolean = 'and')
-    {
+    /**
+     * @param string|array<mixed>    $column
+     * @param string|null     $operator
+     * @param int|string|null $value
+     * @param string          $boolean
+     *
+     * @return $this
+     */
+    public function where(
+        string|array $column,
+        string $operator = null,
+        null|int|string $value = null,
+        string $boolean = 'and'
+    ): Builder {
         $this->query->where(...func_get_args());
 
         return $this;

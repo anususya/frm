@@ -1,12 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\Database\Query;
 
+use Closure;
 use Core\Database\Connection;
-use Core\Database\ConnectionInteface as ConnectionInterface;
-use Core\Database\Noname\Builder as NonameBuilder;
-use Core\Database\Collection;
-use Core\Database\Query\Grammars\Grammar;
+use Core\Database\Noname\Collection;
 use InvalidArgumentException;
 
 class Builder
@@ -18,10 +18,16 @@ class Builder
 
     public string $from;
 
-    public ?array $wheres = [];
-    public ?int $limit;
+    /**
+     * @var array<int|string, mixed>
+     */
+    public array $wheres = [];
 
-    public Grammar $grammar;
+    /**
+     * @var array<mixed>
+     */
+    public array $orders;
+    public ?int $limit;
 
     /**
      * @var array<mixed>
@@ -51,12 +57,12 @@ class Builder
     ];
 
     public function __construct(
-        public ConnectionInterface $connection
+        public Connection $connection,
+        public Grammar $grammar
     ) {
-        $this->grammar = $connection->getQueryGrammar();
     }
 
-    public function select($columns = ['*']): Builder
+    public function select(mixed $columns = ['*']): Builder
     {
         $this->columns = [];
         $this->bindings['select'] = [];
@@ -70,8 +76,7 @@ class Builder
         return $this;
     }
 
-
-    public function from($table, $as = null)
+    public function from(string $table): Builder
     {
         $this->from = $table;
 
@@ -79,12 +84,12 @@ class Builder
     }
 
 
-    public function addSelect($column)
+    public function addSelect(mixed $column): Builder
     {
         $columns = is_array($column) ? $column : func_get_args();
 
         foreach ($columns as $column) {
-            if (is_array($this->columns) && in_array($column, $this->columns, true)) {
+            if (isset($this->columns) && in_array($column, $this->columns, true)) {
                 continue;
             }
 
@@ -94,7 +99,7 @@ class Builder
         return $this;
     }
 
-    public function limit($value)
+    public function limit(null|string|int $value): Builder
     {
         if ($value >= 0) {
             $this->limit = ! is_null($value) ? (int) $value : null;
@@ -103,27 +108,76 @@ class Builder
         return $this;
     }
 
-    public function get($columns = ['*'])
+    public function get(mixed $columns = ['*']): Collection
     {
-        return new Collection($this->runSelect());
+        return new Collection($this->onceWithColumns(self::wrap($columns), function () {
+            return $this->runSelect();
+        }));
     }
 
-    protected function runSelect()
+    /**
+     * @param mixed $value
+     *
+     * @return array<mixed>
+     */
+    public static function wrap(mixed $value): array
+    {
+        if (is_null($value)) {
+            return [];
+        }
+
+        return is_array($value) ? $value : [$value];
+    }
+
+    /**
+     * @param string[] $columns
+     * @param callable $callback
+     *
+     * @return mixed
+     */
+    protected function onceWithColumns(array $columns, callable $callback): mixed
+    {
+        $original = $this->columns ?? null;
+
+        if (is_null($original)) {
+            $this->columns = $columns;
+        }
+
+        $result = $callback();
+
+        $this->columns = $original;
+
+        return $result;
+    }
+
+    /**
+     * @return mixed[]
+     */
+    protected function runSelect(): array
     {
         return $this->connection->select($this->toSql(), $this->getBindings());
     }
 
-    public function toSql()
+    public function toSql(): string
     {
         return $this->grammar->compileSelect($this);
     }
 
-    public function getBindings()
+    /**
+     * @return mixed[]
+     */
+    public function getBindings(): array
     {
         return self::flatten($this->bindings);
     }
 
-    public static function flatten(array $array, $depth = INF)
+    /**
+     * @param array<mixed> $array
+     * @param int $depth
+     *
+     * @return array<mixed>
+     */
+    public static function flatten(array $array, int $depth = 1): array
     {
         $result = [];
 
@@ -145,81 +199,83 @@ class Builder
 
         return $result;
     }
-    public function getConnection()
+    public function getConnection(): Connection
     {
         return $this->connection;
     }
 
-    public function delete($id = null)
+    public function delete(int|string $id = null): int
     {
-        // If an ID is passed to the method, we will set the where clause to check the
-        // ID to let developers to simply and quickly remove a single row from this
-        // database without manually specifying the "where" clauses on the query.
         if (! is_null($id)) {
-            $this->where($this->from.'.id', '=', $id);
+            $this->where($this->from . '.id', '=', $id);
         }
 
         return $this->connection->delete($this->grammar->compileDelete($this), self::flatten($this->bindings));
-        return $this->connection->delete(
-            $this->grammar->compileDelete($this),
-            $this->cleanBindings(
-                $this->grammar->prepareBindingsForDelete($this->bindings)
-            )
-        );
     }
 
-    public function where($column, $operator = null, $value = null, $boolean = 'and')
-    {
-        // If the column is an array, we will assume it is an array of key-value pairs
-        // and can add them each as a where clause. We will maintain the boolean we
-        // received when the method was called and pass it into the nested where.
+    public function where(
+        mixed $column,
+        string $operator = '=',
+        mixed $value = null,
+        string $boolean = 'and'
+    ): Builder {
         if (is_array($column)) {
             return $this->addArrayOfWheres($column, $boolean);
         }
 
-        // Here we will make some assumptions about the operator. If only 2 values are
-        // passed to the method, we will assume that the operator is an equals sign
-        // and keep going. Otherwise, we'll require the operator to be passed in.
         [$value, $operator] = $this->prepareValueAndOperator(
-            $value, $operator, func_num_args() === 2
+            $value,
+            $operator,
+            func_num_args() === 2
         );
 
-
-
-        // If the given operator is not found in the list of valid operators we will
-        // assume that the developer is just short-cutting the '=' operators and
-        // we will set the operators to '=' and set the values appropriately.
         if ($this->invalidOperator($operator)) {
             [$value, $operator] = [$operator, '='];
         }
 
-        // If the value is "null", we will just assume the developer wants to add a
-        // where null clause to the query. So, we will allow a short-cut here to
-        // that method for convenience so the developer doesn't have to check.
         if (is_null($value)) {
             return $this->whereNull($column, $boolean, $operator !== '=');
         }
 
         $type = 'Basic';
 
-        // Now that we are working with just a simple query we can put the elements
-        // in our array and add the query binding to our array of bindings that
-        // will be bound to each SQL statements when it is finally executed.
         $this->wheres[] = compact(
-            'type', 'column', 'operator', 'value', 'boolean'
+            'type',
+            'column',
+            'operator',
+            'value',
+            'boolean'
         );
 
-        //$this->addBinding($this->flattenValue($value), 'where');
-        $this->addBinding($value, 'where');
+        $this->addBinding($value);
+
         return $this;
     }
 
-    protected function invalidOperator($operator)
+    public function whereNull(mixed $columns, string $boolean = 'and', bool $not = false): Builder
     {
-        return ! is_string($operator) || (! in_array(strtolower($operator), $this->operators, true));
+        $type = $not ? 'NotNull' : 'Null';
+
+        foreach (self::wrap($columns) as $column) {
+            $this->wheres[] = compact('type', 'column', 'boolean');
+        }
+
+        return $this;
     }
 
-    public function prepareValueAndOperator($value, $operator, $useDefault = false)
+    protected function invalidOperator(string $operator): bool
+    {
+        return ! in_array(strtolower($operator), $this->operators, true);
+    }
+
+    /**
+     * @param mixed  $value
+     * @param string $operator
+     * @param bool   $useDefault
+     *
+     * @return array<mixed>
+     */
+    public function prepareValueAndOperator(mixed $value, string $operator, bool $useDefault = false): array
     {
         if ($useDefault) {
             return [$operator, '='];
@@ -230,22 +286,20 @@ class Builder
         return [$value, $operator];
     }
 
-    /**
-     * Determine if the given operator and value combination is legal.
-     *
-     * Prevents using Null values with invalid operators.
-     *
-     * @param  string  $operator
-     * @param  mixed  $value
-     * @return bool
-     */
-    protected function invalidOperatorAndValue($operator, $value)
+    protected function invalidOperatorAndValue(string $operator, mixed $value): bool
     {
         return is_null($value) && in_array($operator, $this->operators) &&
             ! in_array($operator, ['=', '<>', '!=']);
     }
 
-    protected function addArrayOfWheres($column, $boolean, $method = 'where')
+    /**
+     * @param mixed $column
+     * @param string $boolean
+     * @param string $method
+     *
+     * @return Builder
+     */
+    protected function addArrayOfWheres(mixed $column, string $boolean, string $method = 'where'): Builder
     {
         return $this->whereNested(function ($query) use ($column, $method, $boolean) {
             foreach ($column as $key => $value) {
@@ -258,65 +312,78 @@ class Builder
         }, $boolean);
     }
 
-    public function whereNested(\Closure $callback, $boolean = 'and')
+    public function whereNested(Closure $callback, string $boolean = 'and'): Builder
     {
         $callback($query = $this->forNestedWhere());
 
         return $this->addNestedWhereQuery($query, $boolean);
     }
 
-    public function newQuery()
+    public function newQuery(): static
     {
-        return new static($this->connection);
+        return new static($this->connection, $this->grammar); // @phpstan-ignore-line
     }
-    public function forNestedWhere()
+    public function forNestedWhere(): Builder
     {
         return $this->newQuery()->from($this->from);
     }
 
-    public function addNestedWhereQuery($query, $boolean = 'and')
+    public function addNestedWhereQuery(Builder $query, string $boolean = 'and'): Builder
     {
         if (count($query->wheres)) {
             $type = 'Nested';
 
             $this->wheres[] = compact('type', 'query', 'boolean');
 
-            $this->addBinding($query->getRawBindings()['where'], 'where');
+            $this->addBinding($query->getRawBindings()['where']);
         }
 
         return $this;
     }
-    public function getRawBindings()
+
+    /**
+     * @return array<mixed>
+     */
+    public function getRawBindings(): array
     {
         return $this->bindings;
     }
 
-    public function whereIn($column, $values, $boolean = 'and', $not = false)
-    {
+    /**
+     * @param string $column
+     * @param array<string>|string $values
+     * @param string       $boolean
+     * @param bool         $not
+     *
+     * @return $this
+     */
+    public function whereIn(
+        string $column,
+        array|string $values,
+        string $boolean = 'and',
+        bool $not = false
+    ): Builder {
         $type = $not ? 'NotIn' : 'In';
         $this->wheres[] = compact('type', 'column', 'values', 'boolean');
-        $this->addBinding($values, 'where');
+        $this->addBinding($values);
 
         return $this;
     }
 
-    public function whereRowValues($columns, $operator, $values, $boolean = 'and')
-    {
-        if (count($columns) !== count($values)) {
-            throw new InvalidArgumentException('The number of columns must match the number of values');
-        }
-
-        $type = 'RowValues';
-
-        $this->wheres[] = compact('type', 'columns', 'operator', 'values', 'boolean');
-
-        //$this->addBinding($this->cleanBindings($values));
-
-        return $this;
-    }
-
-    public function whereIntegerInRaw($column, $values, $boolean = 'and', $not = false)
-    {
+    /**
+     * @param mixed $column
+     * @param array<int>  $values
+     * @param string $boolean
+     * @param bool   $not
+     *
+     * @return $this
+     */
+    public function whereIntegerInRaw(
+        mixed $column,
+        array $values,
+        string $boolean = 'and',
+        bool $not = false
+    ): Builder {
         $type = $not ? 'NotInRaw' : 'InRaw';
 
         $values = self::flatten($values);
@@ -327,10 +394,10 @@ class Builder
     }
 
 
-    public function addBinding($value, $type = 'where')
+    public function addBinding(mixed $value, string $type = 'where'): Builder
     {
         if (! array_key_exists($type, $this->bindings)) {
-            throw new InvalidArgumentException("Invalid binding type: {$type}.");
+            throw new InvalidArgumentException("Invalid binding type: $type.");
         }
 
         if (is_array($value)) {
@@ -342,29 +409,61 @@ class Builder
         return $this;
     }
 
-    public function insertGetId(array $values, $sequence = null)
+    /**
+     * @param array<mixed> $values
+     *
+     * @return bool
+     */
+    public function insert(array $values): bool
+    {
+        if (empty($values)) {
+            return true;
+        }
+
+        if (! is_array(reset($values))) {
+            $values = [$values];
+        } else {
+            foreach ($values as $key => $value) {
+                ksort($value);
+
+                $values[$key] = $value;
+            }
+        }
+
+        return $this->connection->insert(
+            $this->grammar->compileInsert($this, $values),
+            self::flatten($values)
+        );
+    }
+
+    /**
+     * @param array<string, mixed> $values
+     * @param string|null $sequence
+     *
+     * @return int|string
+     */
+    public function insertGetId(array $values, ?string $sequence = null): string|int
     {
         $sql = $this->grammar->compileInsertGetId($this, $values, $sequence);
 
         return $this->processInsertGetId($this, $sql, $values, $sequence);
     }
 
-    public function processInsertGetId(Builder $query, $sql, $values, $sequence = null)
-    {
-        $id = $query->getConnection()->insert($sql, $values);
-
-       //id = $query->getConnection()->getPdo()->fetchColumn();
-
-        return is_numeric($id) ? (int) $id : $id;
-    }
-
-    public function processInsertGetId1(Builder $query, $sql, $values, $sequence = null)
+    /**
+     * @param Builder $query
+     * @param string  $sql
+     * @param array<string, mixed>   $values
+     * @param null|string  $sequence
+     *
+     * @return string|int
+     */
+    public function processInsertGetId(Builder $query, string $sql, array $values, ?string $sequence): string|int
     {
         $connection = $query->getConnection();
 
         $connection->recordsHaveBeenModified();
 
-        $result = $connection->select($sql, array_values($values))[0];
+        $result = $connection->select($sql, $values)[0];
 
         $sequence = $sequence ?: 'id';
 
@@ -373,12 +472,30 @@ class Builder
         return is_numeric($id) ? (int) $id : $id;
     }
 
-    public function update(array $values)
+    /**
+     * @param array<string, mixed> $values
+     *
+     * @return int
+     */
+    public function update(array $values): int
     {
         $sql = $this->grammar->compileUpdate($this, $values);
         return $this->connection->update($sql, array_values(array_merge($values, $this->getBindings())));
     }
 
+    public function orderBy(string $column, string $direction = 'asc'): Builder
+    {
+        $direction = strtolower($direction);
 
+        if (! in_array($direction, ['asc', 'desc'], true)) {
+            throw new InvalidArgumentException('Order direction must be "asc" or "desc".');
+        }
 
+        $this->orders[] = [
+            'column' => $column,
+            'direction' => $direction,
+        ];
+
+        return $this;
+    }
 }

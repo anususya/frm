@@ -34,7 +34,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
         // need to establish the PDO connections and return them back for use.
         extract($config, EXTR_SKIP);
 
-        $host = isset($host) ? "host={$host};" : '';
+        $host = isset($host) ? "host=$host;" : '';
 
         // Sometimes - users may need to connect to a database that has a different
         // name than the database used for "information_schema" queries. This is
@@ -42,17 +42,17 @@ class PostgresConnector extends Connector implements ConnectorInterface
         $database = $connect_via_database ?? $database ?? null;
         $port = $connect_via_port ?? $port ?? null;
 
-        $dsn = "pgsql:{$host}dbname='{$database}'";
+        $dsn = "pgsql:$host dbname='$database'";
 
         // If a port was specified, we will add it to this Postgres DSN connections
         // format. Once we have done that we are ready to return this connection
         // string back out for usage, as this has been fully constructed here.
         if (! is_null($port)) {
-            $dsn .= ";port={$port}";
+            $dsn .= ";port=$port";
         }
 
         if (isset($charset)) {
-            $dsn .= ";client_encoding='{$charset}'";
+            $dsn .= ";client_encoding='$charset'";
         }
 
         // Postgres allows an application_name to be set by the user and this name is

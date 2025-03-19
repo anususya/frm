@@ -19,11 +19,15 @@ class DatabaseManager implements ConnectionResolverInterface
     ) {
     }
 
-    public function connection(string $name): Connection
+    /**
+     * @throws Exception
+     */
+    public function connection(?string $name): Connection
     {
+        $name = $name ?: $this->getDefaultConnection();
+
         if (! isset($this->connections[$name])) {
-            $config = $this->configuration($name);
-            if ($config) {
+            if ($config = $this->configuration($name)) {
                 $this->connections[$name] = $this->factory->make($config);
             } else {
                 throw new Exception('DB connection named "' . $name . '" not found');
@@ -31,6 +35,11 @@ class DatabaseManager implements ConnectionResolverInterface
         }
 
         return $this->connections[$name];
+    }
+
+    public function getDefaultConnection(): string
+    {
+        return Config::get('default_connection');
     }
 
     /**

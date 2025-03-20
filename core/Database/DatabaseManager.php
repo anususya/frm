@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Core\Database;
 
-use Core\Database\Connectors\ConnectionFactory;
 use Core\Config\Config;
+use Core\Database\Connectors\ConnectionFactory;
 use Exception;
 
 class DatabaseManager implements ConnectionResolverInterface

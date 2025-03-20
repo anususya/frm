@@ -145,6 +145,6 @@ class Layout
 
         $block->setChildBlocks($childBlocks);
 
-        return array($attributes['name'] => $block);
+        return [$attributes['name'] => $block];
     }
 }

@@ -389,7 +389,6 @@ class Grammar extends BaseGrammar
         return "insert into $table ($columns) values $parameters";
     }
 
-
     /**
      * @param Builder $query
      * @param array<string> $values

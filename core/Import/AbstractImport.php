@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Core\Import;
 
+use Core\Config\Config;
 use Core\Database\Noname\Model;
 use RuntimeException;
-use Core\Config\Config;
 
 abstract class AbstractImport
 {

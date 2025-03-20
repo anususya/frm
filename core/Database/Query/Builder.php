@@ -83,7 +83,6 @@ class Builder
         return $this;
     }
 
-
     public function addSelect(mixed $column): Builder
     {
         $columns = is_array($column) ? $column : func_get_args();
@@ -392,7 +391,6 @@ class Builder
 
         return $this;
     }
-
 
     public function addBinding(mixed $value, string $type = 'where'): Builder
     {

@@ -8,15 +8,14 @@ use Core\App\App;
 use Core\App\Superglobals;
 use Core\Database\ConnectionInterface;
 use Core\Database\ConnectionResolverInterface;
-use Exception;
 use DirectoryIterator;
+use Exception;
 
 class MigrationService
 {
     public const MIGRATION_DIR = App::BASE_APP_DIR . 'migration/';
     protected static ConnectionResolverInterface $resolver;
     protected ConnectionInterface $connection;
-
 
     public function __construct()
     {
@@ -92,7 +91,6 @@ class MigrationService
         $migration = new $migrationClass();
         $migration->up();
     }
-
 
     public function isTableExists(string $table): bool
     {

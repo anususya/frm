@@ -99,7 +99,6 @@ class Blueprint
             }
         }
 
-
         return $statements;
     }
 

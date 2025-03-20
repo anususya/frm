@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Core\Database\Connectors;
 
-use Core\Database\Connection;
 use Closure;
+use Core\Database\Connection;
 use InvalidArgumentException;
 
 class ConnectionFactory

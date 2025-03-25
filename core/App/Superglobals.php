@@ -27,7 +27,7 @@ enum Superglobals
             Superglobals::Globals => $GLOBALS,
             Superglobals::Server => $_SERVER,
             Superglobals::Get => $_GET,
-            Superglobals::Post => $_POST,
+            Superglobals::Post => $this->getPost(),
             Superglobals::Files => $_FILES,
             Superglobals::Cookie => $_COOKIE,
             Superglobals::Session => $_SESSION,
@@ -72,5 +72,17 @@ enum Superglobals
         } else {
             return is_string($value) ? self::cleanParam($value) : self::cleanParams($value);
         }
+    }
+
+    /**
+     * @return array<mixed>
+     */
+    protected function getPost(): array
+    {
+        if ($json = file_get_contents('php://input')) {
+            return array_merge(json_decode($json, true), $_POST);
+        }
+
+        return $_POST;
     }
 }

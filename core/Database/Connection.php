@@ -6,6 +6,7 @@ namespace Core\Database;
 
 use Closure;
 use Core\Database\Query\Builder as QueryBuilder;
+use Core\Database\Query\Expression;
 use Core\Database\Query\Grammar as QueryGrammar;
 use Core\Database\Schema\Builder as SchemaBuilder;
 use Core\Database\Schema\Grammar as SchemaGrammar;
@@ -179,5 +180,10 @@ class Connection implements ConnectionInterface
         $statement = $this->getPdo()->prepare($query);
         $this->bindValues($statement, $this->prepareBindings($bindings));
         $statement->execute();
+    }
+
+    public function raw(mixed $value): Expression
+    {
+        return new Expression($value);
     }
 }

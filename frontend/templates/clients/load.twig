@@ -1,0 +1,36 @@
+{# load.twig #}
+
+{% extends 'base/main.twig' %}
+
+{% block title %}Parse Clients{% endblock %}
+
+{% block content %}
+    <div class="custom-bg text-dark">
+        <div class="d-flex align-items-center justify-content-center min-vh-100 px-2">
+            <div class="text-center">
+                <h3>Load customer file</h3>
+                <form enctype="multipart/form-data" action="/load/file" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            <input type="hidden" name="MAX_FILE_SIZE" value="5242880" />
+                            <input type="file" name="file" accept="text/csv" class="form-control"  aria-label="Upload">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <input type="submit" value="Upload and parse file" class="btn btn-dark fw-semibold rounded-pill px-4 py-2 custom-btn" />
+                        </div>
+                    </div>
+                </form>
+                {% if load is defined %}
+                    {% if load.importResult and load.uploadResult %}
+                        <a href="/analyze" class="btn btn-dark fw-semibold rounded-pill px-4 py-2 custom-btn">
+                            Open search page
+                        </a>
+                    {% elseif load.uploadResult is same as(false) or load.importResult is same as(false) %}
+                        <p>'Sorry, something went wrong. Please try again later.'</p>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{# diagram.twig #}
+
+{% extends 'base/main.twig' %}
+
+{% block title %}Clients Diagram{% endblock %}
+
+{% block content %}
+    <div>
+        <div class="container">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Select field to analaze
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" data-name="gender">Gender</a></li>
+                    <li><a class="dropdown-item" data-name="country">Country</a></li>
+                    <li><a class="dropdown-item" data-name="is_active">Active</a></li>
+                    <li><a class="dropdown-item" data-name="has_children">hasChildren</a></li>
+                    <li><a class="dropdown-item" data-name="family_status">Family Status</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <style>
+        #myPieChart {
+            width: 80%;  /* Set the width to 80% of the parent container */
+            height: 400px;  /* Fixed height of 400px */
+        }
+    </style>
+
+    <div width="500" height="500">
+        <canvas id="myPieChart" width="500" height="500"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="/frontend/js/diagram.js"></script>
+
+{% endblock %}

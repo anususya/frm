@@ -16,6 +16,7 @@ class Grammar extends BaseGrammar
         'columns',
         'from',
         'wheres',
+        'groups',
         'orders',
         'limit'
     ];
@@ -427,5 +428,30 @@ class Grammar extends BaseGrammar
     protected function compileLimit(Builder $query, string|int $limit): string
     {
         return 'limit ' . (int) $limit;
+    }
+
+    /**
+     * @param Builder $query
+     * @param array<int|string, mixed>   $groups
+     *
+     * @return string
+     */
+    protected function compileGroups(Builder $query, array $groups): string
+    {
+        if (! empty($groups)) {
+            return 'group by ' . $this->columnize($groups);
+        }
+
+        return '';
+    }
+
+    /**
+     * @param Builder $query
+     *
+     * @return array<mixed>
+     */
+    public function compileTruncate(Builder $query): array
+    {
+        return ['truncate table ' . $this->wrapTable($query->from) . ' restart identity' => []];
     }
 }

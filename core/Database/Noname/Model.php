@@ -362,7 +362,7 @@ abstract class Model
      *
      * @return $this
      */
-    public function setRawAttributes($attributes, bool $sync = false): Model
+    public function setRawAttributes(array $attributes, bool $sync = false): Model
     {
         $this->attributes = $attributes;
 

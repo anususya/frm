@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Core\Database\Noname;
 
 use ArgumentCountError;
+use stdClass;
 
 class Collection
 {
@@ -72,7 +73,15 @@ class Collection
     public function jsonSerialize(): array
     {
         return array_map(function ($value) {
-            return $value->toArray();
+            if ($value instanceof Model) {
+                return $value->toArray();
+            }
+
+            if ($value instanceof StdClass) {
+                return (array) $value;
+            }
+
+            return $value;
         }, $this->all());
     }
 

@@ -16,12 +16,16 @@ abstract class AbstractImportCsv extends AbstractImport
 
     protected string $importDirectory = App::BASE_APP_DIR . '/import/';
 
-    public function run(): bool
+    public function run(bool $rewriteOldData = true): bool
     {
         $this->checkImportConfig();
         $this->checkFormat();
 
         try {
+            if ($rewriteOldData) {
+                $this->repository->deleteAll();
+            }
+
             $this->import();
             return true;
         } catch (Exception $e) {
@@ -50,13 +54,13 @@ abstract class AbstractImportCsv extends AbstractImport
                 $counter++;
                 $lines[] = array_combine($columns, $line);
                 if (($counter % $batchSize) == 0) {
-                    $this->model->insert($lines);
+                    $this->repository->saveMany($lines);
                     $lines = [];
                 }
             }
 
             if ($lines) {
-                $this->model->insert($lines);
+                $this->repository->saveMany($lines);
             }
 
             fclose($handle);

@@ -117,21 +117,13 @@ class Builder
     }
 
     /**
-     * @param string|int|array<string|int> $id
+     * @param string|int $id
      * @param string[] $columns
      *
-     * @return Collection
+     * @return Model|null
      */
-    public function find(null|string|array|int $id, array $columns = ['*']): Collection
+    public function find(string|int $id, array $columns = ['*']): ?Model
     {
-        if (empty($id)) {
-            return $this->model->newCollection([]);
-        }
-
-        if (is_array($id)) {
-            return $this->findMany($id, $columns);
-        }
-
         $this->limit(1);
 
         return $this->whereKey($id)->get($columns)->first();
@@ -193,5 +185,18 @@ class Builder
         $this->query->where(...func_get_args());
 
         return $this;
+    }
+
+    /**
+     * @param array<string, mixed> $attributes
+     *
+     * @return Model
+     */
+    public function create(array $attributes = []): Model
+    {
+        $newModel = $this->newModelInstance($attributes);
+        $newModel->save();
+
+        return $newModel;
     }
 }

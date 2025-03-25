@@ -10,6 +10,7 @@ use Core\App\Superglobals;
 use Core\Config\Config;
 use Core\Controller\PageNotFoundController;
 use Core\Log\Log;
+use Throwable;
 
 class Router
 {
@@ -40,14 +41,14 @@ class Router
                 $controllerInstance->{$result['method']}();
 
                 return;
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
                 Log::write($e->getMessage());
             }
         } else {
             try {
                 $controllerInstance = new PageNotFoundController();
                 $controllerInstance->index();
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
                 Log::write($e->getMessage());
             }
         }

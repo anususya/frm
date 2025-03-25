@@ -1,0 +1,34 @@
+{# clients.twig #}
+
+{% extends 'base/main.twig' %}
+
+{% block title %}Clients{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.24.0/dist/bootstrap-table.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.24.0/dist/bootstrap-table.min.js"></script>
+
+    <br>
+    {% include 'clients/search.twig' %}
+    <br>
+
+    <table id="table"  data-pagination="true">
+        <thead>
+        <tr>
+            <th data-field="client_id">ID</th>
+            <th data-field="country">Country</th>
+            <th data-field="city">City</th>
+            <th data-field="is_active">Active</th>
+            <th data-field="gender">Gender</th>
+            <th data-field="birth_date">Birth Date</th>
+            <th data-field="salary">Salary</th>
+            <th data-field="has_children">Children</th>
+            <th data-field="family_status">Family Status</th>
+            <th data-field="registration_date">Registration Date</th>
+        </tr>
+        </thead>
+    </table>
+
+    <script src="/frontend/js/clients.js"></script>
+{% endblock %}

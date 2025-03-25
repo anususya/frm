@@ -24,6 +24,11 @@ class Builder
     public array $wheres = [];
 
     /**
+     * @var array<int|string, mixed>
+     */
+    public array $groups = [];
+
+    /**
      * @var array<mixed>
      */
     public array $orders;
@@ -495,5 +500,34 @@ class Builder
         ];
 
         return $this;
+    }
+
+    /**
+     * @param string ...$groups
+     *
+     * @return $this
+     */
+    public function groupBy(...$groups): Builder
+    {
+        foreach ($groups as $group) {
+            $this->groups = array_merge(
+                $this->groups,
+                self::wrap($group)
+            );
+        }
+
+        return $this;
+    }
+
+    public function raw(string $value): Expression
+    {
+        return $this->connection->raw($value);
+    }
+
+    public function truncate(): void
+    {
+        foreach ($this->grammar->compileTruncate($this) as $sql => $bindings) {
+            $this->connection->statement($sql, $bindings);
+        }
     }
 }

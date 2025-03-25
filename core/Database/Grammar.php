@@ -3,6 +3,7 @@
 namespace Core\Database;
 
 use Core\Database\Noname\Collection;
+use Core\Database\Query\Expression;
 
 abstract class Grammar
 {
@@ -16,9 +17,27 @@ abstract class Grammar
         return $this->wrapValue($prefix . $table);
     }
 
-    public function wrap(string $value): string
+    public function wrap(string|Expression $value): string
     {
-        return $this->wrapSegments(explode('.', $value));
+        if ($this->isExpression($value)) {
+            return $this->getValue($value);
+        }
+
+        return $this->wrapSegments(explode('.', $value)); //@phpstan-ignore-line
+    }
+
+    public function isExpression(mixed $value): bool
+    {
+        return $value instanceof Expression;
+    }
+
+    public function getValue(mixed $expression): mixed
+    {
+        if ($this->isExpression($expression)) {
+            return $this->getValue($expression->getValue($this));
+        }
+
+        return $expression;
     }
 
     /**

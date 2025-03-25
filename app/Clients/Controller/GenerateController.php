@@ -4,28 +4,28 @@ declare(strict_types=1);
 
 namespace App\Clients\Controller;
 
-use App\Clients\Model\ClientsDataGenerator;
-use Core\App\Request;
-use Core\Controller\FrontendController;
+use App\Clients\Service\ClientFileService;
+use Core\App\Superglobals;
+use Core\Controller\AbstractController;
 
-class GenerateController extends FrontendController
+class GenerateController extends AbstractController
 {
+    protected ClientFileService $clientFileService;
+    public function __construct()
+    {
+        $this->clientFileService = new ClientFileService();
+
+        parent::__construct();
+    }
     public function index(): void
     {
-        $this->render('clients/generate/index');
+        $this->view('clients/generate.twig');
     }
 
     public function generate(): void
     {
-        $blockData = null;
-        $count = Request::getParam('count');
+        $count = Superglobals::Post->getParamValue('field');
 
-        if ($count) {
-            $fileGenerator = new ClientsDataGenerator();
-            $result = $fileGenerator->generateClientsDataFile((int) $count);
-            $blockData = ['result' => ['result' => $result]];
-        }
-
-        $this->render('clients/generate/generate', $blockData);
+        $this->json(['generate' => $this->clientFileService->generate((int) $count)]);
     }
 }

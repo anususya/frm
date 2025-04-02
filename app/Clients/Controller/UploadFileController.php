@@ -6,15 +6,15 @@ namespace App\Clients\Controller;
 
 use App\Clients\Service\ClientFileService;
 use Core\Controller\AbstractController;
+use Core\HTTP\Response\ResponseFactory;
 
 class UploadFileController extends AbstractController
 {
-    protected ClientFileService $clientFileService;
-    public function __construct()
-    {
-        $this->clientFileService = new ClientFileService();
-
-        parent::__construct();
+    public function __construct(
+        protected ClientFileService $clientFileService,
+        ResponseFactory $response
+    ) {
+        parent::__construct($response);
     }
     public function index(): void
     {

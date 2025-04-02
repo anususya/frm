@@ -7,16 +7,15 @@ namespace App\Clients\Controller;
 use App\Clients\Service\ClientService;
 use Core\App\Superglobals;
 use Core\Controller\AbstractController;
+use Core\HTTP\Response\ResponseFactory;
 
 class ClientController extends AbstractController
 {
-    protected ClientService $clientService;
-
-    public function __construct()
-    {
-        $this->clientService = new ClientService();
-
-        parent::__construct();
+    public function __construct(
+        protected ClientService $clientService,
+        ResponseFactory $response
+    ) {
+        parent::__construct($response);
     }
 
     public function get(): void

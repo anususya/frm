@@ -9,13 +9,18 @@ use App\Clients\Import\UploadFileImport;
 
 class ClientImportService
 {
+    public function __construct(
+        protected ClientsImport $clientsImport,
+        protected UploadFileImport $uploadFileImport
+    ) {
+    }
     public function importFromImportDirectory(): bool
     {
-        return (new ClientsImport())->run();
+        return $this->clientsImport->run();
     }
 
     public function importFromUploadDirectory(): bool
     {
-        return (new UploadFileImport())->run();
+        return $this->uploadFileImport->run();
     }
 }

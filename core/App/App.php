@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Core\App;
 
 use Core\Database\DatabaseServiceProvider;
-use Core\Database\Migration\MigrationService;
+use Core\DI\Container;
 use Core\Env\Env;
 use Core\Router\Router;
 use Exception;
 
 // phpcs:ignore
-class App
+class App extends Container
 {
     public const BASE_APP_DIR = __DIR__ . '/../../';
 
@@ -30,7 +30,6 @@ class App
     {
         Env::load();
         DatabaseServiceProvider::boot();
-        MigrationService::run();
         $this->router->dispatch();
     }
 }

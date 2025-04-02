@@ -8,11 +8,9 @@ use Core\HTTP\Response\ResponseFactory;
 
 class AbstractController
 {
-    protected ResponseFactory $response;
-
-    public function __construct()
-    {
-        $this->response = new ResponseFactory();
+    public function __construct(
+        protected ResponseFactory $response
+    ) {
     }
 
     /**

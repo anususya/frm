@@ -6,16 +6,15 @@ namespace App\Clients\Controller;
 
 use App\Clients\Service\ClientImportService;
 use Core\Controller\AbstractController;
+use Core\HTTP\Response\ResponseFactory;
 
 class ParseController extends AbstractController
 {
-    protected ClientImportService $clientImportService;
-
-    public function __construct()
-    {
-        $this->clientImportService = new ClientImportService();
-
-        parent::__construct();
+    public function __construct(
+        protected ClientImportService $clientImportService,
+        ResponseFactory $response
+    ) {
+        parent::__construct($response);
     }
     public function index(): void
     {

@@ -10,15 +10,11 @@ use App\Clients\Repository\ClientRepository;
 
 class ClientFileService
 {
-    protected ClientRepository $repository;
-    protected ClientsDataGenerator $clientsGenerator;
-    protected ClientImportService $importService;
-
-    public function __construct()
-    {
-        $this->repository = new ClientRepository();
-        $this->clientsGenerator = new ClientsDataGenerator();
-        $this->importService = new ClientImportService();
+    public function __construct(
+        protected ClientRepository $repository,
+        protected ClientsDataGenerator $clientsGenerator,
+        protected ClientImportService $importService
+    ) {
     }
 
     /**

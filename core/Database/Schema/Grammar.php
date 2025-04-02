@@ -22,6 +22,15 @@ class Grammar extends BaseGrammar
         );
     }
 
+    public function compileAdd(Blueprint $blueprint): string
+    {
+        return sprintf(
+            'alter table %s add column %s',
+            $blueprint->getTable(),
+            implode(', ', $this->getColumns($blueprint))
+        );
+    }
+
     /**
      * @param Blueprint $blueprint
      *

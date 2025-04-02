@@ -113,4 +113,10 @@ class Blueprint
 
         return $this;
     }
+
+    public function addTableColumn(): Blueprint
+    {
+        return $this->addCommand('add');
+    }
+
 }

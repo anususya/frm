@@ -24,4 +24,12 @@ class Builder
         $callback($query);
         $query->build();
     }
+
+    public function addColumn(string $table, callable $callback): void
+    {
+        $query = new Blueprint($this->connection, $table, $this->grammar);
+        $query->addTableColumn();
+        $callback($query);
+        $query->build();
+    }
 }

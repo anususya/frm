@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Core\Database\Migration;
 
 use Core\App\App;
-use Core\App\Superglobals;
 use Core\Database\ConnectionInterface;
 use Core\Database\ConnectionResolverInterface;
 use DirectoryIterator;
@@ -22,14 +21,6 @@ class MigrationService
         $this->connection = self::$resolver->connection('');
     }
 
-    /**
-     * @return void
-     * @throws Exception
-     */
-    public static function run(): void
-    {
-        (new self())->runMigrations();
-    }
     public static function setConnectionResolver(ConnectionResolverInterface $resolver): void
     {
         self::$resolver = $resolver;
@@ -39,46 +30,44 @@ class MigrationService
      * @return void
      * @throws Exception
      */
-    public function runMigrations(): void
+    public function run(): void
     {
-        if (!$this->isTableExists('app')) {
-            $this->execute('install', ['path' => self::MIGRATION_DIR . 'install.php']);
-        }
-
-        $to =  is_string(Superglobals::Env->getParamValue('APP_VERSION')) ?
-            Superglobals::Env->getParamValue('APP_VERSION') : '';
-        $from = $this->getCurrentVersion();
-
-        if (! $migrationFiles = $this->getMigrationFiles($from, $to)) {
+        if (! $migrationFiles = $this->getMigrationFiles()) {
             return;
         }
 
-        uasort($migrationFiles, function ($a, $b) {
-            return version_compare($a['from'], $b['from']);
-        });
+        if ($this->isTableExists('migrations')) {
+            $executedFiles = $this->getExecutedMigrations();
 
-        foreach ($migrationFiles as $name => $params) {
-            if (version_compare($from, $to, '<') && version_compare($params['from'], $from, '=')) {
-                $this->execute($name, $params);
-                $from = $params['to'];
+            foreach ($executedFiles as $executedFile) {
+                if (isset($migrationFiles[$executedFile['name']])) {
+                    unset($migrationFiles[$executedFile['name']]);
+                }
             }
         }
 
-        $this->connection->query()->from('app')
-            ->where('option', '=', 'version')
-            ->update(['value' => $from]);
+        try {
+            foreach ($migrationFiles as $name => $path) {
+                $this->execute($name, $path);
+                $runFiles[] = ['name' => $name];
+            }
+        } finally {
+            if (isset($runFiles)) {
+                $this->connection->query()->from('migrations')->insert($runFiles);
+            }
+        }
     }
 
     /**
      * @param string $name
-     * @param array<string, mixed>  $params
+     * @param string $path
      *
      * @return void
      * @throws Exception
      */
-    protected function execute(string $name, array $params): void
+    protected function execute(string $name, string $path): void
     {
-        $migrationClass = include_once $params['path'];
+        $migrationClass = include_once $path;
 
         if (! $migrationClass) {
             throw new Exception('Migration file "' . $name . '" not found.');
@@ -102,23 +91,20 @@ class MigrationService
         return $result->count() > 0;
     }
 
-    public function getCurrentVersion(): string
+    /**
+     * @return array<mixed>
+     */
+    public function getExecutedMigrations(): array
     {
         $query = $this->connection->query();
-        $option = $query->from('app')
-            ->where('option', 'version')
-            ->get()
-            ->first();
-        return $option->value;
+
+        return $query->from('migrations')->get()->jsonSerialize();
     }
 
     /**
-     * @param string $from
-     * @param string $to
-     *
-     * @return array<string, array<string, mixed>>
+     * @return array<string, string>
      */
-    protected function getMigrationFiles(string $from, string $to): array
+    protected function getMigrationFiles(): array
     {
         $migrationFiles = [];
 
@@ -128,23 +114,10 @@ class MigrationService
             }
 
             $name = $fileInfo->getBasename('.' . $fileInfo->getExtension());
-
-            if ($name == 'install') {
-                continue;
-            }
-
-            list($fileFrom, $fileTo) = explode('-', $name);
-
-            if (version_compare($fileFrom, $from, '<') || version_compare($fileTo, $to, '>')) {
-                continue;
-            }
-
-            $migrationFiles[$name] = [
-                'from' => $from,
-                'to' => $to,
-                'path' => $fileInfo->getRealPath()
-            ];
+            $migrationFiles[$name] = $fileInfo->getRealPath();
         }
+
+        asort($migrationFiles);
 
         return $migrationFiles;
     }

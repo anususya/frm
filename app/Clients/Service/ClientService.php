@@ -9,10 +9,9 @@ use Core\Database\Noname\Collection;
 
 class ClientService
 {
-    protected ClientRepository $repository;
-    public function __construct()
-    {
-        $this->repository = new ClientRepository();
+    public function __construct(
+        protected ClientRepository $repository
+    ) {
     }
 
     public function getAllClients(): Collection

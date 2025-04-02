@@ -7,15 +7,16 @@ namespace App\Clients\Controller;
 use App\Clients\Service\ClientFileService;
 use Core\App\Superglobals;
 use Core\Controller\AbstractController;
+use Core\HTTP\Response\ResponseFactory;
 
 class GenerateController extends AbstractController
 {
-    protected ClientFileService $clientFileService;
-    public function __construct()
-    {
-        $this->clientFileService = new ClientFileService();
+    public function __construct(
+        protected ClientFileService $clientFileService,
+        ResponseFactory $response
+    ) {
 
-        parent::__construct();
+        parent::__construct($response);
     }
     public function index(): void
     {

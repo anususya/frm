@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Core\Import;
 
 use Core\App\App;
-use Core\Database\DB;
 use Core\Log\Log;
 use Exception;
 use Generator;
@@ -17,12 +16,16 @@ abstract class AbstractImportCsv extends AbstractImport
 
     protected string $importDirectory = App::BASE_APP_DIR . '/import/';
 
-    public function run(): bool
+    public function run(bool $rewriteOldData = true): bool
     {
         $this->checkImportConfig();
         $this->checkFormat();
 
         try {
+            if ($rewriteOldData) {
+                $this->repository->deleteAll();
+            }
+
             $this->import();
             return true;
         } catch (Exception $e) {
@@ -42,21 +45,22 @@ abstract class AbstractImportCsv extends AbstractImport
         $batchSize = 100;
         $counter = 0;
         $lines = [];
+        $columns = array_map(function ($column) {
+            return strtolower($column);
+        }, $this->importConfig['columns']);
 
         if (($handle = @fopen($this->importDirectory . $this->importConfig['fileName'], "r")) !== false) {
-            $connection = DB::getConnection();
-
             foreach ($this->getLine($handle) as $line) {
                 $counter++;
-                $lines[] = $line;
-                if ($counter % $batchSize == 0) {
-                    $connection?->insert($this->importConfig['tableName'], $this->importConfig['columns'], $lines);
+                $lines[] = array_combine($columns, $line);
+                if (($counter % $batchSize) == 0) {
+                    $this->repository->saveMany($lines);
                     $lines = [];
                 }
             }
 
             if ($lines) {
-                $connection?->insert($this->importConfig['tableName'], $this->importConfig['columns'], $lines);
+                $this->repository->saveMany($lines);
             }
 
             fclose($handle);

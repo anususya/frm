@@ -1,0 +1,11 @@
+#!/bin/php
+
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use Core\App\Console;
+
+// Run the console application
+$console = new Console();
+$console->run();

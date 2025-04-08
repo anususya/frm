@@ -4,22 +4,23 @@ declare(strict_types=1);
 
 namespace App\Clients\Controller;
 
-use App\Clients\Model\Import\ClientsModel as ClientsImportModel;
-use Core\Controller\FrontendController;
+use App\Clients\Service\ClientImportService;
+use Core\Controller\AbstractController;
+use Core\HTTP\Response\ResponseFactory;
 
-class ParseController extends FrontendController
+class ParseController extends AbstractController
 {
+    public function __construct(
+        protected ClientImportService $clientImportService,
+        ResponseFactory $response
+    ) {
+        parent::__construct($response);
+    }
     public function index(): void
     {
-        $importModel = new ClientsImportModel();
-        $importResult = $importModel->import();
-
-        $blockData = [
-            'search' => [
-                'importResult' => $importResult
-            ]
-        ];
-
-        $this->render('clients/parse', $blockData);
+        $this->view(
+            'clients/parse.twig',
+            ['importResult' => $this->clientImportService->importFromImportDirectory()]
+        );
     }
 }

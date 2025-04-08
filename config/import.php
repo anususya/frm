@@ -6,8 +6,8 @@ return [
             'format' => 'csv',
             'tableName' => 'clients',
             'fileName' => 'clients.csv',
-            'columns' => ['country', 'city', 'isActive', 'gender', 'birthDate',
-                          'salary','hasChildren', 'familyStatus', 'registrationDate']
+            'columns' => ['country', 'city', 'is_active', 'gender', 'birth_date',
+                          'salary','has_children', 'family_status', 'registration_date']
         ]
     ]
 ];

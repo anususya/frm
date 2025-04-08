@@ -4,35 +4,27 @@ declare(strict_types=1);
 
 namespace App\Clients\Controller;
 
-use App\Clients\Model\Import\UploadFileModel as ImportUploadFileModel;
-use App\Clients\Model\UploadFileModel;
-use Core\Controller\FrontendController;
+use App\Clients\Service\ClientFileService;
+use Core\Controller\AbstractController;
+use Core\HTTP\Response\ResponseFactory;
 
-class UploadFileController extends FrontendController
+class UploadFileController extends AbstractController
 {
+    public function __construct(
+        protected ClientFileService $clientFileService,
+        ResponseFactory $response
+    ) {
+        parent::__construct($response);
+    }
     public function index(): void
     {
-        $this->render('clients/load');
+        $this->view('clients/load.twig');
     }
 
     public function load(): void
     {
-        $uploadModel = new UploadFileModel();
-        $uploadResult = $uploadModel->upload('file');
-        $importResult = false;
+        $result = $this->clientFileService->upload('file', true);
 
-        if ($uploadResult) {
-            $importFile = new ImportUploadFileModel();
-            $importResult = $importFile->import();
-        }
-
-        $blockData = [
-            'load' => [
-                'uploadResult' => $uploadResult,
-                'importResult' => $importResult
-            ]
-        ];
-
-        $this->render('clients/load', $blockData);
+        $this->view('clients/load.twig', ['load' => $result]);
     }
 }

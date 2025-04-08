@@ -1,0 +1,34 @@
+{# search.twig #}
+
+<div class="container">
+    <div class="d-flex align-items-center">
+        <div class="me-3">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" class="form-control" id="country" name="country" aria-describedby="countryHelp" placeholder="More then one use ,">
+        </div>
+        <div class="me-3">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" name="city" placeholder="City">
+        </div>
+        <div class="me-3">
+            <label for="is_active" class="form-label">Active</label>
+            <input type="text" class="form-control" id="active" name="is_active" placeholder="Active">
+        </div>
+        <div class="me-3">
+            <label for="gender" class="form-label">Gender</label>
+            <input type="text" class="form-control" id="gender" name="gender" placeholder="Gender">
+        </div>
+        <div class="me-3">
+            <label for="birth_date_from" class="form-label">BD From</label>
+            <input type="date" class="form-control" id="birth_date_from" name="birth_date_from">
+        </div>
+        <div class="me-3">
+            <label for="birthdate_to" class="form-label">DB To</label>
+            <input type="date" class="form-control" id="birth_date_to" name="birth_date_to">
+        </div>
+        <div class="me-3">
+            <label for="birthdate_to" class="form-label"></label>
+            <button class="btn btn-primary" onclick="sendParams()">Search</button>
+        </div>
+    </div>
+</div>

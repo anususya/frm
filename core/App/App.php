@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace Core\App;
 
+use Core\Database\DatabaseServiceProvider;
+use Core\DI\Container;
+use Core\Env\Env;
 use Core\Router\Router;
+use Exception;
 
 // phpcs:ignore
-class App
+class App extends Container
 {
     public const BASE_APP_DIR = __DIR__ . '/../../';
 
@@ -18,8 +22,14 @@ class App
         $this->router = new Router();
     }
 
+    /**
+     * @return void
+     * @throws Exception
+     */
     public function run(): void
     {
+        Env::load();
+        DatabaseServiceProvider::boot();
         $this->router->dispatch();
     }
 }

@@ -4,24 +4,27 @@ declare(strict_types=1);
 
 namespace App\Clients\Controller;
 
-use App\Clients\Model\ClientsModel;
-use Core\App\Superglobals;
-use Core\Controller\FrontendController;
+use App\Clients\Service\ClientService;
+use Core\Controller\AbstractController;
+use Core\HTTP\Response\ResponseFactory;
 
-class SearchController extends FrontendController
+class SearchController extends AbstractController
 {
+    public function __construct(
+        protected ClientService $clientService,
+        ResponseFactory $response
+    ) {
+        parent::__construct($response);
+    }
     public function index(): void
     {
-        $clientsModel = new ClientsModel();
-        $searchParams = $clientsModel->convertRequestParams(Superglobals::Get->getParamsValue());
-        $searchResult = $clientsModel->getClients($searchParams);
+        $clients = $this->clientService->getAllClients();
 
-        $blockData = [
-            'search' => [
-                'searchResult' => $searchResult
-            ]
-        ];
+        $this->view('clients/clients.twig', ['clients' => $clients->toJson()]);
+    }
 
-        $this->render('clients/search', $blockData);
+    public function diagram(): void
+    {
+        $this->view('clients/diagram.twig');
     }
 }

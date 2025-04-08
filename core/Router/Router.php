@@ -8,20 +8,25 @@ use ArrayObject;
 use Core\App\App;
 use Core\App\Superglobals;
 use Core\Config\Config;
-use Core\Controller\PageNotFoundController;
+use Core\DI\Container;
 use Core\Log\Log;
+use Throwable;
 
 class Router
 {
     // @phpstan-ignore missingType.generics
     private ArrayObject $routes;
+    private Container $container;
 
     public function __construct()
     {
+        $this->container = new Container();
+
         $yaml = yaml_parse_file(App::BASE_APP_DIR . '/routes/routes.yaml');
         if ($yaml === false) {
             $yaml = [];
         }
+
         $this->routes = new ArrayObject($yaml);
     }
 
@@ -34,22 +39,18 @@ class Router
         $path = (string) parse_url($url, PHP_URL_PATH);
         $result = $this->match($path);
 
-        if ($result) {
-            try {
-                $controllerInstance = new $result['file']();
-                $controllerInstance->{$result['method']}();
+        if (!$result) {
+            $result['file'] = 'Core\Controller\PageNotFoundController';
+            $result['method'] = 'index';
+        }
 
-                return;
-            } catch (\Throwable $e) {
-                Log::write($e->getMessage());
-            }
-        } else {
-            try {
-                $controllerInstance = new PageNotFoundController();
-                $controllerInstance->index();
-            } catch (\Throwable $e) {
-                Log::write($e->getMessage());
-            }
+        try {
+            $controllerInstance = $this->container->make($result['file']);
+            $controllerInstance->{$result['method']}();
+
+            return;
+        } catch (Throwable $e) {
+            Log::write($e->getMessage());
         }
     }
 

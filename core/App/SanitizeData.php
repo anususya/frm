@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Core\App;
 
 trait SanitizeData
@@ -16,8 +18,8 @@ trait SanitizeData
         }, $data);
     }
 
-    public static function cleanParam(string $data): string
+    public static function cleanParam(mixed $data): mixed
     {
-        return trim(htmlspecialchars($data, ENT_QUOTES));
+        return is_string($data) ? trim(htmlspecialchars($data, ENT_QUOTES)) : $data;
     }
 }

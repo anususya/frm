@@ -1,5 +1,5 @@
 clients_generate:
-  path: /generate/generate
+  path: /generate
   controller: App\Clients\Controller\GenerateController::generate
   methods: [POST]
 clients_generate_page:
@@ -22,3 +22,11 @@ clients_load_file:
   path: /load/file
   controller: App\Clients\Controller\UploadFileController::load
   methods: [POST]
+clients_search_diagram:
+  path: /analyze/diagram
+  controller: App\Clients\Controller\SearchController::diagram
+  methods: [GET]
+clients_search_get:
+  path: /analyze/get
+  controller: App\Clients\Controller\SearchController::get
+  methods: [GET]

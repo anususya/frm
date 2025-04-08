@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace Core\Import;
 
-use RuntimeException;
 use Core\Config\Config;
+use Core\Repository\RepositoryInterface;
+use RuntimeException;
 
 abstract class AbstractImport
 {
     protected const IMPORT_TYPE = '';
     protected const IMPORT_NAME = '';
+    protected const MODEL_REPOSITORY = '';
+
+    protected RepositoryInterface $repository;
 
     /**
      * @var array<string, mixed>
@@ -22,11 +26,23 @@ abstract class AbstractImport
     public function __construct()
     {
         $this->importConfig = Config::get('import.' . $this->getImportName()) ?? [];
+        $this->repository = $this->loadRepository();
     }
 
     public function getImportName(): string
     {
         return static::IMPORT_NAME;
+    }
+
+    protected function loadRepository(): RepositoryInterface
+    {
+        $repository = new (static::MODEL_REPOSITORY);
+
+        if ($repository instanceof RepositoryInterface === false) {
+            throw new RuntimeException('Repository must have saveMany method');
+        }
+
+        return $repository;
     }
 
     protected function checkFormat(): void
